@@ -1,7 +1,7 @@
 # ImmuneMod
  A simple Immune Mod
 
-TODO: Getting Started
+TODO: Getting Started Guide.
 
 ## Contributing
 A proper plugin system needs to be created so we can create mods in an easier way.
