@@ -30,14 +30,13 @@ namespace MyMod
                     server.CreateFreeWorldItem(143, 2, player.GetPosition());
                     break;
                 case "/about":
-                    server.SendMessageToPlayerLocal("Thanks for visiting the server. " +
-                        "This is a beta server(short-lived) I'm planning to share the source code so you can host your own modded server.", player, msg);
+                    server.SendMessageToPlayerLocal("Thanks for visiting the server. This is a test server(short-lived) The source code is available at. <color=lime>www.github.com/Donaut/ImmundeCommandMod</color>", player, msg);
                     break;
                 case "/help":
-                    server.SendMessageToPlayerLocal("Avalible commands are: /weapon, /food, /medicine and /about", player, msg);
+                    server.SendMessageToPlayerLocal("Avalible commands are: <color=purple>/weapon</color>, <color=purple>/food</color>, <color=purple>/medicine</color> and <color=red>/about</color>", player, msg);
                     break;
                 case "/?":
-                    server.SendMessageToPlayerLocal("Avalible commands are: /weapon, /food, /medicine and /about ", player, msg);
+                    server.SendMessageToPlayerLocal("Avalible commands are: <color=purple>/weapon</color>, <color=purple>/food</color>, <color=purple>/medicine</color> and <color=red>/about</color>", player, msg);
                     break;
                 default:
                     break;
