@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{64D58399-BCE2-428A-B429-1C04F4330D84}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <LangVersion>4</LangVersion>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>4</LangVersion>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>4</LangVersion>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>4</LangVersion>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>4</LangVersion>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>D:\SteamLibrary\steamapps\common\Immune\Immune_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>D:\SteamLibrary\steamapps\common\Immune\Immune_Data\Managed\System.dll</HintPath>
+    </Reference>
+    <Reference Include="Lidgren.Network">
+      <HintPath>D:\SteamLibrary\steamapps\common\Immune\Immune_Data\Managed\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>D:\SteamLibrary\steamapps\common\Immune\Immune_Data\Managed\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>D:\SteamLibrary\steamapps\common\Immune\Immune_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:\SteamLibrary\steamapps\common\Immune\Immune_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.SqliteClient">
+      <HintPath>D:\SteamLibrary\steamapps\common\Immune\Immune_Data\Managed\Mono.Data.SqliteClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>D:\SteamLibrary\steamapps\common\Immune\Immune_Data\Managed\System.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionOnClickGUI.cs" />
+    <Compile Include="AnalyseDatabase.cs" />
+    <Compile Include="AntFood.cs" />
+    <Compile Include="AntiRoll.cs" />
+    <Compile Include="BallPhysics.cs" />
+    <Compile Include="Bed.cs" />
+    <Compile Include="Bird.cs" />
+    <Compile Include="BirdCam.cs" />
+    <Compile Include="BodyAISimple.cs" />
+    <Compile Include="BodyBase.cs" />
+    <Compile Include="BodyHeadAnim.cs" />
+    <Compile Include="Bone.cs" />
+    <Compile Include="Bounce.cs" />
+    <Compile Include="BrainAI.cs" />
+    <Compile Include="BrainBase.cs" />
+    <Compile Include="BuildingDef.cs" />
+    <Compile Include="BuildingManager.cs" />
+    <Compile Include="Buildings.cs" />
+    <Compile Include="CameraBehaviors.cs" />
+    <Compile Include="CarData.cs" />
+    <Compile Include="CaseOpeningGUI.cs" />
+    <Compile Include="CFX2_AutoRotate.cs" />
+    <Compile Include="CFX2_Demo.cs" />
+    <Compile Include="CFX_AutoDestructShuriken.cs" />
+    <Compile Include="CFX_AutodestructWhenNoChildren.cs" />
+    <Compile Include="CFX_Demo_RandomDir.cs" />
+    <Compile Include="CFX_Demo_RotateCamera.cs" />
+    <Compile Include="CFX_LightIntensityFade.cs" />
+    <Compile Include="CFX_ShurikenThreadFix.cs" />
+    <Compile Include="CFX_SpawnSystem.cs" />
+    <Compile Include="ChangeGeneration.cs" />
+    <Compile Include="ChangeRenderQueue.cs" />
+    <Compile Include="CharAnim2.cs" />
+    <Compile Include="CharData.cs" />
+    <Compile Include="CharSounds.cs" />
+    <Compile Include="ChatGUI.cs" />
+    <Compile Include="ChatLabel.cs" />
+    <Compile Include="ClientInput.cs" />
+    <Compile Include="ClientVehicle.cs" />
+    <Compile Include="ComChatGUI.cs" />
+    <Compile Include="ConfigFile.cs" />
+    <Compile Include="ControlledChar.cs" />
+    <Compile Include="CraftingGUI.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="DatabaseBuilding.cs" />
+    <Compile Include="DatabaseItem.cs" />
+    <Compile Include="DatabasePlayer.cs" />
+    <Compile Include="DayNightCycle.cs" />
+    <Compile Include="DestroyableResource.cs" />
+    <Compile Include="DestroyIf.cs" />
+    <Compile Include="Door.cs" />
+    <Compile Include="DoorTrigger.cs" />
+    <Compile Include="DrawGizmo.cs" />
+    <Compile Include="DropItem.cs" />
+    <Compile Include="DummyScript.cs" />
+    <Compile Include="DynamicChatLabel.cs" />
+    <Compile Include="eActiveApp.cs" />
+    <Compile Include="eAreaType.cs" />
+    <Compile Include="EasyFontTextMesh.cs" />
+    <Compile Include="eBodyBaseState.cs" />
+    <Compile Include="eBrainBaseState.cs" />
+    <Compile Include="eCharType.cs" />
+    <Compile Include="eCondition.cs" />
+    <Compile Include="eDbAction.cs" />
+    <Compile Include="EditorDebugObj.cs" />
+    <Compile Include="eLocation.cs" />
+    <Compile Include="eMissiontype.cs" />
+    <Compile Include="EmitAndDie.cs" />
+    <Compile Include="eObjectivesObject.cs" />
+    <Compile Include="eObjectivesPerson.cs" />
+    <Compile Include="ePartyControl.cs" />
+    <Compile Include="ePartyFeedback.cs" />
+    <Compile Include="eShopType.cs" />
+    <Compile Include="eSpecialEvent.cs" />
+    <Compile Include="eSpecialRequest.cs" />
+    <Compile Include="EsportManTest.cs" />
+    <Compile Include="EsportPlayer.cs" />
+    <Compile Include="ExplodePhysics.cs" />
+    <Compile Include="Explosives.cs" />
+    <Compile Include="FakePlayer.cs" />
+    <Compile Include="FakeServer.cs" />
+    <Compile Include="FastSin.cs" />
+    <Compile Include="Fireplace.cs" />
+    <Compile Include="FPSPlayer.cs" />
+    <Compile Include="GameInit.cs" />
+    <Compile Include="GaugeNeedle.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="GlowPulse.cs" />
+    <Compile Include="GoalTrigger.cs" />
+    <Compile Include="GUI3dButton.cs" />
+    <Compile Include="GUI3dMaster.cs" />
+    <Compile Include="GUI3dText.cs" />
+    <Compile Include="HashtableTest.cs" />
+    <Compile Include="HighResScreenshot.cs" />
+    <Compile Include="Horde.cs" />
+    <Compile Include="Hud.cs" />
+    <Compile Include="ImageEffects.cs" />
+    <Compile Include="Init.cs" />
+    <Compile Include="InitGameScene.cs" />
+    <Compile Include="InventoryGUI.cs" />
+    <Compile Include="Invoker.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ItemContainer.cs" />
+    <Compile Include="ItemDef.cs" />
+    <Compile Include="ItemDropper.cs" />
+    <Compile Include="ItemGUI.cs" />
+    <Compile Include="Items.cs" />
+    <Compile Include="ItemSpawner.cs" />
+    <Compile Include="JobAI.cs" />
+    <Compile Include="JobBase.cs" />
+    <Compile Include="JobPet.cs" />
+    <Compile Include="JobStalker.cs" />
+    <Compile Include="JsonItems.cs" />
+    <Compile Include="KillXp.cs" />
+    <Compile Include="LanguageSetter.cs" />
+    <Compile Include="LidClient.cs" />
+    <Compile Include="LidgrenClient.cs" />
+    <Compile Include="LidgrenGameObject.cs" />
+    <Compile Include="LidgrenMessageHeaders.cs" />
+    <Compile Include="LidgrenPeer.cs" />
+    <Compile Include="LidgrenPlayer.cs" />
+    <Compile Include="LidgrenServer.cs" />
+    <Compile Include="LidServer.cs" />
+    <Compile Include="LightFlickering.cs" />
+    <Compile Include="LNG.cs" />
+    <Compile Include="Lootbox.cs" />
+    <Compile Include="MapGUI.cs" />
+    <Compile Include="MeleeWeapon.cs" />
+    <Compile Include="MessageBarGUI.cs" />
+    <Compile Include="MessageIds.cs" />
+    <Compile Include="Minimap.cs" />
+    <Compile Include="Mission.cs" />
+    <Compile Include="MissionManager.cs" />
+    <Compile Include="MissionNpc.cs" />
+    <Compile Include="MissionObjective.cs" />
+    <Compile Include="MouseWalkIndicator.cs" />
+    <Compile Include="MyMod\ChatCommandExtensions.cs" />
+    <Compile Include="NetStatsGUI.cs" />
+    <Compile Include="NeuralAnt.cs" />
+    <Compile Include="NeuralNet.cs" />
+    <Compile Include="OverrideTransform.cs" />
+    <Compile Include="PartyGUI.cs" />
+    <Compile Include="PersistentContainer.cs" />
+    <Compile Include="PlayerAnimator.cs" />
+    <Compile Include="PlayerControl.cs" />
+    <Compile Include="PlayerController.cs" />
+    <Compile Include="PlayerMovementEvent.cs" />
+    <Compile Include="PlayersOnlineGui.cs" />
+    <Compile Include="PopupGUI.cs" />
+    <Compile Include="PopupItemGUI.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QmunicatorGUI.cs" />
+    <Compile Include="QuitGameGUI.cs" />
+    <Compile Include="Ragdoll.cs" />
+    <Compile Include="RandomTreeColor.cs" />
+    <Compile Include="RangedWeapon.cs" />
+    <Compile Include="Raycaster.cs" />
+    <Compile Include="RemoteBuilding.cs" />
+    <Compile Include="RemoteCharacter.cs" />
+    <Compile Include="RemoteItem.cs" />
+    <Compile Include="RepairingNpc.cs" />
+    <Compile Include="ResourcePile.cs" />
+    <Compile Include="ResourceSpawner.cs" />
+    <Compile Include="RiseAndDie.cs" />
+    <Compile Include="RPGControllerUtils.cs" />
+    <Compile Include="RPGThirdPersonCamera.cs" />
+    <Compile Include="RunAway.cs" />
+    <Compile Include="ScaleAnimOnHit.cs" />
+    <Compile Include="ScrollingUVs.cs" />
+    <Compile Include="SelectUI.cs" />
+    <Compile Include="ServerBrowserGUI.cs" />
+    <Compile Include="ServerBuilding.cs" />
+    <Compile Include="ServerNpc.cs" />
+    <Compile Include="ServerPlayer.cs" />
+    <Compile Include="ServerTeleport.cs" />
+    <Compile Include="ServerTutorial.cs" />
+    <Compile Include="ServerVehicle.cs" />
+    <Compile Include="ShopContainer.cs" />
+    <Compile Include="SimpleAnim.cs" />
+    <Compile Include="SimpleJSON\JSON.cs" />
+    <Compile Include="SimpleJSON\JSONArray.cs" />
+    <Compile Include="SimpleJSON\JSONBinaryTag.cs" />
+    <Compile Include="SimpleJSON\JSONClass.cs" />
+    <Compile Include="SimpleJSON\JSONData.cs" />
+    <Compile Include="SimpleJSON\JSONLazyCreator.cs" />
+    <Compile Include="SimpleJSON\JSONNode.cs" />
+    <Compile Include="SimpleVehicle.cs" />
+    <Compile Include="SoccerBot.cs" />
+    <Compile Include="SoccerManager.cs" />
+    <Compile Include="SpawnPos.cs" />
+    <Compile Include="SpecialArea.cs" />
+    <Compile Include="SQLManager.cs" />
+    <Compile Include="SQLTest.cs" />
+    <Compile Include="SQLThreadManager.cs" />
+    <Compile Include="SQLWorker.cs" />
+    <Compile Include="StartFinishTrigger.cs" />
+    <Compile Include="SteamAuth.cs" />
+    <Compile Include="SteamInventoryGUI.cs" />
+    <Compile Include="SteamInventoryHandler.cs" />
+    <Compile Include="SteamManager.cs" />
+    <Compile Include="Swarm.cs" />
+    <Compile Include="SwarmCenter.cs" />
+    <Compile Include="SwitchView.cs" />
+    <Compile Include="TestGamepad.cs" />
+    <Compile Include="TextLNG.cs" />
+    <Compile Include="TheOneAndOnly.cs" />
+    <Compile Include="ThreadTest.cs" />
+    <Compile Include="TimedDestroy.cs" />
+    <Compile Include="TrackPoint.cs" />
+    <Compile Include="TreeAnimation.cs" />
+    <Compile Include="Turret.cs" />
+    <Compile Include="TutorialMessages.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="VerificationData.cs" />
+    <Compile Include="WebRequest.cs" />
+    <Compile Include="WheelCar.cs" />
+    <Compile Include="WorldGenerator.cs" />
+    <Compile Include="WorldGenerator2x2.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) "D:\ImmuneMODS\Immune_Data\Managed"
+MOVE $(TargetPath) "D:\ImmuneMODS\Immune_Data\Managed"</PostBuildEvent>
+  </PropertyGroup>
+</Project>
