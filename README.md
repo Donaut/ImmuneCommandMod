@@ -9,7 +9,7 @@
 3. Open the folder where your game was installed and navigate to the <b>Imune_Data\Managed</b> subfolder and just copy the downloaded file there.
 4. Succes.
 
-<b>PRO TIPS:</b>
+## <b>PRO TIPS:</b>
 Copy the original game files to a new folder. This way we don't need to reinstall the game if we want to switch back to the vanilla game.
 
 You can modify your .bat file to get your server listed in the Game server menus.
