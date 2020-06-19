@@ -1,5 +1,7 @@
 # ImmuneMod
- A simple Immune Mod
+ A simple Immune Mod that add custom commands to the game.
+ 
+ ![showcase](help.png)
 
 
 ## Getting Started
