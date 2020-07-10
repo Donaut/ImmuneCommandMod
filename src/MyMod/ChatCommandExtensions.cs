@@ -14,6 +14,23 @@ namespace MyMod
             string[] commands = text.Split(' ');
             switch (commands[0])
             {
+
+                case "/kit-test":
+                    int itemAmountByType = player.m_inventory.GetItemAmountByType(254);
+                    if (itemAmountByType <= 4999)
+                    {
+                        server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
+                    }
+                    else if (itemAmountByType >= 5000) 
+                    {
+                        int num = 500;
+                        num = Math.Min(itemAmountByType, num);
+                        player.m_inventory.DeclineItemAmountByType(254, num);
+                        server.CreateFreeWorldItem(93, 1, player.GetPosition(), 100);
+                        server.SendMoneyUpdate(player);
+                        server.SendMessageToPlayerLocal("BOUGHT TEST KIT!!!", player, msg);
+                    }
+                    break;
                 case "/weapon":
                     //Shotgun
                     server.CreateFreeWorldItem(63, 1, player.GetPosition(), 100);
