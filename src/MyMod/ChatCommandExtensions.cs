@@ -15,20 +15,35 @@ namespace MyMod
             switch (commands[0])
             {
 
-                case "/kit-test":
-                    int itemAmountByType = player.m_inventory.GetItemAmountByType(254);
-                    if (itemAmountByType <= 4999)
+                case "/kit-doc":
+                    int IA = player.m_inventory.GetItemAmountByType(254); // Start currency Check
+                    if (IA <= 4999) // Value to check against.
                     {
-                        server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
+                        server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg); // Return error message if plater des not have enough currency!
                     }
-                    else if (itemAmountByType >= 5000) 
+                    else if (IA >= 5000) // If players currency is higher then the value given here
                     {
-                        int num = 500;
-                        num = Math.Min(itemAmountByType, num);
-                        player.m_inventory.DeclineItemAmountByType(254, num);
-                        server.CreateFreeWorldItem(93, 1, player.GetPosition(), 100);
-                        server.SendMoneyUpdate(player);
-                        server.SendMessageToPlayerLocal("BOUGHT TEST KIT!!!", player, msg);
+                        int num = 500; // Kit Price
+                        num = Math.Min(IA, num); // Price math logic
+                        player.m_inventory.DeclineItemAmountByType(254, num); // Define item used as currency
+                        // Clothing
+                        server.CreateFreeWorldItem(121, 1, player.GetPosition(), 100);   // Clothbox
+                        server.CreateFreeWorldItem(153, 1, player.GetPosition(), 100);   // Leather-Vest
+                        server.CreateFreeWorldItem(171, 1, player.GetPosition(), 100);   // Shoes
+                        // Weapons
+                        server.CreateFreeWorldItem(93, 1, player.GetPosition(), 100);    // Knife
+                        server.CreateFreeWorldItem(107, 1, player.GetPosition(), 100);   // Torch
+                        // Food
+                        server.CreateFreeWorldItem(3, 6, player.GetPosition(), 100);     // Coocked Potatoes
+                        server.CreateFreeWorldItem(8, 1, player.GetPosition(), 100);     // Energy Bar
+                        server.CreateFreeWorldItem(17, 2, player.GetPosition(), 100);    // Water
+                        // ITEMS
+                        server.CreateFreeWorldItem(140, 3, player.GetPosition(), 100);   // Bandages
+                        server.CreateFreeWorldItem(141, 1, player.GetPosition(), 100);   // Antibiotics
+                        server.CreateFreeWorldItem(142, 2, player.GetPosition(), 100);   // Painkillers
+                        server.CreateFreeWorldItem(143, 1, player.GetPosition(), 100);   // Medpack
+                        server.SendMoneyUpdate(player); // Request money update from server.
+                        server.SendMessageToPlayerLocal("BOUGHT TEST KIT!!!", player, msg); // Return success message!!!
                     }
                     break;
                 case "/weapon":
@@ -50,10 +65,10 @@ namespace MyMod
                     server.SendMessageToPlayerLocal("Thanks for visiting the server. This is a test server(short-lived) The source code is available at. <color=lime>www.github.com/Donaut/ImmundeCommandMod</color>", player, msg);
                     break;
                 case "/help":
-                    server.SendMessageToPlayerLocal("Avalible commands are: <color=purple>/weapon</color>, <color=purple>/food</color>, <color=purple>/medicine</color> and <color=red>/about</color>", player, msg);
+                    server.SendMessageToPlayerLocal("Avalible commands are: <color=green>/kit-doc</color>, <color=purple>/weapon</color>, <color=purple>/food</color>, <color=purple>/medicine</color> and <color=red>/about</color>", player, msg);
                     break;
                 case "/?":
-                    server.SendMessageToPlayerLocal("Avalible commands are: <color=purple>/weapon</color>, <color=purple>/food</color>, <color=purple>/medicine</color> and <color=red>/about</color>", player, msg);
+                    server.SendMessageToPlayerLocal("Com-Mod: <color=purple>Made by</color> <color=green>Va1idUser</color> and <color=red>Donaut</color>.", player, msg);
                     break;
                 default:
                     break;
