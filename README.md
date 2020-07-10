@@ -6,7 +6,7 @@
 
 ## Getting Started
 1. You need to create a default server. [Guide](https://steamcommunity.com/sharedfiles/filedetails/?id=445315496)
-2. Download the precompiled mod binaries. [Download](https://github.com/Donaut/ImmuneCommandMod/releases)
+2. Download the precompiled mod binaries. [Download](https://github.com/McSkinnerOG/ImmuneCommandMod/releases)
 ![relase](relase.png)
 3. Open the folder where your game was installed and navigate to the <b>Imune_Data\Managed</b> subfolder and just copy the downloaded file there.
 4. Succes.
