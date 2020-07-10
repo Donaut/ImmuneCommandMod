@@ -1,4 +1,4 @@
-# ImmuneMod
+# Com-Mod
  A simple Immune Mod that add custom commands to the game.
  
  ![showcase](help.png)
