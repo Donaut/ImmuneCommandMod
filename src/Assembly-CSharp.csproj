@@ -320,7 +320,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(TargetPath) "D:\ImmuneMODS\Immune_Data\Managed"
-MOVE $(TargetPath) "D:\ImmuneMODS\Immune_Data\Managed"</PostBuildEvent>
+    <PostBuildEvent>copy $(TargetPath) "D:\SteamLibrary\steamapps\common\Immune\Immune_Data\Managed"
+MOVE $(TargetPath) "D:\SteamLibrary\steamapps\common\Immune\Immune_Data\Managed"</PostBuildEvent>
   </PropertyGroup>
 </Project>
