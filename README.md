@@ -1,5 +1,6 @@
-# Com-Mod
- A simple Immune Mod that add custom commands to the game.
+# I.C.E "Immune Command Essentials"
+ "Previously Com-Mod/ImmuneCommandMod"
+ An Immune Server Mod that add custom commands to the game.
  
  ![showcase](help.png)
 
