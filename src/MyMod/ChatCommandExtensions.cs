@@ -16,17 +16,22 @@ namespace MyMod
             {
                 case "/kit-doc":
                     int IA = player.m_inventory.GetItemAmountByType(254); // Start currency Check
-                    if (IA <= 4999) // Value to check against.
+                    if (IA <= 499) // Value to check against.
                     {
                         server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg); // Return error message if plater des not have enough currency!
                     }
-                    else if (IA >= 5000) // If players currency is higher then the value given here
+                    else if (IA >= 500) // If players currency is higher then the value given here
                     {
                         int num = 500; // Kit Price
                         num = Math.Min(IA, num); // Price math logic
                         player.m_inventory.DeclineItemAmountByType(254, num); // Define item used as currency
                         // Clothing
-                        // server.CreateFreeWorldItem(ID, amount, player.GetPosition(), Durability); <-- Structure to follow.
+                        /*
+                         * ID = 1-254
+                         * Amount 1-254
+                         * Quality 1-100
+                         * server.CreateFreeWorldItem(ID, amount, player.GetPosition(), Quality);
+                         */
                         server.CreateFreeWorldItem(153, 1, player.GetPosition(), 100);   // Leather-Vest
                         server.CreateFreeWorldItem(171, 1, player.GetPosition(), 100);   // Shoes
                         // Weapons
@@ -47,11 +52,11 @@ namespace MyMod
                     break;
                 case "/kit-scav":
                     int IA_1 = player.m_inventory.GetItemAmountByType(254);
-                    if (IA_1 <= 4999)
+                    if (IA_1 <= 499)
                     {
                         server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
                     }
-                    else if (IA_1 >= 5000)
+                    else if (IA_1 >= 500)
                     {
                         int num = 500;
                         num = Math.Min(IA_1, num);
@@ -73,16 +78,16 @@ namespace MyMod
                         // ITEMS
                         server.CreateFreeWorldItem(140, 3, player.GetPosition(), 100);   // Bandages
                         server.SendMoneyUpdate(player);
-                        server.SendMessageToPlayerLocal("BOUGHT SCAV KIT!!!", player, msg); 
+                        server.SendMessageToPlayerLocal("BOUGHT SCAV KIT!!!", player, msg);
                     }
                     break;
                 case "/kit-scav2":
                     int IA_2 = player.m_inventory.GetItemAmountByType(254);
-                    if (IA_2 <= 4999)
+                    if (IA_2 <= 499)
                     {
                         server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
                     }
-                    else if (IA_2 >= 5000)
+                    else if (IA_2 >= 500)
                     {
                         int num = 500;
                         num = Math.Min(IA_2, num);
@@ -110,11 +115,11 @@ namespace MyMod
                     break;
                 case "/kit-bandit":
                     int IA_3 = player.m_inventory.GetItemAmountByType(254);
-                    if (IA_3 <= 4999)
+                    if (IA_3 <= 499)
                     {
                         server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
                     }
-                    else if (IA_3 >= 5000)
+                    else if (IA_3 >= 500)
                     {
                         int num = 500;
                         num = Math.Min(IA_3, num);
@@ -237,51 +242,81 @@ namespace MyMod
                     }
                     break;
                 case "/about":
-                    server.SendMessageToPlayerLocal("Com-Mod is a project to help expand the Immune-Dedicated software capabilities. For more info please use /commands and /help commandname.", 
+                    server.SendMessageToPlayerLocal("Com-Mod is a project to help expand the Immune-Dedicated software capabilities. For more info please use /commands and /help commandname.",
                         player, msg);
                     break;
                 case "/shout":
-                    int IA_C_SHOUT = player.m_inventory.GetItemAmountByType(254); // Start currency Check
-                    if (IA_C_SHOUT <= 499) // Value to check against.
-                    {
-                        server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg); // Return error message if plater des not have enough currency!
-                    }
-                    else if (IA_C_SHOUT >= 500) // If players currency is higher then the value given here
-                    {
-                        string text_shout = msg.ReadString();
-                        server.SendNotification(text_shout);
-                    }  
+                    server.SendNotification(text); //not correct but almost. use an array to fix later
                     break;
-
                 case "/commands":
-                    server.SendMessageToPlayerLocal("<color=red>COMMANDS</color> <color=green>ARE</color> <color=purple>COLOR</color> <color=purple>CODED</color>!/nEach command is <color=red>color coded</color> within /help-commandname./nColors represent permission level needed to use them./n<color=red>RED COMMANDS ARE ADMIN ONLY!!!</color>/n<color=yellow>YELLOW COMMANDS REQUIRE GOLD TO EXECUTE!</color>/n<color=green>GREEN COMMANDS ARE ALL LEVEL ACCESS!</color>", player, msg);
+                    server.SendMessageToPlayerLocal("<color=red>COMMANDS</color> <color=green>ARE</color> <color=purple>COLOR</color> <color=purple>CODED</color>! Each command is <color=red>color coded</color> within /help-commandname. Colors represent permission level needed to use them. <color=red>RED COMMANDS ARE ADMIN ONLY!!!</color> <color=yellow>YELLOW COMMANDS REQUIRE GOLD TO EXECUTE!</color> <color=green>GREEN COMMANDS ARE ALL LEVEL ACCESS!</color>", player, msg);
                     break;
 
                 case "/help":
                     server.SendMessageToPlayerLocal("Avalible commands are: <color=green>/kit-doc</color>, <color=purple>/weapon</color>, <color=purple>/food</color>, <color=purple>/medicine</color> and <color=red>/about</color>", player, msg);
                     break;
+
+                case "/help-kit":
+                    server.SendMessageToPlayerLocal("Usage for /kit-xxx: To purchase a kit you must have the required amount of gold and or permissions. Example: Enter */kit-doc* without the ** to buy a doctors kit for 500gold.", player, msg);
+                    break;
                 case "/?":
-                    server.SendMessageToPlayerLocal("Com-Mod: <color=purple>Made by</color> <color=green>Va1idUser</color> and <color=red>Donaut</color>.", player, msg);
+                    server.SendMessageToPlayerLocal("Com-Mod: <color=purple>Made by</color> <color=green>Va1idUser: Github.com/McSkinnerOG/ImmuneCommandMod</color> and <color=red>Donaut: Github.com/Donaut/ImmuneCommandMod</color>.", player, msg);
                     break;
 
- // Useless/Outdated/Wrong method for safe item dispersal/execution. "Potential spam/abuse to cause crashes." Left for educational purposes.
- /*
-               case "/weapon":
-                     //Shotgun
-                   server.CreateFreeWorldItem(63, 1, player.GetPosition(), 100);
-                     //Ammo
-                   server.CreateFreeWorldItem(44, 50, player.GetPosition());
-                     //Sneakers
-                   server.CreateFreeWorldItem(170, 1, player.GetPosition(), 100);
-                   break;
-               case "/food":
-                     //Canned Food's
-                   server.CreateFreeWorldItem(10, 2, player.GetPosition());
+                // Useless/Outdated/Wrong method for safe item dispersal/execution. "Potential spam/abuse to cause crashes." Left for educational purposes.
+                /*
+                              case "/weapon":
+                                    //Shotgun
+                                  server.CreateFreeWorldItem(63, 1, player.GetPosition(), 100);
+                                    //Ammo
+                                  server.CreateFreeWorldItem(44, 50, player.GetPosition());
+                                    //Sneakers
+                                  server.CreateFreeWorldItem(170, 1, player.GetPosition(), 100);
+                                  break;
+                              case "/food":
+                                    //Canned Food's
+                                  server.CreateFreeWorldItem(10, 2, player.GetPosition());
+                                   break;
+                              case "/medicine":
+                                  server.CreateFreeWorldItem(143, 2, player.GetPosition());
+                                   break;
+                */
+                default:
                     break;
-               case "/medicine":
-                   server.CreateFreeWorldItem(143, 2, player.GetPosition());
+            }
+            switch (commands[1]) // This was so fucking easy but im too retarded to figure out basic arrays apparently....
+            {
+                case "kit-doc": // Really have to make JSON file for this shit.... Directly handling here is tedious and shit at best.
+                    server.SendMessageToPlayerLocal("<color=purple>Doctor-kit costs 500gold and recieves: </color> <color=yellow>Leather-Vest x1, Shoes x1, </color> <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
                     break;
- */
+                /*
+                 * 
+                 * Make JSON file for msg strings and also for kit definition
+                 * 
+                 * Kits:
+                 *  Bandit:
+                 *      Items: "Sword:1:100, item2:1:100, etc:1:100"
+                 *      Price: 500
+                 *      Permission: kit.bandit.forever || kit.bandit.time.xxx
+                 */
+                case "kit-scav1":
+                    server.SendMessageToPlayerLocal("<color=purple>Scavenger-kit 1 costs 500gold and recieves: </color> <color=yellow>Scrap-Vest x1, Shoes x1, </color> <color=white>Machete x1, Knife x1, Revolver x1, 45mm Ammo x20</color> <color=brown> Raw-Meat x 1, Canned-Food x6, Energy-Bar x1,</color> <color=cyan>Beer x2,</color> <color=red>Bandages x3</color>", player, msg);
+                    break;
+                case "kit-scav2":
+                    server.SendMessageToPlayerLocal("<color=purple>Scavenger-kit 2 costs 500gold and recieves: </color> <color=yellow>Scrap-Vest x1, Sneakers x1, </color> <color=white>Mutant-Claw x1, Crafted-Knife x1, Bow x1, Arrows x32 </color> <color=brown>Cooked-Potatoes x6, Mushrooms x3,</color> <color=cyan>Rum-Bottle x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
+                    break;
+                case "kit-bandit":
+                    server.SendMessageToPlayerLocal("<color=purple>Bandit-kit costs 500gold and recieves: </color> <color=yellow>Metal-Vest x1, Sneakers x1, </color> <color=white>Katana x1, Knife x1, SMG x1, 9mm Ammo x32 </color> <color=brown>Cooked-Fish x3, Energy-Bar x1,</color> <color=cyan>Rum-Bottle x2, Wine x1, </color> <color=red>Bandages x3, Medpack x1</color>", player, msg);
+                    break;
+                case "kit-guard1":
+                    server.SendMessageToPlayerLocal("<color=purple>Guardian-kit 1 costs 5000gold and recieves: </color> <color=yellow>Guardian-Vest x1, Sneakers x1, </color> <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
+                    break;
+                case "kit-guard2":
+                    server.SendMessageToPlayerLocal("<color=purple>Guardian-kit 2 costs 5000gold and recieves: </color> <color=yellow>Guardian-Vest x1, Sneakers x1, </color> <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
+                    break;
+                case "kit-guard3":
+                    server.SendMessageToPlayerLocal("<color=purple>Guardian-kit 3 costs 5000gold and recieves: </color> <color=yellow>Guardian-Vest x1, Sneakers x1, </color> <color=white>Giant-Sword x1, Knife x1, Crowbar x1, AK47 x1, </color> <color=brown>Canned-Food x6, Energy-Bar x1, Soda x1, </color> <color=cyan>Water x2,</color> <color=red>Medpack x1.</color>", player, msg);
+                    break;
                 default:
                     break;
             }

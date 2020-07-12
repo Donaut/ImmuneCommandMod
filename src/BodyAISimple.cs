@@ -74,9 +74,9 @@ public class BodyAISimple : BodyBase
 		}
 		int num = 0;
 		int a_chance = (int)(100f * m_dropMultiplier);
-		if (m_npc.m_npcType == eCharType.eGasmaskGuy)
+		if (m_npc.m_npcType == eCharType.eGasmaskGuy) // Type of enemy/mob/npc
 		{
-			m_containerType = 120;
+			m_containerType = 120; // container used for items dropped
 			if (m_handItemType != 0)
 			{
 				m_itemDrops.Add(new DropItem(m_handItemType, m_handItemType, (int)(15f * m_dropMultiplier), 1, 50));
@@ -89,12 +89,12 @@ public class BodyAISimple : BodyBase
 			{
 				m_itemDrops.Add(new DropItem(m_bodyItemType, m_bodyItemType, (int)(5f * m_dropMultiplier), 1, 60));
 			}
-			m_itemDrops.Add(new DropItem(1, 12, 67));
+			m_itemDrops.Add(new DropItem(1, 12, 67)); //Items <--- Really stupid setup imo, Should be using strings globally not numbered id's
 			m_itemDrops.Add(new DropItem(15, 19, 67));
 			m_itemDrops.Add(new DropItem(254, 254, 20, 1, 5));
 			num = 12;
 		}
-		else if (m_npc.m_npcType == eCharType.eChicken || m_npc.m_npcType == eCharType.eRaven || m_npc.m_npcType == eCharType.eEagle)
+		else if (m_npc.m_npcType == eCharType.eChicken || m_npc.m_npcType == eCharType.eRaven || m_npc.m_npcType == eCharType.eEagle) // else if for other types
 		{
 			m_itemDrops.Add(new DropItem(4, 4, a_chance));
 			num = 1;
@@ -107,7 +107,7 @@ public class BodyAISimple : BodyBase
 		}
 		else if (m_npc.m_npcType == eCharType.eMutant || m_npc.m_npcType == eCharType.eSurvivorMutant)
 		{
-			m_itemDrops.Add(new DropItem(104, 104, 15, 10, 90));
+			m_itemDrops.Add(new DropItem(104, 104, 15, 10, 90)); // first id, second id, chance, min_quality, max_quality <--- Really stupid setup imo, Should be using strings globally not numbered id's
 			m_itemDrops.Add(new DropItem(254, 254, 15, 1, 3));
 			num = ((m_npc.m_npcType != eCharType.eMutant) ? 30 : 15);
 		}
