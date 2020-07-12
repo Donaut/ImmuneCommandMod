@@ -259,9 +259,6 @@ namespace MyMod
                 case "/help-kit":
                     server.SendMessageToPlayerLocal("Usage for /kit-xxx: To purchase a kit you must have the required amount of gold and or permissions. Example: Enter */kit-doc* without the ** to buy a doctors kit for 500gold.", player, msg);
                     break;
-                case "/help /kit-doc":
-                    server.SendMessageToPlayerLocal("<color=purple>Doctor kit costs 500gold and recieves:</color> <colorLeatherVest x1, Shoes x1, <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
-                    break;
                 case "/?":
                     server.SendMessageToPlayerLocal("Com-Mod: <color=purple>Made by</color> <color=green>Va1idUser: Github.com/McSkinnerOG/ImmuneCommandMod</color> and <color=red>Donaut: Github.com/Donaut/ImmuneCommandMod</color>.", player, msg);
                     break;
@@ -287,10 +284,10 @@ namespace MyMod
                 default:
                     break;
             }
-            switch (commands[1])
+            switch (commands[1]) // This was so fucking easy but im too retarded to figure out basic arrays apparently....
             {
                 case "/kit-doc":
-                    server.SendMessageToPlayerLocal("<color=purple>Doctor kit costs 500gold and recieves:</color> <colorLeatherVest x1, Shoes x1, <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
+                    server.SendMessageToPlayerLocal("<color=purple>Doctor kit costs 500gold and recieves: </color> LeatherVest x1, Shoes x1, <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
                     break;
                 default:
                     break;
