@@ -112,7 +112,7 @@ public class ServerBrowserGUI : MonoBehaviour
 	{
 		m_inCustomIp.text = "127.0.0.1";
 		m_client = (LidClient)Object.FindObjectOfType(typeof(LidClient));
-		m_txtFootNote.text = "Immune version 1.0.1, please join the Community-Hub forums and give us feedback.";
+		m_txtFootNote.text = "Immune version:v1.0.1 || I.C.E version:v0.0.3b.";
 		if (Application.isEditor && m_testMode)
 		{
 			m_steamId = 13376uL;
@@ -128,7 +128,6 @@ public class ServerBrowserGUI : MonoBehaviour
 			m_playerName = SteamFriends.GetPersonaName();
 			SteamUserStats.RequestCurrentStats();
 		}
-		VerbrecherCheckStart();
 		RedrawList();
 		RefreshServers();
 	}
@@ -149,7 +148,6 @@ public class ServerBrowserGUI : MonoBehaviour
 			m_txtMessage.text = m_client.m_disconnectMsg;
 			m_client.m_disconnectMsg = string.Empty;
 		}
-		VerbrecherCheckUpdate();
 	}
 
 	private void RefreshServers()
@@ -229,35 +227,19 @@ public class ServerBrowserGUI : MonoBehaviour
 
 	private string GetServerPopulationString(int a_playerCount)
 	{
-		string result = "<color=green>low</color>";
+		string result = "<color=green>Low</color>";
 		if (a_playerCount == 50)
 		{
-			result = "<color=red>full</color>";
+			result = "<color=red>Full</color>";
 		}
 		else if (19 < a_playerCount)
 		{
-			result = "<color=red>high</color>";
+			result = "<color=red>High</color>";
 		}
 		else if (4 < a_playerCount)
 		{
-			result = "<color=yellow>mid</color>";
+			result = "<color=Yellow>mid</color>";
 		}
 		return result;
-	}
-
-	private void VerbrecherCheckUpdate()
-	{
-		if (m_txtServerNames.text.ToLower().Contains("kortal") || m_txtFootNote.text.ToLower().Contains("kortal"))
-		{
-			m_isVerbrecherVersion = true;
-		}
-	}
-
-	private void VerbrecherCheckStart()
-	{
-		if (m_txtServerNames.text.ToLower().Contains("kortal") || m_txtFootNote.text.ToLower().Contains("kortal") || m_steamId == 1685597 || m_steamId == 77484 || File.Exists("3dmgame.dll") || File.Exists("3DMGAME.ini") || File.Exists("Immune_Launcher.exe") || File.Exists("kortal.nfo"))
-		{
-			m_isVerbrecherVersion = true;
-		}
 	}
 }
