@@ -249,7 +249,7 @@ namespace MyMod
                     server.SendNotification(text); //not correct but almost. use an array to fix later
                     break;
                 case "/commands":
-                    server.SendMessageToPlayerLocal("<color=red>COMMANDS</color> <color=green>ARE</color> <color=purple>COLOR</color> <color=purple>CODED</color>!/nEach command is <color=red>color coded</color> within /help-commandname./nColors represent permission level needed to use them./n<color=red>RED COMMANDS ARE ADMIN ONLY!!!</color>/n<color=yellow>YELLOW COMMANDS REQUIRE GOLD TO EXECUTE!</color>/n<color=green>GREEN COMMANDS ARE ALL LEVEL ACCESS!</color>", player, msg);
+                    server.SendMessageToPlayerLocal("<color=red>COMMANDS</color> <color=green>ARE</color> <color=purple>COLOR</color> <color=purple>CODED</color>! Each command is <color=red>color coded</color> within /help-commandname. Colors represent permission level needed to use them. <color=red>RED COMMANDS ARE ADMIN ONLY!!!</color> <color=yellow>YELLOW COMMANDS REQUIRE GOLD TO EXECUTE!</color> <color=green>GREEN COMMANDS ARE ALL LEVEL ACCESS!</color>", player, msg);
                     break;
 
                 case "/help":
@@ -286,26 +286,36 @@ namespace MyMod
             }
             switch (commands[1]) // This was so fucking easy but im too retarded to figure out basic arrays apparently....
             {
-                case "/kit-doc":
-                    server.SendMessageToPlayerLocal("<color=purple>Doctor-kit costs 500gold and recieves: </color> Leather-Vest x1, Shoes x1, <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
+                case "kit-doc": // Really have to make JSON file for this shit.... Directly handling here is tedious and shit at best.
+                    server.SendMessageToPlayerLocal("<color=purple>Doctor-kit costs 500gold and recieves: </color> <color=yellow>Leather-Vest x1, Shoes x1, </color> <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
                     break;
-                case "/kit-scav1":
-                    server.SendMessageToPlayerLocal("<color=purple>Scavenger-kit 1 costs 500gold and recieves: </color> Scrap-Vest x1, Shoes x1, <color=white>Machete x1, Knife x1, Revolver x1, </color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
+                /*
+                 * 
+                 * Make JSON file for msg strings and also for kit definition
+                 * 
+                 * Kits:
+                 *  Bandit:
+                 *      Items: "Sword:1:100, item2:1:100, etc:1:100"
+                 *      Price: 500
+                 *      Permission: kit.bandit.forever || kit.bandit.time.xxx
+                 */
+                case "kit-scav1":
+                    server.SendMessageToPlayerLocal("<color=purple>Scavenger-kit 1 costs 500gold and recieves: </color> <color=yellow>Scrap-Vest x1, Shoes x1, </color> <color=white>Machete x1, Knife x1, Revolver x1, 45mm Ammo x20</color> <color=brown> Raw-Meat x 1, Canned-Food x6, Energy-Bar x1,</color> <color=cyan>Beer x2,</color> <color=red>Bandages x3</color>", player, msg);
                     break;
-                case "/kit-scav2":
-                    server.SendMessageToPlayerLocal("<color=purple>Scavenger-kit 2 costs 500gold and recieves: </color> Scrap-Vest x1, Sneakers x1, <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
+                case "kit-scav2":
+                    server.SendMessageToPlayerLocal("<color=purple>Scavenger-kit 2 costs 500gold and recieves: </color> <color=yellow>Scrap-Vest x1, Sneakers x1, </color> <color=white>Mutant-Claw x1, Crafted-Knife x1, Bow x1, Arrows x32 </color> <color=brown>Cooked-Potatoes x6, Mushrooms x3,</color> <color=cyan>Rum-Bottle x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
                     break;
-                case "/kit-bandit":
-                    server.SendMessageToPlayerLocal("<color=purple>Bandit-kit costs 500gold and recieves: </color> Leather-Vest x1, Shoes x1, <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
+                case "kit-bandit":
+                    server.SendMessageToPlayerLocal("<color=purple>Bandit-kit costs 500gold and recieves: </color> <color=yellow>Metal-Vest x1, Sneakers x1, </color> <color=white>Katana x1, Knife x1, SMG x1, 9mm Ammo x32 </color> <color=brown>Cooked-Fish x3, Energy-Bar x1,</color> <color=cyan>Rum-Bottle x2, Wine x1, </color> <color=red>Bandages x3, Medpack x1</color>", player, msg);
                     break;
-                case "/kit-guard1":
-                    server.SendMessageToPlayerLocal("<color=purple>Guardian-kit 1 costs 5000gold and recieves: </color> Guardian-Vest x1, Sneakers x1, <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
+                case "kit-guard1":
+                    server.SendMessageToPlayerLocal("<color=purple>Guardian-kit 1 costs 5000gold and recieves: </color> <color=yellow>Guardian-Vest x1, Sneakers x1, </color> <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
                     break;
-                case "/kit-guard2":
-                    server.SendMessageToPlayerLocal("<color=purple>Guardian-kit 2 costs 5000gold and recieves: </color> Guardian-Vest x1, Sneakers x1, <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
+                case "kit-guard2":
+                    server.SendMessageToPlayerLocal("<color=purple>Guardian-kit 2 costs 5000gold and recieves: </color> <color=yellow>Guardian-Vest x1, Sneakers x1, </color> <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
                     break;
-                case "/kit-guard3":
-                    server.SendMessageToPlayerLocal("<color=purple>Guardian-kit 3 costs 5000gold and recieves: </color> Guardian-Vest x1, Sneakers x1, <color=white>Giant-Sword x1, Knife x1, Crowbar x1, AK47 x1, </color> <color=brown>Canned-Food x6, Energy-Bar x1, Soda x1, </color> <color=cyan>Water x2,</color> <color=red>Medpack x1.</color>", player, msg);
+                case "kit-guard3":
+                    server.SendMessageToPlayerLocal("<color=purple>Guardian-kit 3 costs 5000gold and recieves: </color> <color=yellow>Guardian-Vest x1, Sneakers x1, </color> <color=white>Giant-Sword x1, Knife x1, Crowbar x1, AK47 x1, </color> <color=brown>Canned-Food x6, Energy-Bar x1, Soda x1, </color> <color=cyan>Water x2,</color> <color=red>Medpack x1.</color>", player, msg);
                     break;
                 default:
                     break;
