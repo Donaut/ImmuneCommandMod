@@ -40,14 +40,14 @@ namespace MyMod
                         server.CreateFreeWorldItem(93, 1, player.GetPosition(), 100);    // Knife
                         server.CreateFreeWorldItem(107, 1, player.GetPosition(), 100);   // Torch
                         // Food
-                        server.CreateFreeWorldItem(3, 6, player.GetPosition(), 100);     // Coocked Potatoes
-                        server.CreateFreeWorldItem(8, 1, player.GetPosition(), 100);     // Energy Bar
-                        server.CreateFreeWorldItem(17, 2, player.GetPosition(), 100);    // Water
+                        server.CreateFreeWorldItem(3, 6, player.GetPosition());     // Coocked Potatoes
+                        server.CreateFreeWorldItem(8, 1, player.GetPosition());     // Energy Bar
+                        server.CreateFreeWorldItem(17, 2, player.GetPosition());    // Water
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 3, player.GetPosition(), 100);   // Bandages
-                        server.CreateFreeWorldItem(141, 1, player.GetPosition(), 100);   // Antibiotics
-                        server.CreateFreeWorldItem(142, 2, player.GetPosition(), 100);   // Painkillers
-                        server.CreateFreeWorldItem(143, 1, player.GetPosition(), 100);   // Medpack
+                        server.CreateFreeWorldItem(140, 3, player.GetPosition());   // Bandages
+                        server.CreateFreeWorldItem(141, 1, player.GetPosition());   // Antibiotics
+                        server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
+                        server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medpack
                         server.SendMoneyUpdate(player); // Request money update from server.
                         server.SendMessageToPlayerLocal("BOUGHT DOCTOR KIT!!!", player, msg); // Return success message!!!
                     }
@@ -73,12 +73,12 @@ namespace MyMod
                         // AMMO
                         server.CreateFreeWorldItem(40, 20, player.GetPosition(), 100);   // 45mm
                         // Food
-                        server.CreateFreeWorldItem(4, 2, player.GetPosition(), 100);     // Raw Meat
-                        server.CreateFreeWorldItem(8, 1, player.GetPosition(), 100);     // Energy Bar
-                        server.CreateFreeWorldItem(10, 2, player.GetPosition(), 100);    // Canned Food
-                        server.CreateFreeWorldItem(18, 2, player.GetPosition(), 100);    // Beer
+                        server.CreateFreeWorldItem(4, 2, player.GetPosition());     // Raw Meat
+                        server.CreateFreeWorldItem(8, 1, player.GetPosition());     // Energy Bar
+                        server.CreateFreeWorldItem(10, 2, player.GetPosition());    // Canned Food
+                        server.CreateFreeWorldItem(18, 2, player.GetPosition());    // Beer
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 3, player.GetPosition(), 100);   // Bandages
+                        server.CreateFreeWorldItem(140, 3, player.GetPosition());   // Bandages
                         server.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT SCAV KIT!!!", player, msg);
                     }
@@ -104,13 +104,13 @@ namespace MyMod
                         // AMMO
                         server.CreateFreeWorldItem(50, 35, player.GetPosition(), 100);   // Arrows
                         // Food
-                        server.CreateFreeWorldItem(4, 2, player.GetPosition(), 100);     // Raw Meat
-                        server.CreateFreeWorldItem(9, 4, player.GetPosition(), 100);     // Mushrooms
-                        server.CreateFreeWorldItem(10, 1, player.GetPosition(), 100);    // Canned Food
-                        server.CreateFreeWorldItem(15, 1, player.GetPosition(), 100);    // Rum-Bottle
+                        server.CreateFreeWorldItem(4, 2, player.GetPosition());     // Raw Meat
+                        server.CreateFreeWorldItem(9, 4, player.GetPosition());     // Mushrooms
+                        server.CreateFreeWorldItem(10, 1, player.GetPosition());    // Canned Food
+                        server.CreateFreeWorldItem(15, 1, player.GetPosition());    // Rum-Bottle
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 2, player.GetPosition(), 100);   // Bandages
-                        server.CreateFreeWorldItem(140, 1, player.GetPosition(), 100);   // Painkillers
+                        server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
+                        server.CreateFreeWorldItem(140, 1, player.GetPosition());   // Painkillers
                         server.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT SCAV-2 KIT!!!", player, msg);
                     }
@@ -136,13 +136,13 @@ namespace MyMod
                         // AMMO
                         server.CreateFreeWorldItem(42, 35, player.GetPosition(), 100);   // 556
                         // Food
-                        server.CreateFreeWorldItem(12, 2, player.GetPosition(), 100);     // Cooked_fish
-                        server.CreateFreeWorldItem(8, 4, player.GetPosition(), 100);     // Energy-Bar
-                        server.CreateFreeWorldItem(16, 1, player.GetPosition(), 100);    // Wine
-                        server.CreateFreeWorldItem(15, 1, player.GetPosition(), 100);    // Rum-Bottle
+                        server.CreateFreeWorldItem(12, 2, player.GetPosition());     // Cooked_fish
+                        server.CreateFreeWorldItem(8, 4, player.GetPosition());     // Energy-Bar
+                        server.CreateFreeWorldItem(16, 1, player.GetPosition());    // Wine
+                        server.CreateFreeWorldItem(15, 1, player.GetPosition());    // Rum-Bottle
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 2, player.GetPosition(), 100);   // Bandages
-                        server.CreateFreeWorldItem(142, 2, player.GetPosition(), 100);   // Painkillers
+                        server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
+                        server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
                         server.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT BANDIT KIT!!!", player, msg);
                     }
@@ -168,13 +168,13 @@ namespace MyMod
                         // AMMO
                         server.CreateFreeWorldItem(43, 35, player.GetPosition(), 100);   // 762
                         // Food
-                        server.CreateFreeWorldItem(12, 2, player.GetPosition(), 100);     // Cooked_fish
-                        server.CreateFreeWorldItem(8, 4, player.GetPosition(), 100);     // Energy-Bar
-                        server.CreateFreeWorldItem(16, 1, player.GetPosition(), 100);    // Wine
+                        server.CreateFreeWorldItem(12, 2, player.GetPosition());     // Cooked_fish
+                        server.CreateFreeWorldItem(8, 4, player.GetPosition());     // Energy-Bar
+                        server.CreateFreeWorldItem(16, 1, player.GetPosition());    // Wine
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 2, player.GetPosition(), 100);   // Bandages
-                        server.CreateFreeWorldItem(142, 2, player.GetPosition(), 100);   // Painkillers
-                        server.CreateFreeWorldItem(143, 1, player.GetPosition(), 100);   // Medkit
+                        server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
+                        server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
+                        server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medkit
                         server.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT GUARD-1 KIT!!!", player, msg);
                     }
@@ -200,13 +200,13 @@ namespace MyMod
                         // AMMO
                         server.CreateFreeWorldItem(43, 35, player.GetPosition(), 100);   // 762
                         // Food
-                        server.CreateFreeWorldItem(12, 2, player.GetPosition(), 100);     // Cooked_fish
-                        server.CreateFreeWorldItem(8, 4, player.GetPosition(), 100);     // Energy-Bar
-                        server.CreateFreeWorldItem(16, 1, player.GetPosition(), 100);    // Wine
+                        server.CreateFreeWorldItem(12, 2, player.GetPosition());     // Cooked_fish
+                        server.CreateFreeWorldItem(8, 4, player.GetPosition());     // Energy-Bar
+                        server.CreateFreeWorldItem(16, 1, player.GetPosition());    // Wine
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 2, player.GetPosition(), 100);   // Bandages
-                        server.CreateFreeWorldItem(142, 2, player.GetPosition(), 100);   // Painkillers
-                        server.CreateFreeWorldItem(143, 1, player.GetPosition(), 100);   // Medkit
+                        server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
+                        server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
+                        server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medkit
                         server.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT GUARD-2 KIT!!!", player, msg);
                     }
@@ -232,13 +232,13 @@ namespace MyMod
                         // AMMO
                         server.CreateFreeWorldItem(44, 35, player.GetPosition(), 100);   // Shells
                         // Food
-                        server.CreateFreeWorldItem(12, 2, player.GetPosition(), 100);     // Cooked_fish
-                        server.CreateFreeWorldItem(8, 4, player.GetPosition(), 100);     // Energy-Bar
-                        server.CreateFreeWorldItem(16, 1, player.GetPosition(), 100);    // Wine
+                        server.CreateFreeWorldItem(12, 2, player.GetPosition());     // Cooked_fish
+                        server.CreateFreeWorldItem(8, 4, player.GetPosition());     // Energy-Bar
+                        server.CreateFreeWorldItem(16, 1, player.GetPosition());    // Wine
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 2, player.GetPosition(), 100);   // Bandages
-                        server.CreateFreeWorldItem(142, 2, player.GetPosition(), 100);   // Painkillers
-                        server.CreateFreeWorldItem(143, 1, player.GetPosition(), 100);   // Medkit
+                        server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
+                        server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
+                        server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medkit
                         server.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT GUARD-3 KIT!!!", player, msg);
                     }
