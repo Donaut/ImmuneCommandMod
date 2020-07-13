@@ -3,12 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace MyMod
 {
     public class ChatCommandExtensions
     {
-
+        
+        
         private LidServer m_server;
         internal static void HandleChatCommand(string text, ServerPlayer player, NetIncomingMessage msg)
         {
@@ -272,7 +274,7 @@ namespace MyMod
                         player, msg);
                     break;
                 case "/shout":
-                    server.SendNotification(text.Remove(0,6)); //not correct but almost. use an array to fix later
+                    server.SendNotification(text.Remove(0,6)); //How the actual fuck did i not think of this earlier?
                     break;
                 case "/commands":
                     server.SendMessageToPlayerLocal("<color=red>COMMANDS</color> <color=green>ARE</color> <color=purple>COLOR</color> <color=purple>CODED</color>! Each command is <color=red>color coded</color> within /help-commandname. Colors represent permission level needed to use them. <color=red>RED COMMANDS ARE ADMIN ONLY!!!</color> <color=yellow>YELLOW COMMANDS REQUIRE GOLD TO EXECUTE!</color> <color=green>GREEN COMMANDS ARE ALL LEVEL ACCESS!</color>", player, msg);
