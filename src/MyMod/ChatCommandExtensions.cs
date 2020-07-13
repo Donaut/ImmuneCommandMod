@@ -155,7 +155,7 @@ namespace MyMod
                     }
                     else if (IA_4 >= 5000)
                     {
-                        int num = 500;
+                        int num = 5000;
                         num = Math.Min(IA_4, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
@@ -187,7 +187,7 @@ namespace MyMod
                     }
                     else if (IA_5 >= 5000)
                     {
-                        int num = 500;
+                        int num = 5000;
                         num = Math.Min(IA_5, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
@@ -219,7 +219,7 @@ namespace MyMod
                     }
                     else if (IA_6 >= 5000)
                     {
-                        int num = 500;
+                        int num = 5000;
                         num = Math.Min(IA_6, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
