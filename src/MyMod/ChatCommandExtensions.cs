@@ -243,6 +243,30 @@ namespace MyMod
                         server.SendMessageToPlayerLocal("BOUGHT GUARD-3 KIT!!!", player, msg);
                     }
                     break;
+                case "/kit-gun":
+                    int IA_7 = player.m_inventory.GetItemAmountByType(254);
+                    if (IA_7 <= 4999)
+                    {
+                        server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
+                    }
+                    else if (IA_7 >= 5000)
+                    {
+                        int num = 5000;
+                        num = Math.Min(IA_7, num);
+                        player.m_inventory.DeclineItemAmountByType(254, num);
+                        // Weapons
+                        server.CreateFreeWorldItem(62, 1, player.GetPosition(), 100);    // SMG
+                        server.CreateFreeWorldItem(65, 1, player.GetPosition(), 100);   // AK-47
+                        server.CreateFreeWorldItem(60, 1, player.GetPosition(), 100);   // Pistol
+                        // AMMO
+                        server.CreateFreeWorldItem(43, 100, player.GetPosition());   // 7.62 (AK-47)
+                        server.CreateFreeWorldItem(41, 100, player.GetPosition());   // 9mm (SMG)
+                        server.CreateFreeWorldItem(40, 1, player.GetPosition());   // 4.5 (Pistol)
+                        server.SendMoneyUpdate(player);
+                        server.SendMessageToPlayerLocal("You have bought GUN", player, msg);
+                    }
+                    break;
+                
                 case "/about":
                     server.SendMessageToPlayerLocal("Com-Mod is a project to help expand the Immune-Dedicated software capabilities. For more info please use /commands and /help commandname.",
                         player, msg);
@@ -320,6 +344,9 @@ namespace MyMod
                     break;
                 case "kit-guard3":
                     server.SendMessageToPlayerLocal("<color=purple>Guardian-kit 3 costs 5000gold and recieves: </color> <color=yellow>Guardian-Vest x1, Sneakers x1, </color> <color=white>Giant-Sword x1, Knife x1, Crowbar x1, AK47 x1, </color> <color=brown>Canned-Food x6, Energy-Bar x1, Soda x1, </color> <color=cyan>Water x2,</color> <color=red>Medpack x1.</color>", player, msg);
+                    break;
+                case "kit-gun":
+                    server.SendMessageToPlayerLocal("<color=purple>Gun-kit costs 5000gold and recieves: An SMG, An AK-47 and A pistol. Each gun comes with 100 ammo!</color> ", player, msg);
                     break;
                 default:
                     break;
