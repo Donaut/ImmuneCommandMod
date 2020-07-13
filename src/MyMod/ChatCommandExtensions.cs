@@ -272,7 +272,7 @@ namespace MyMod
                         player, msg);
                     break;
                 case "/shout":
-                    server.SendNotification(text); //not correct but almost. use an array to fix later
+                    server.SendNotification(text.Remove(0,6)); //not correct but almost. use an array to fix later
                     break;
                 case "/commands":
                     server.SendMessageToPlayerLocal("<color=red>COMMANDS</color> <color=green>ARE</color> <color=purple>COLOR</color> <color=purple>CODED</color>! Each command is <color=red>color coded</color> within /help-commandname. Colors represent permission level needed to use them. <color=red>RED COMMANDS ARE ADMIN ONLY!!!</color> <color=yellow>YELLOW COMMANDS REQUIRE GOLD TO EXECUTE!</color> <color=green>GREEN COMMANDS ARE ALL LEVEL ACCESS!</color>", player, msg);
