@@ -112,7 +112,7 @@ public class ServerBrowserGUI : MonoBehaviour
 	{
 		m_inCustomIp.text = "127.0.0.1";
 		m_client = (LidClient)Object.FindObjectOfType(typeof(LidClient));
-		m_txtFootNote.text = "Immune version:v1.0.1 || I.C.E version:v0.0.3b.";
+		m_txtFootNote.text = "Immune version: v1.0.1 || I.C.E version: v0.0.3b.";
 		if (Application.isEditor && m_testMode)
 		{
 			m_steamId = 13376uL;

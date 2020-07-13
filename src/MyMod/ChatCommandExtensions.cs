@@ -8,6 +8,8 @@ namespace MyMod
 {
     public class ChatCommandExtensions
     {
+
+        private LidServer m_server;
         internal static void HandleChatCommand(string text, ServerPlayer player, NetIncomingMessage msg)
         {
             var server = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(LidServer));
@@ -263,7 +265,7 @@ namespace MyMod
                     server.SendMessageToPlayerLocal("Com-Mod: <color=purple>Made by</color> <color=green>Va1idUser: Github.com/McSkinnerOG/ImmuneCommandMod</color> and <color=red>Donaut: Github.com/Donaut/ImmuneCommandMod</color>.", player, msg);
                     break;
 
-                // Useless/Outdated/Wrong method for safe item dispersal/execution. "Potential spam/abuse to cause crashes." Left for educational purposes.
+                // Outdated/Wrong method for safe item dispersal/execution. "Potential spam/abuse to cause crashes." Left for educational purposes.
                 /*
                               case "/weapon":
                                     //Shotgun
@@ -290,14 +292,16 @@ namespace MyMod
                     server.SendMessageToPlayerLocal("<color=purple>Doctor-kit costs 500gold and recieves: </color> <color=yellow>Leather-Vest x1, Shoes x1, </color> <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
                     break;
                 /*
-                 * 
                  * Make JSON file for msg strings and also for kit definition
-                 * 
                  * Kits:
-                 *  Bandit:
-                 *      Items: "Sword:1:100, item2:1:100, etc:1:100"
-                 *      Price: 500
-                 *      Permission: kit.bandit.forever || kit.bandit.time.xxx
+                 *    Bandit:
+                 *        Items: "Sword:1:100, item2:1:100, etc:1:100"
+                 *        Price: 500
+                 *        Permission: kit.bandit.forever || kit.bandit.time.xxx || kit.bandit.bypass
+                 *    Doctor:
+                 *        Items: "Sword:1:100, item2:1:100, etc:1:100"
+                 *        Price: 500
+                 *        Permission: kit.doctor.forever || kit.doctor.time.xxx || kit.doctor.bypass
                  */
                 case "kit-scav1":
                     server.SendMessageToPlayerLocal("<color=purple>Scavenger-kit 1 costs 500gold and recieves: </color> <color=yellow>Scrap-Vest x1, Shoes x1, </color> <color=white>Machete x1, Knife x1, Revolver x1, 45mm Ammo x20</color> <color=brown> Raw-Meat x 1, Canned-Food x6, Energy-Bar x1,</color> <color=cyan>Beer x2,</color> <color=red>Bandages x3</color>", player, msg);
