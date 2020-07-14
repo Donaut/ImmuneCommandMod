@@ -234,6 +234,7 @@
     <Compile Include="MyMod\ChatCommandExtensions.cs" />
     <Compile Include="MyMod\EntityLootTables.cs" />
     <Compile Include="MyMod\ObjectSpawner.cs" />
+    <Compile Include="MyMod\StartCountDown.cs" />
     <Compile Include="NetStatsGUI.cs" />
     <Compile Include="OverrideTransform.cs" />
     <Compile Include="PartyGUI.cs" />

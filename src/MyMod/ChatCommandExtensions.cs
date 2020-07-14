@@ -9,12 +9,16 @@ namespace MyMod
 {
     public class ChatCommandExtensions
     {
-        
-        
+
+        float broadcastTimer = 120f;
+        float timeLeft = 30.0f;
+        float totalTime = 120f; //2 minutes
+
         private LidServer m_server;
         internal static void HandleChatCommand(string text, ServerPlayer player, NetIncomingMessage msg)
         {
             var server = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(LidServer));
+
             string[] commands = text.Split(' ');
             switch (commands[0])
             {
@@ -270,7 +274,7 @@ namespace MyMod
                     break;
                 
                 case "/about":
-                    server.SendMessageToPlayerLocal("Com-Mod is a project to help expand the Immune-Dedicated software capabilities. For more info please use /commands and /help commandname.",
+                    server.SendMessageToPlayerLocal("I.C.E is a project to help expand the Immune-Dedicated software capabilities. For more info please use /commands and /help commandname.",
                         player, msg);
                     break;
                 case "/shout":
