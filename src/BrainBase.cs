@@ -18,9 +18,9 @@ public class BrainBase : MonoBehaviour
 
 	private float m_stateTolerance = 0.5f;
 
-	private float m_hungerDurability = 3600f;
+	private float m_hungerDurability = 7200f;
 
-	private float m_thirstDurability = 3600f;
+	private float m_thirstDurability = 7200f;
 
 	private float m_fatigueDurability = 3600f;
 
@@ -46,11 +46,11 @@ public class BrainBase : MonoBehaviour
 		{
 			if (m_hungerDurability != 0f)
 			{
-				ChangeStateBy(eBrainBaseState.hungry, 1f / m_hungerDurability * deltaTime);
+				ChangeStateBy(eBrainBaseState.hungry, 0.45f / m_hungerDurability * deltaTime);
 			}
 			if (m_thirstDurability != 0f)
 			{
-				ChangeStateBy(eBrainBaseState.thirsty, 1f / m_thirstDurability * deltaTime);
+				ChangeStateBy(eBrainBaseState.thirsty, 0.45f / m_thirstDurability * deltaTime);
 			}
 			if (m_fatigueDurability != 0f)
 			{

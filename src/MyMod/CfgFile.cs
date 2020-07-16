@@ -3,18 +3,18 @@ using System.Collections;
 using System.IO;
 using UnityEngine;
 
-public class ConfigFile : MonoBehaviour
+public class CfgFile : ConfigFile
 {
 	private static Hashtable m_cfgVars = new Hashtable();
 
-	private static bool m_loadedServerCfg = false;
+	private static bool m_loadedPluginCfg = false;
 
 	private static void LoadConfig()
 	{
-		if (!m_loadedServerCfg)
+		if (!m_loadedPluginCfg)
 		{
-			m_loadedServerCfg = true;
-			string path = "server.ice";
+			m_loadedPluginCfg = true;
+			string path = "Plugin_data\\config.ice";
 			try
 			{
 				if (File.Exists(path))

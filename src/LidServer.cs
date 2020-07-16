@@ -1495,7 +1495,7 @@ public class LidServer : LidgrenPeer
 		{
 			a_player.ChangeHealthBy(-10000f);
 		}
-		else if ("/login" == array[0] && array.Length > 1 && ConfigFile.GetVar("adminpassword", "4544") == array[1])
+		else if ("/login" == array[0] && array.Length > 1 && ConfigFile.GetVar("adminpassword", "!@!Not_This_Time!@!") == array[1])
 		{
 			a_player.m_isAdmin = true;
 			Debug.Log(a_player.m_name + " (Steam ID: " + a_player.m_accountId + ") just logged in as admin");

@@ -231,7 +231,9 @@
     <Compile Include="MissionNpc.cs" />
     <Compile Include="MissionObjective.cs" />
     <Compile Include="MouseWalkIndicator.cs" />
+    <Compile Include="MyMod\LangCfgFile.cs" />
     <Compile Include="MyMod\ChatCommandExtensions.cs" />
+    <Compile Include="MyMod\CfgFile.cs" />
     <Compile Include="MyMod\EntityLootTables.cs" />
     <Compile Include="MyMod\ObjectSpawner.cs" />
     <Compile Include="MyMod\StartCountDown.cs" />
