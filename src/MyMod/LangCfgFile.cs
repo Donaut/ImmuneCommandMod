@@ -14,7 +14,7 @@ public class LangCfgFile : LNG
 		if (!m_loadedPluginCfg)
 		{
 			m_loadedPluginCfg = true;
-			string path = "Plugin_data\\config.ice";
+			string path = "Plugin_data\\Lang\\default.ice"; //hmm maybe use the default translation as a proxy load until i can figure out the proper code for dynamic switch?
 			try
 			{
 				if (File.Exists(path))

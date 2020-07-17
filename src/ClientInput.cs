@@ -62,7 +62,7 @@ public class ClientInput : MonoBehaviour
 
 	public AudioClip m_soundBurp;
 
-	private float m_hideCursorTime = 3f;
+	private float m_hideCursorTime = 2f;
 
 	private float m_doubleClickTime;
 
