@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class LNG
 {
-	public static Hashtable LanguageText = new Hashtable();
+	private static Hashtable LanguageText = new Hashtable();
 
-	public void Init(string lng)
+	public static void Init(string lng)
 	{
 		LanguageText.Clear();
 		CreateLanguageHashtables(lng);
 	}
 
-	public string Get(string sKey)
+	public static string Get(string sKey)
 	{
 		string empty = string.Empty;
 		if (LanguageText.Count == 0)
@@ -34,7 +34,7 @@ public class LNG
 		}
 	}
 
-	private void CreateLanguageHashtables(string sLanguage)
+	private static void CreateLanguageHashtables(string sLanguage)
 	{
 		sLanguage = sLanguage.ToLower();
 		Debug.Log("Init Language: " + sLanguage);

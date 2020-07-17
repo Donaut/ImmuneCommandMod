@@ -101,6 +101,7 @@
   <ItemGroup>
     <Compile Include="ActionOnClickGUI.cs" />
     <Compile Include="AnalyseDatabase.cs" />
+    <Compile Include="AntFood.cs" />
     <Compile Include="AntiRoll.cs" />
     <Compile Include="BallPhysics.cs" />
     <Compile Include="Bed.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="BodyBase.cs" />
     <Compile Include="BodyHeadAnim.cs" />
     <Compile Include="Bone.cs" />
+    <Compile Include="Bounce.cs" />
     <Compile Include="BrainAI.cs" />
     <Compile Include="BrainBase.cs" />
     <Compile Include="BuildingDef.cs" />
@@ -127,6 +129,7 @@
     <Compile Include="CFX_LightIntensityFade.cs" />
     <Compile Include="CFX_ShurikenThreadFix.cs" />
     <Compile Include="CFX_SpawnSystem.cs" />
+    <Compile Include="ChangeGeneration.cs" />
     <Compile Include="ChangeRenderQueue.cs" />
     <Compile Include="CharAnim2.cs" />
     <Compile Include="CharData.cs" />
@@ -184,6 +187,7 @@
     <Compile Include="GaugeNeedle.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="GlowPulse.cs" />
+    <Compile Include="GoalTrigger.cs" />
     <Compile Include="GUI3dButton.cs" />
     <Compile Include="GUI3dMaster.cs" />
     <Compile Include="GUI3dText.cs" />
@@ -238,6 +242,8 @@
     <Compile Include="MyMod\ObjectSpawner.cs" />
     <Compile Include="MyMod\StartCountDown.cs" />
     <Compile Include="NetStatsGUI.cs" />
+    <Compile Include="NeuralAnt.cs" />
+    <Compile Include="NeuralNet.cs" />
     <Compile Include="OverrideTransform.cs" />
     <Compile Include="PartyGUI.cs" />
     <Compile Include="PersistentContainer.cs" />
@@ -285,6 +291,8 @@
     <Compile Include="SimpleJSON\JSONLazyCreator.cs" />
     <Compile Include="SimpleJSON\JSONNode.cs" />
     <Compile Include="SimpleVehicle.cs" />
+    <Compile Include="SoccerBot.cs" />
+    <Compile Include="SoccerManager.cs" />
     <Compile Include="SpawnPos.cs" />
     <Compile Include="SpecialArea.cs" />
     <Compile Include="SQLManager.cs" />
