@@ -3,49 +3,52 @@ using System.Collections;
 using System.IO;
 using UnityEngine;
 
-public class LangCfgFile : LNG
+namespace MyMod
 {
-	private static Hashtable m_cfgVars = new Hashtable();
-
-	private static bool m_loadedPluginCfg = false;
-
-	private static void LoadConfig()
+	public class LangCfgFile : LNG
 	{
-		if (!m_loadedPluginCfg)
+		private static Hashtable m_cfgVars = new Hashtable();
+
+		private static bool m_loadedPluginCfg = false;
+
+		private void LoadConfig()
 		{
-			m_loadedPluginCfg = true;
-			string path = "Plugin_data\\Lang\\default.ice"; //hmm maybe use the default translation as a proxy load until i can figure out the proper code for dynamic switch?
-			try
+			if (!m_loadedPluginCfg)
 			{
-				if (File.Exists(path))
+				m_loadedPluginCfg = true;
+				string path = "Plugin_data\\Lang\\default.ice"; //hmm maybe use the default translation as a proxy load until i can figure out the proper code for dynamic switch?
+				try
 				{
-					StreamReader streamReader = File.OpenText(path);
-					string text = streamReader.ReadToEnd();
-					text = text.Replace("\r", string.Empty).Replace(" ", string.Empty);
-					string[] array = text.Split('\n');
-					for (int i = 0; i < array.Length; i++)
+					if (File.Exists(path))
 					{
-						if (array[i] != null && array[i].Contains("="))
+						StreamReader streamReader = File.OpenText(path);
+						string text = streamReader.ReadToEnd();
+						text = text.Replace("\r", string.Empty).Replace(" ", string.Empty);
+						string[] array = text.Split('\n');
+						for (int i = 0; i < array.Length; i++)
 						{
-							string[] array2 = array[i].Split('=');
-							if (array2 != null && array2.Length == 2 && 0 < array2[0].Length && 0 < array2[1].Length)
+							if (array[i] != null && array[i].Contains("="))
 							{
-								m_cfgVars.Add(array2[0], array2[1]);
+								string[] array2 = array[i].Split('=');
+								if (array2 != null && array2.Length == 2 && 0 < array2[0].Length && 0 < array2[1].Length)
+								{
+									m_cfgVars.Add(array2[0], array2[1]);
+								}
 							}
 						}
 					}
 				}
-			}
-			catch (Exception arg)
-			{
-				Debug.Log("ConfigFile.cs: caught exception " + arg);
+				catch (Exception arg)
+				{
+					Debug.Log("ConfigFile.cs: caught exception " + arg);
+				}
 			}
 		}
-	}
 
-	public static string GetVar(string a_key, string a_emptyReturn = "")
-	{
-		LoadConfig();
-		return (!m_cfgVars.Contains(a_key)) ? a_emptyReturn : ((string)m_cfgVars[a_key]);
+		public static string GetVar(string a_key, string a_emptyReturn = "")
+		{
+			LoadConfig();
+			return (!m_cfgVars.Contains(a_key)) ? a_emptyReturn : ((string)m_cfgVars[a_key]);
+		}
 	}
 }
