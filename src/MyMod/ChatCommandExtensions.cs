@@ -18,11 +18,11 @@ namespace MyMod
         internal static void HandleChatCommand(string text, ServerPlayer player, NetIncomingMessage msg)
         {
             var server = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(LidServer));
-            var entity = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(eCharType));
+
             string[] commands = text.Split(' ');
             switch (commands[0])
             {
-                case "/kit-doc":
+                case "/kit-doc1":
                     int IA = player.m_inventory.GetItemAmountByType(254); // Start currency Check
                     if (IA <= 499) // Value to check against.
                     {
@@ -58,7 +58,7 @@ namespace MyMod
                         server.SendMessageToPlayerLocal("BOUGHT DOCTOR KIT!!!", player, msg); // Return success message!!!
                     }
                     break;
-                case "/kit-scav":
+                case "/kit-scav1":
                     int IA_1 = player.m_inventory.GetItemAmountByType(254);
                     if (IA_1 <= 499)
                     {
@@ -121,7 +121,7 @@ namespace MyMod
                         server.SendMessageToPlayerLocal("BOUGHT SCAV-2 KIT!!!", player, msg);
                     }
                     break;
-                case "/kit-bandit":
+                case "/kit-bandit1":
                     int IA_3 = player.m_inventory.GetItemAmountByType(254);
                     if (IA_3 <= 499)
                     {
@@ -272,7 +272,7 @@ namespace MyMod
                         server.SendMessageToPlayerLocal("You have bought GUN", player, msg);
                     }
                     break;
-
+                
                 case "/about":
                     server.SendMessageToPlayerLocal("I.C.E is a project to help expand the Immune-Dedicated software capabilities. For more info please use /commands and /help commandname.",
                         player, msg);

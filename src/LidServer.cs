@@ -13,9 +13,9 @@ public class LidServer : LidgrenPeer
 
 	private const float c_updateZradius = 19f;
 
-	private const float c_playerPickupRadius = 3.1f;
+	private const float c_playerPickupRadius = 17.5f;
 
-	private const float c_playerVehicleRadius = 3.5f;
+	private const float c_playerVehicleRadius = 17.5f;
 
 	public GameObject m_controlledCharPrefab;
 
@@ -1775,7 +1775,7 @@ public class LidServer : LidgrenPeer
 		}
 	}
 
-	public void CreateFreeWorldItem(int a_newItemType, int a_amount, Vector3 a_pos)
+	public void CreateFreeWorldItem(int a_newItemType, int a_amount, Vector3 a_pos) // need to mirror this method for entites possible /summon /spawn commands etc.
 	{
 		if (Items.IsContainer(a_newItemType))
 		{
