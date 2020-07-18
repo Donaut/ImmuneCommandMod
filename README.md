@@ -22,7 +22,8 @@ You can modify your .bat file to get your server listed in the Game server menus
 A proper plugin system needs to be created so we can create mods in an easier way.
 
 ## Creator
-[Steam](http://steamcommunity.com/id/RatyiMatyi/)
+Donaut ~ Original CommandBase Creator [Steam](http://steamcommunity.com/id/RatyiMatyi/) 
+McSkinnerOG/ValidUser Major Expansion Lead. [Steam] (https://steamcommunity.com/id/Va1idUser/)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
