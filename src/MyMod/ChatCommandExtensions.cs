@@ -18,7 +18,7 @@ namespace MyMod
         internal static void HandleChatCommand(string text, ServerPlayer player, NetIncomingMessage msg)
         {
             var server = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(LidServer));
-
+            var entity = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(eCharType));
             string[] commands = text.Split(' ');
             switch (commands[0])
             {
@@ -272,7 +272,7 @@ namespace MyMod
                         server.SendMessageToPlayerLocal("You have bought GUN", player, msg);
                     }
                     break;
-                
+
                 case "/about":
                     server.SendMessageToPlayerLocal("I.C.E is a project to help expand the Immune-Dedicated software capabilities. For more info please use /commands and /help commandname.",
                         player, msg);

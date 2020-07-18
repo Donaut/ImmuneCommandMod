@@ -13,9 +13,9 @@ public class LidServer : LidgrenPeer
 
 	private const float c_updateZradius = 19f;
 
-	private const float c_playerPickupRadius = 1.1f;
+	private const float c_playerPickupRadius = 3.1f;
 
-	private const float c_playerVehicleRadius = 2.5f;
+	private const float c_playerVehicleRadius = 3.5f;
 
 	public GameObject m_controlledCharPrefab;
 
