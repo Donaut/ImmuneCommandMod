@@ -24,13 +24,13 @@ namespace MyMod
             {
                 case "/kit-doc1":
                     int IA = player.m_inventory.GetItemAmountByType(254); // Start currency Check
-                    if (IA <= 499) // Value to check against.
+                    if (IA <= 349) // Value to check against.
                     {
                         server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg); // Return error message if plater des not have enough currency!
                     }
-                    else if (IA >= 500) // If players currency is higher then the value given here
+                    else if (IA >= 350) // If players currency is higher then the value given here
                     {
-                        int num = 500; // Kit Price
+                        int num = 350; // Kit Price
                         num = Math.Min(IA, num); // Price math logic
                         player.m_inventory.DeclineItemAmountByType(254, num); // Define item used as currency
                         // Clothing
@@ -60,13 +60,13 @@ namespace MyMod
                     break;
                 case "/kit-scav1":
                     int IA_1 = player.m_inventory.GetItemAmountByType(254);
-                    if (IA_1 <= 499)
+                    if (IA_1 <= 349)
                     {
                         server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
                     }
-                    else if (IA_1 >= 500)
+                    else if (IA_1 >= 350)
                     {
-                        int num = 500;
+                        int num = 350;
                         num = Math.Min(IA_1, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
@@ -91,13 +91,13 @@ namespace MyMod
                     break;
                 case "/kit-scav2":
                     int IA_2 = player.m_inventory.GetItemAmountByType(254);
-                    if (IA_2 <= 499)
+                    if (IA_2 <= 349)
                     {
                         server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
                     }
-                    else if (IA_2 >= 500)
+                    else if (IA_2 >= 350)
                     {
-                        int num = 500;
+                        int num = 350;
                         num = Math.Min(IA_2, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
@@ -123,13 +123,13 @@ namespace MyMod
                     break;
                 case "/kit-bandit1":
                     int IA_3 = player.m_inventory.GetItemAmountByType(254);
-                    if (IA_3 <= 499)
+                    if (IA_3 <= 349)
                     {
                         server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
                     }
-                    else if (IA_3 >= 500)
+                    else if (IA_3 >= 350)
                     {
-                        int num = 500;
+                        int num = 350;
                         num = Math.Min(IA_3, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
@@ -155,13 +155,13 @@ namespace MyMod
                     break;
                 case "/kit-guard1":
                     int IA_4 = player.m_inventory.GetItemAmountByType(254);
-                    if (IA_4 <= 4999)
+                    if (IA_4 <= 499)
                     {
                         server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
                     }
-                    else if (IA_4 >= 5000)
+                    else if (IA_4 >= 500)
                     {
-                        int num = 5000;
+                        int num = 500;
                         num = Math.Min(IA_4, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
@@ -187,13 +187,13 @@ namespace MyMod
                     break;
                 case "/kit-guard2":
                     int IA_5 = player.m_inventory.GetItemAmountByType(254);
-                    if (IA_5 <= 4999)
+                    if (IA_5 <= 499)
                     {
                         server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
                     }
-                    else if (IA_5 >= 5000)
+                    else if (IA_5 >= 500)
                     {
-                        int num = 5000;
+                        int num = 500;
                         num = Math.Min(IA_5, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
@@ -219,13 +219,13 @@ namespace MyMod
                     break;
                 case "/kit-guard3":
                     int IA_6 = player.m_inventory.GetItemAmountByType(254);
-                    if (IA_6 <= 4999)
+                    if (IA_6 <= 499)
                     {
                         server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
                     }
-                    else if (IA_6 >= 5000)
+                    else if (IA_6 >= 500)
                     {
-                        int num = 5000;
+                        int num = 500;
                         num = Math.Min(IA_6, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
@@ -247,29 +247,6 @@ namespace MyMod
                         server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medkit
                         server.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT GUARD-3 KIT!!!", player, msg);
-                    }
-                    break;
-                case "/kit-gun":
-                    int IA_7 = player.m_inventory.GetItemAmountByType(254);
-                    if (IA_7 <= 4999)
-                    {
-                        server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
-                    }
-                    else if (IA_7 >= 5000)
-                    {
-                        int num = 5000;
-                        num = Math.Min(IA_7, num);
-                        player.m_inventory.DeclineItemAmountByType(254, num);
-                        // Weapons
-                        server.CreateFreeWorldItem(62, 1, player.GetPosition(), 100);    // SMG
-                        server.CreateFreeWorldItem(65, 1, player.GetPosition(), 100);   // AK-47
-                        server.CreateFreeWorldItem(60, 1, player.GetPosition(), 100);   // Pistol
-                        // AMMO
-                        server.CreateFreeWorldItem(43, 100, player.GetPosition());   // 7.62 (AK-47)
-                        server.CreateFreeWorldItem(41, 100, player.GetPosition());   // 9mm (SMG)
-                        server.CreateFreeWorldItem(40, 1, player.GetPosition());   // 4.5 (Pistol)
-                        server.SendMoneyUpdate(player);
-                        server.SendMessageToPlayerLocal("You have bought GUN", player, msg);
                     }
                     break;
                 
@@ -350,9 +327,6 @@ namespace MyMod
                     break;
                 case "kit-guard3":
                     server.SendMessageToPlayerLocal("<color=purple>Guardian-kit 3 costs 5000gold and recieves: </color> <color=yellow>Guardian-Vest x1, Sneakers x1, </color> <color=white>Giant-Sword x1, Knife x1, Crowbar x1, AK47 x1, </color> <color=brown>Canned-Food x6, Energy-Bar x1, Soda x1, </color> <color=cyan>Water x2,</color> <color=red>Medpack x1.</color>", player, msg);
-                    break;
-                case "kit-gun":
-                    server.SendMessageToPlayerLocal("<color=purple>Gun-kit costs 5000gold and recieves: An SMG, An AK-47 and A pistol. Each gun comes with 100 ammo!</color> ", player, msg);
                     break;
                 default:
                     break;
