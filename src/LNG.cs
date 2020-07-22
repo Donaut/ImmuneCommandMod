@@ -508,9 +508,9 @@ public class LNG
 			LanguageText.Add("EVENT_NOWATER", "There's No Water");
 			LanguageText.Add("CANT_LOGOUT_DURING_BATTLE", "You can't log out during combat. Please wait %1 seconds.");
 			LanguageText.Add("SERVER_RESTART_X_MINUTES", "The server will restart in {1} minutes. Visible items on the ground will be lost.");
-			LanguageText.Add("BROADCAST_1", "Thanks for testing I.C.E :D");
-			LanguageText.Add("BROADCAST_2", "Mod Made by: Donaut & Va1idUser!");
-			LanguageText.Add("BROADCAST_3", "Check The Immune Steam Disscussions for info and updates!");
+				LanguageText.Add("BROADCAST_1", "Thankyou for playing the ICE-Mod Test Server!!!\nMade by: Donaut, Charlie & Va1idUser!");
+				LanguageText.Add("WELCOME_PLAYER", "Welcome {PLAYER} to the\nI.C.E-Mod Public Test Server.");
+				LanguageText.Add("BROADCAST_3", "Check The Immune Steam Disscussions for info and updates!");
 			break;
 		}
 		LanguageText.Add("CANT_START_SINGLEPLAYER", "Error: Couldn't create singleplayer process.");

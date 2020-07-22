@@ -960,6 +960,7 @@ public class LidServer : LidgrenPeer
 			netOutgoingMessage.Write(serverPlayer.m_accountId);
 			m_server.SendToAll(netOutgoingMessage, NetDeliveryMethod.ReliableOrdered);
 			m_sql.RequestContainer(m_sql.PidToCid(serverPlayer.m_pid));
+			SendNotification(LNG.Get("WELCOME_PLAYER").Replace("{PLAYER}", serverPlayer.m_name.ToString()));
 		}
 		else
 		{
