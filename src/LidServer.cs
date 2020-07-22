@@ -263,6 +263,7 @@ public class LidServer : LidgrenPeer
 
 	private void DisconnectPlayer(ServerPlayer a_player)
 	{
+		ServerPlayer serverPlayer = null;
 		if (a_player == null)
 		{
 			return;
@@ -287,6 +288,7 @@ public class LidServer : LidgrenPeer
 		netOutgoingMessage.Write((byte)a_player.m_onlineId);
 		m_server.SendToAll(netOutgoingMessage, NetDeliveryMethod.ReliableOrdered);
 		DeletePlayer(a_player.m_onlineId);
+		SendNotification(LNG.Get("WELCOME_LEAVE").Replace("{PLAYER}", serverPlayer.m_name.ToString()));
 	}
 
 	private void onAuth(NetIncomingMessage msg)

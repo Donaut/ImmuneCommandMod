@@ -331,6 +331,10 @@ namespace MyMod
 
                     }
                     break;
+                case "/players":
+                case "/online":
+                    server.SendMessageToPlayerLocal(LNG.Get("CMD_ONLINE_PLAYERS").Replace("{p_online}", server.GetPlayerCount().ToString()), player, msg);
+                    break;
 
                 case "/about":
                     server.SendMessageToPlayerLocal("I.C.E is a project to help expand the Immune-Dedicated software capabilities. For more info please use /commands and /help commandname.",
