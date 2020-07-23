@@ -13,7 +13,7 @@ namespace MyMod
         {
             var server = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(LidServer));
 
-            ServerPlayer cserverPlayer = null;
+            
             string[] commands = text.Split(' ');
             switch (commands[0])
             {
@@ -42,7 +42,7 @@ namespace MyMod
                         server.CreateFreeWorldItem(141, 1, player.GetPosition());   // Antibiotics
                         server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
                         server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medpack
-                        server.SendMoneyUpdate(player); // Request money update from server.
+                        LidServer.SendMoneyUpdate(player); // Request money update from server.
                         server.SendMessageToPlayerLocal("BOUGHT DOCTOR KIT!!!", player, msg); // Return success message!!!
                     }
                     break;
@@ -73,7 +73,7 @@ namespace MyMod
                         server.CreateFreeWorldItem(18, 2, player.GetPosition());    // Beer
                         // ITEMS
                         server.CreateFreeWorldItem(140, 3, player.GetPosition());   // Bandages
-                        server.SendMoneyUpdate(player);
+                        LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT SCAV KIT!!!", player, msg);
                     }
                     break;
@@ -105,7 +105,7 @@ namespace MyMod
                         // ITEMS
                         server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
                         server.CreateFreeWorldItem(140, 1, player.GetPosition());   // Painkillers
-                        server.SendMoneyUpdate(player);
+                        LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT SCAV-2 KIT!!!", player, msg);
                     }
                     break;
@@ -137,7 +137,7 @@ namespace MyMod
                         // ITEMS
                         server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
                         server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
-                        server.SendMoneyUpdate(player);
+                        LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT BANDIT KIT!!!", player, msg);
                     }
                     break;
@@ -169,7 +169,7 @@ namespace MyMod
                         server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
                         server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
                         server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medkit
-                        server.SendMoneyUpdate(player);
+                        LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT GUARD-1 KIT!!!", player, msg);
                     }
                     break;
@@ -201,7 +201,7 @@ namespace MyMod
                         server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
                         server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
                         server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medkit
-                        server.SendMoneyUpdate(player);
+                        LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT GUARD-2 KIT!!!", player, msg);
                     }
                     break;
@@ -233,7 +233,7 @@ namespace MyMod
                         server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
                         server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
                         server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medkit
-                        server.SendMoneyUpdate(player);
+                        LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT GUARD-3 KIT!!!", player, msg);
                     }
                     break;
@@ -358,6 +358,7 @@ namespace MyMod
                 case "/?":
                     server.SendMessageToPlayerLocal("Com-Mod: <color=purple>Made by</color> <color=green>Va1idUser: Github.com/McSkinnerOG/ImmuneCommandMod</color> and <color=red>Donaut: Github.com/Donaut/ImmuneCommandMod</color>.", player, msg);
                     break;
+        
 
                 // Outdated/Wrong method for safe item dispersal/execution. "Potential spam/abuse to cause crashes." Left for educational purposes.
                 /*

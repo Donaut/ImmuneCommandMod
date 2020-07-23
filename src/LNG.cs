@@ -520,6 +520,7 @@ public class LNG
 				LanguageText.Add("CMD_PLAYERoID", "Player O-ID is: {o_id} .");
 				LanguageText.Add("CMD_PLAYERID", "Player O-ID is: {p_id} .");
 				//Teleport-Player
+				LanguageText.Add("TO_POS", "Teleported to [dest]!");
 				LanguageText.Add("CMD_TPPLAYER", "Player {pr_name} wants to TP to you.");
 				LanguageText.Add("CMD_TPACCEPTED", "TP Accepted {pr_name} will arrive soon!");
 				LanguageText.Add("CMD_TPDENY", "You denied {pr_name}'s TP request.");

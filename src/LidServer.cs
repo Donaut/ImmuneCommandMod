@@ -77,6 +77,10 @@ public class LidServer : LidgrenPeer
 
 	private float m_dayNightCycle;
 
+	private Transform[] m_playerEntities = new Transform[36];
+
+	private List<CharData> m_charData = new List<CharData>();
+	private LidClient m_client;
 	private void OnEnable()
 	{
 		Global.isServer = true;
@@ -173,7 +177,7 @@ public class LidServer : LidgrenPeer
 		QualitySettings.SetQualityLevel(5);
 		if (m_server != null)
 		{
-			if (string.Empty != m_serverName)
+			if (!string.IsNullOrEmpty(m_serverName))
 			{
 				StartCoroutine(WebRequest.DeleteServer(m_server.Configuration.Port));
 			}
@@ -214,7 +218,7 @@ public class LidServer : LidgrenPeer
 		}
 		if (Time.time > m_nextServerListUpdate)
 		{
-			if (string.Empty != m_serverName)
+			if (!string.IsNullOrEmpty(m_serverName))
 			{
 				StartCoroutine(WebRequest.UpdateServer(m_server.Configuration.Port, m_serverName, m_server.ConnectionsCount));
 			}
@@ -239,7 +243,6 @@ public class LidServer : LidgrenPeer
 
 	private void onDisconnected(NetIncomingMessage a_msg)
 	{
-		ServerPlayer serverPlayer = null;
 		bool flag = m_shutdownIfEmpty && 0 == m_server.ConnectionsCount;
 		if (a_msg != null && a_msg.SenderConnection != null && a_msg.SenderConnection.Tag != null)
 		{
@@ -268,7 +271,6 @@ public class LidServer : LidgrenPeer
 
 	private void DisconnectPlayer(ServerPlayer a_player)
 	{
-		ServerPlayer dserverPlayer = null;
 		if (a_player == null)
 		{
 			return;
@@ -409,7 +411,7 @@ public class LidServer : LidgrenPeer
 		if (player != null && player.IsSpawned())
 		{
 			string text = msg.ReadString();
-			if (string.Empty != text)
+			if (!string.IsNullOrEmpty(text))
 			{
 				text = ((!text.StartsWith(":#~")) ? (player.m_name + "§ " + text.Replace("<", string.Empty).Replace(">", string.Empty)) : (player.m_name + " just opened a case and received: \n<color=\"red\">" + text.Substring(3) + "</color>"));
 				NetOutgoingMessage netOutgoingMessage = msg.SenderConnection.Peer.CreateMessage();
@@ -447,11 +449,11 @@ public class LidServer : LidgrenPeer
 			return;
 		}
 		string text = msg.ReadString();
-		if (string.Empty != text)
+		if (!string.IsNullOrEmpty(text))
 		{
 			if (text.StartsWith("/"))
 			{
-				HandleChatCommand(text, player);
+				HandleChatCommand(text, player, msg);
 				ChatCommandExtensions.HandleChatCommand(text, player, msg);
 				return;
 			}
@@ -709,11 +711,11 @@ public class LidServer : LidgrenPeer
 				m_freeWorldItems.Add(array3[k]);
 				continue;
 			}
-			if (m_sql.IsInventoryContainer(array3[k].cid))
+			if (SQLThreadManager.IsInventoryContainer(array3[k].cid))
 			{
 				for (int l = 0; l < m_players.Length; l++)
 				{
-					if (m_players[l] != null && array3[k].cid == m_sql.PidToCid(m_players[l].m_pid))
+					if (m_players[l] != null && array3[k].cid == SQLThreadManager.PidToCid(m_players[l].m_pid))
 					{
 						m_players[l].m_inventory.UpdateOrCreateItem(array3[k]);
 						m_players[l].m_updateInfoFlag |= (array3[k].x < 1f);
@@ -967,7 +969,7 @@ public class LidServer : LidgrenPeer
 			netOutgoingMessage.Write(serverPlayer.m_name);
 			netOutgoingMessage.Write(serverPlayer.m_accountId);
 			m_server.SendToAll(netOutgoingMessage, NetDeliveryMethod.ReliableOrdered);
-			m_sql.RequestContainer(m_sql.PidToCid(serverPlayer.m_pid));
+			m_sql.RequestContainer(SQLThreadManager.PidToCid(serverPlayer.m_pid));
 			SendNotification(LNG.Get("WELCOME_PLAYER").Replace("{p_name}", serverPlayer.m_name.ToString()));
 		}
 		else
@@ -1365,7 +1367,7 @@ public class LidServer : LidgrenPeer
 		a_msg.Write((byte)a_player.m_charType);
 	}
 
-	private ServerNpc GetNpc(int a_onlineId)
+	public ServerNpc GetNpc(int a_onlineId)
 	{
 		if (a_onlineId < 0 || a_onlineId > m_npcs.Length)
 		{
@@ -1374,9 +1376,8 @@ public class LidServer : LidgrenPeer
 		return m_npcs[a_onlineId];
 	}
 
-	private ServerPlayer GetPlayer(int a_onlineId)
+	public ServerPlayer GetPlayer(int a_onlineId)
 	{
-		ServerPlayer player = null;
 		if (a_onlineId < 0 || a_onlineId > m_players.Length)
 		{
 			return null;
@@ -1384,7 +1385,20 @@ public class LidServer : LidgrenPeer
 		return m_players[a_onlineId];
 	}
 
-	private void DeletePlayer(int a_onlineId)
+	public ServerPlayer GetPlayer(string a_playerName, int a_onlineId)
+	{
+		ServerPlayer currentPlayer;
+		currentPlayer = GetPlayer(a_onlineId);
+		var p_name = currentPlayer.m_name.ToString();
+		if (currentPlayer != null)
+		{
+			currentPlayer.m_name.ToString();
+		}
+		return null; //wdhwduhwduhw
+		
+	}
+
+	public void DeletePlayer(int a_onlineId)
 	{
 		ServerPlayer currentPlayer;
 		currentPlayer = GetPlayer(a_onlineId);
@@ -1402,7 +1416,7 @@ public class LidServer : LidgrenPeer
 		}
 	}
 
-	private void DeleteFreeWorldItem(Vector3 a_pos, bool a_containerOnly = false)
+	public void DeleteFreeWorldItem(Vector3 a_pos, bool a_containerOnly = false)
 	{
 		int num = 0;
 		while (true)
@@ -1507,16 +1521,21 @@ public class LidServer : LidgrenPeer
 		return -1 < a_id && a_id < m_players.Count() && null != m_players[a_id];
 	}
 
-	private void HandleChatCommand(string a_chatText, ServerPlayer a_player)
+
+
+	public void HandleChatCommand(string a_chatText, ServerPlayer a_player, NetIncomingMessage msg)
 	{
 		string[] array = a_chatText.Split(' ');
+		var a_pname = a_player.m_name.ToString();
 		if ("/suicide" == array[0] || "/kill" == array[0])
 		{
 			a_player.ChangeHealthBy(-10000f);
+			SendNotification(" [p_name] just commited toaster bath.".Replace("[p_name]", a_pname));
 		}
 		else if ("/login" == array[0] && array.Length > 1 && ConfigFile.GetVar("adminpassword", "!@!Not_This_Time!@!") == array[1])
 		{
 			a_player.m_isAdmin = true;
+			SendMessageToPlayerLocal("Admin commands unlocked.", a_player, msg);
 			Debug.Log(a_player.m_name + " (Steam ID: " + a_player.m_accountId + ") just logged in as admin");
 		}
 		else if ("/dropgold" == array[0] && array.Length > 1)
@@ -1573,6 +1592,7 @@ public class LidServer : LidgrenPeer
 		else if ("/airdrop" == array[0])
 		{
 			Invoke("CreateAirdrop", 3f);
+			SendNotification("An airdrop has spawned, be the first there for GREAT LOOT!!!");
 		}
 		else if ("/shutdown" == array[0])
 		{
@@ -1592,12 +1612,15 @@ public class LidServer : LidgrenPeer
 			try
 			{
 				num2 = int.Parse(array[1]);
+				
 			}
 			catch (Exception)
 			{
 				num2 = 0;
+				SendMessageToPlayerLocal("Please use /addxp #", a_player, msg);
 			}
 			a_player.AddXp(num2);
+			SendMessageToPlayerLocal("Given [value]XP.".Replace("[value]", num2.ToString()), a_player, msg);
 		}
 		else if ("/addkarma" == array[0] && array.Length > 1)
 		{
@@ -1609,8 +1632,10 @@ public class LidServer : LidgrenPeer
 			catch (Exception)
 			{
 				num3 = 0;
+				SendMessageToPlayerLocal("Please use /addkarma #", a_player, msg);
 			}
 			a_player.ChangeKarmaBy(num3);
+			SendMessageToPlayerLocal("Given [value] Karma.".Replace("[value]", num3.ToString()), a_player, msg);
 		}
 		else if ("/addhp" == array[0] && array.Length > 1)
 		{
@@ -1622,8 +1647,10 @@ public class LidServer : LidgrenPeer
 			catch (Exception)
 			{
 				num4 = 0;
+				SendMessageToPlayerLocal("Please use /addhp #", a_player, msg);
 			}
 			a_player.ChangeHealthBy(num4);
+			SendMessageToPlayerLocal("Given [value] Health.".Replace("[value]", num4.ToString()), a_player, msg);
 		}
 		else if ("/addenergy" == array[0] && array.Length > 1)
 		{
@@ -1635,8 +1662,10 @@ public class LidServer : LidgrenPeer
 			catch (Exception)
 			{
 				num5 = 0;
+				SendMessageToPlayerLocal("Please use /addenergy #", a_player, msg);
 			}
 			a_player.ChangeEnergyBy(num5);
+			SendMessageToPlayerLocal("Given [value] Energy.".Replace("[value]", num5.ToString()), a_player, msg);
 		}
 		else if ("/setcondition" == array[0] && array.Length > 1)
 		{
@@ -1671,6 +1700,7 @@ public class LidServer : LidgrenPeer
 				if (itemDef.ident != null)
 				{
 					CreateFreeWorldItem(num7, num8, a_player.GetPosition());
+					SendMessageToPlayerLocal("Given item id [value].".Replace("[value]", array[1].ToString()), a_player, msg);
 				}
 			}
 		}
@@ -1678,6 +1708,7 @@ public class LidServer : LidgrenPeer
 		{
 			int num9 = 0;
 			int num10 = 0;
+			string final_dest = "X:"+num9.ToString() + " Z:"+num10.ToString();
 			try
 			{
 				num9 = int.Parse(array[1]);
@@ -1689,9 +1720,13 @@ public class LidServer : LidgrenPeer
 			if (num9 != 0 && num10 != 0)
 			{
 				a_player.SetPosition(new Vector3(num9, 0f, num10));
+				SendMessageToPlayerLocal(LNG.Get("TO_POS").Replace("[dest]", final_dest), a_player, msg);
 			}
 		}
+		
 	}
+
+
 
 	private void CreateAirdrop()
 	{
@@ -2155,7 +2190,7 @@ public class LidServer : LidgrenPeer
 		m_server.SendToAll(netOutgoingMessage, NetDeliveryMethod.ReliableUnordered);
 	}
 
-	public void SendPartyUpdate(ServerPlayer a_player, DatabasePlayer[] a_party)
+	public static void SendPartyUpdate(ServerPlayer a_player, DatabasePlayer[] a_party)
 	{
 		NetOutgoingMessage netOutgoingMessage = a_player.m_connection.Peer.CreateMessage();
 		netOutgoingMessage.Write(MessageIds.PartyUpdate);
@@ -2172,7 +2207,7 @@ public class LidServer : LidgrenPeer
 		a_player.m_connection.SendMessage(netOutgoingMessage, NetDeliveryMethod.Unreliable, 0);
 	}
 
-	public void SendPartyFeedback(ServerPlayer a_player, ePartyFeedback a_type, string a_otherPlayerName)
+	public static void SendPartyFeedback(ServerPlayer a_player, ePartyFeedback a_type, string a_otherPlayerName)
 	{
 		if (15 < a_otherPlayerName.Length)
 		{
@@ -2185,7 +2220,7 @@ public class LidServer : LidgrenPeer
 		a_player.m_connection.SendMessage(netOutgoingMessage, NetDeliveryMethod.Unreliable, 0);
 	}
 
-	public void SendRankUpdate(ServerPlayer a_player, int a_addedXp)
+	public static void SendRankUpdate(ServerPlayer a_player, int a_addedXp)
 	{
 		NetOutgoingMessage netOutgoingMessage = a_player.m_connection.Peer.CreateMessage();
 		netOutgoingMessage.Write(MessageIds.RankUpdate);
@@ -2194,7 +2229,7 @@ public class LidServer : LidgrenPeer
 		a_player.m_connection.SendMessage(netOutgoingMessage, NetDeliveryMethod.Unreliable, 0);
 	}
 
-	public void SendConditionUpdate(ServerPlayer a_player)
+	public static void SendConditionUpdate(ServerPlayer a_player)
 	{
 		NetOutgoingMessage netOutgoingMessage = a_player.m_connection.Peer.CreateMessage();
 		netOutgoingMessage.Write(MessageIds.ConditionUpdate);
@@ -2202,7 +2237,7 @@ public class LidServer : LidgrenPeer
 		a_player.m_connection.SendMessage(netOutgoingMessage, NetDeliveryMethod.Unreliable, 0);
 	}
 
-	public void SendMoneyUpdate(ServerPlayer a_player)
+	public static void SendMoneyUpdate(ServerPlayer a_player)
 	{
 		NetOutgoingMessage netOutgoingMessage = a_player.m_connection.Peer.CreateMessage();
 		netOutgoingMessage.Write(MessageIds.MoneyUpdate);
