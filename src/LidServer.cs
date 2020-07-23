@@ -239,20 +239,25 @@ public class LidServer : LidgrenPeer
 
 	private void onDisconnected(NetIncomingMessage a_msg)
 	{
+		ServerPlayer serverPlayer = null;
 		bool flag = m_shutdownIfEmpty && 0 == m_server.ConnectionsCount;
 		if (a_msg != null && a_msg.SenderConnection != null && a_msg.SenderConnection.Tag != null)
 		{
+
 			ServerPlayer player = GetPlayer((int)a_msg.SenderConnection.Tag);
 			if (player != null)
 			{
 				if (Time.time > player.m_cantLogoutTime || flag)
 				{
+					 //TEST
 					DisconnectPlayer(player);
+
 				}
 				else
 				{
 					player.m_disconnectTime = player.m_cantLogoutTime;
 				}
+				
 			}
 		}
 		if (flag)
@@ -263,7 +268,7 @@ public class LidServer : LidgrenPeer
 
 	private void DisconnectPlayer(ServerPlayer a_player)
 	{
-		ServerPlayer serverPlayer = null;
+		ServerPlayer dserverPlayer = null;
 		if (a_player == null)
 		{
 			return;
@@ -288,7 +293,7 @@ public class LidServer : LidgrenPeer
 		netOutgoingMessage.Write((byte)a_player.m_onlineId);
 		m_server.SendToAll(netOutgoingMessage, NetDeliveryMethod.ReliableOrdered);
 		DeletePlayer(a_player.m_onlineId);
-		SendNotification(LNG.Get("WELCOME_LEAVE").Replace("{PLAYER}", serverPlayer.m_name.ToString()));
+		
 	}
 
 	private void onAuth(NetIncomingMessage msg)
@@ -432,6 +437,7 @@ public class LidServer : LidgrenPeer
 		netOutgoingMessage.Write(text);
 		m_server.SendMessage(netOutgoingMessage, player.m_connection, NetDeliveryMethod.Unreliable);
 	}
+
 
 	private void onChatLocal(NetIncomingMessage msg)
 	{
@@ -962,7 +968,7 @@ public class LidServer : LidgrenPeer
 			netOutgoingMessage.Write(serverPlayer.m_accountId);
 			m_server.SendToAll(netOutgoingMessage, NetDeliveryMethod.ReliableOrdered);
 			m_sql.RequestContainer(m_sql.PidToCid(serverPlayer.m_pid));
-			SendNotification(LNG.Get("WELCOME_PLAYER").Replace("{PLAYER}", serverPlayer.m_name.ToString()));
+			SendNotification(LNG.Get("WELCOME_PLAYER").Replace("{p_name}", serverPlayer.m_name.ToString()));
 		}
 		else
 		{
@@ -1370,6 +1376,7 @@ public class LidServer : LidgrenPeer
 
 	private ServerPlayer GetPlayer(int a_onlineId)
 	{
+		ServerPlayer player = null;
 		if (a_onlineId < 0 || a_onlineId > m_players.Length)
 		{
 			return null;
@@ -1379,8 +1386,17 @@ public class LidServer : LidgrenPeer
 
 	private void DeletePlayer(int a_onlineId)
 	{
+		ServerPlayer currentPlayer;
+		currentPlayer = GetPlayer(a_onlineId);
+
+		var doucheBagWhoJustLeft = currentPlayer.m_name.ToString();
+		SendNotification(doucheBagWhoJustLeft + " left the server!");
+
+		ServerPlayer player = null;
+		
 		if (a_onlineId >= 0 && a_onlineId < m_players.Length)
 		{
+
 			m_players[a_onlineId].Remove();
 			m_players[a_onlineId] = null;
 		}

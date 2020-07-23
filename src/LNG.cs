@@ -512,9 +512,21 @@ public class LNG
 				LanguageText.Add("BROADCAST_1", "Thankyou for playing the ICE-Mod Test Server!!!\nMade by: Donaut, Charlie & Va1idUser!");
 				LanguageText.Add("BROADCAST_2", "Check The Immune Steam Disscussions for info and updates!");
 				//welcome
-				LanguageText.Add("WELCOME_PLAYER", "Welcome {PLAYER} to the\nI.C.E-Mod Public Test Server.");
-				LanguageText.Add("WELCOME_ADMIN", "Welcome {PLAYER} to the\nI.C.E-Mod Public Test Server.");
+				LanguageText.Add("WELCOME_PLAYER", "Welcome {p_name} to the\nI.C.E-Mod Public Test Server.");
+				LanguageText.Add("WELCOME_LEAVE", "{p_name} Left The Server.");
+				LanguageText.Add("WELCOME_LEAVE2", "{p_name} Left The Server REEEE.");
+				//GENERAL
 				LanguageText.Add("CMD_ONLINE_PLAYERS", "Current Players Online: {p_online}.");
+				LanguageText.Add("CMD_PLAYERoID", "Player O-ID is: {o_id} .");
+				LanguageText.Add("CMD_PLAYERID", "Player O-ID is: {p_id} .");
+				//Teleport-Player
+				LanguageText.Add("CMD_TPPLAYER", "Player {pr_name} wants to TP to you.");
+				LanguageText.Add("CMD_TPACCEPTED", "TP Accepted {pr_name} will arrive soon!");
+				LanguageText.Add("CMD_TPDENY", "You denied {pr_name}'s TP request.");
+				LanguageText.Add("CMD_TPDENY_RESPONCE", "Your TP was denied by {p_name}.");
+				LanguageText.Add("CMD_TPACCEPTED_RESPONCE", "TP Accepted by {p_name} you will arrive soon!");
+				//Teleport-Building
+				LanguageText.Add("CMD_TP_BUILDING", "Teleporting to {structure}!");
 				break;
 		}
 		LanguageText.Add("CANT_START_SINGLEPLAYER", "Error: Couldn't create singleplayer process.");

@@ -13,6 +13,7 @@ namespace MyMod
         {
             var server = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(LidServer));
 
+            ServerPlayer cserverPlayer = null;
             string[] commands = text.Split(' ');
             switch (commands[0])
             {
