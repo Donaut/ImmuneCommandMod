@@ -12,7 +12,7 @@ namespace MyMod
         internal static void HandleChatCommand(string text, ServerPlayer player, NetIncomingMessage msg)
         {
             var server = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(LidServer));
-
+            var building = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(Buildings));
             
             string[] commands = text.Split(' ');
             switch (commands[0])

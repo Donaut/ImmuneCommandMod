@@ -1616,11 +1616,18 @@ public class LidServer : LidgrenPeer
 			}
 			catch (Exception)
 			{
+				
+				
 				num2 = 0;
-				SendMessageToPlayerLocal("Please use /addxp #", a_player, msg);
+				if (num2 == 0)
+				{
+					SendMessageToPlayerLocal(LNG.Get("CMD_RETURN_USAGE_XP"), a_player, msg);
+				}
+
 			}
+			SendMessageToPlayerLocal("Added " + num2.ToString() + "XP!", a_player, msg);
 			a_player.AddXp(num2);
-			SendMessageToPlayerLocal("Given [value]XP.".Replace("[value]", num2.ToString()), a_player, msg);
+			
 		}
 		else if ("/addkarma" == array[0] && array.Length > 1)
 		{
@@ -1631,11 +1638,12 @@ public class LidServer : LidgrenPeer
 			}
 			catch (Exception)
 			{
+				SendMessageToPlayerLocal(LNG.Get("CMD_RETURN_USAGE_KARMA"), a_player, msg);
 				num3 = 0;
-				SendMessageToPlayerLocal("Please use /addkarma #", a_player, msg);
+				
 			}
+			SendMessageToPlayerLocal("Added " + num3.ToString() + " Karma Points!", a_player, msg);
 			a_player.ChangeKarmaBy(num3);
-			SendMessageToPlayerLocal("Given [value] Karma.".Replace("[value]", num3.ToString()), a_player, msg);
 		}
 		else if ("/addhp" == array[0] && array.Length > 1)
 		{
@@ -1646,11 +1654,12 @@ public class LidServer : LidgrenPeer
 			}
 			catch (Exception)
 			{
+				SendMessageToPlayerLocal(LNG.Get("CMD_RETURN_USAGE_HP"), a_player, msg);
 				num4 = 0;
-				SendMessageToPlayerLocal("Please use /addhp #", a_player, msg);
+				
 			}
+			SendMessageToPlayerLocal("Added " + num4.ToString() + "HP!", a_player, msg);
 			a_player.ChangeHealthBy(num4);
-			SendMessageToPlayerLocal("Given [value] Health.".Replace("[value]", num4.ToString()), a_player, msg);
 		}
 		else if ("/addenergy" == array[0] && array.Length > 1)
 		{
@@ -1661,11 +1670,13 @@ public class LidServer : LidgrenPeer
 			}
 			catch (Exception)
 			{
+				SendMessageToPlayerLocal(LNG.Get("CMD_RETURN_USAGE_ENERGY"), a_player, msg);
 				num5 = 0;
-				SendMessageToPlayerLocal("Please use /addenergy #", a_player, msg);
+				
 			}
+			SendMessageToPlayerLocal("Added "+num5.ToString()+" Energy!", a_player, msg);
 			a_player.ChangeEnergyBy(num5);
-			SendMessageToPlayerLocal("Given [value] Energy.".Replace("[value]", num5.ToString()), a_player, msg);
+			
 		}
 		else if ("/setcondition" == array[0] && array.Length > 1)
 		{
@@ -1747,6 +1758,7 @@ public class LidServer : LidgrenPeer
 		CreateTempContainerItem(131, 200, a_pos, a_containerType);
 		CreateTempContainerItem(132, 200, a_pos, a_containerType);
 		CreateTempContainerItem(133, 200, a_pos, a_containerType);
+		SendNotification("An airdrop has spawned, be the first there for GREAT LOOT!!!");
 	}
 
 	private bool OpenShopContainer(ServerPlayer a_player)

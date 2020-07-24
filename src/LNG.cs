@@ -528,6 +528,21 @@ public class LNG
 				LanguageText.Add("CMD_TPACCEPTED_RESPONCE", "TP Accepted by {p_name} you will arrive soon!");
 				//Teleport-Building
 				LanguageText.Add("CMD_TP_BUILDING", "Teleporting to {structure}!");
+				//Cmd-Returns
+				LanguageText.Add("CMD_RETURN_HP", "Added [a_hp]HP.");
+				LanguageText.Add("CMD_RETURN_ENERGY", "Added [a_energy] Energy.");
+				LanguageText.Add("CMD_RETURN_KARMA", "Added [a_karma] Karma.");
+				LanguageText.Add("CMD_RETURN_XP", "Added [a_xp] XP.");
+				//Cmd-Returns-Usage
+				LanguageText.Add("CMD_RETURN_USAGE_HP", "Correct usage is: /addhp 1-100");
+				LanguageText.Add("CMD_RETURN_USAGE_XP_ENERGY", "Correct usage is: /addenergy 1-100");
+				LanguageText.Add("CMD_RETURN_USAGE_KARMA", "Correct usage is: /addkarma 1-100");
+				LanguageText.Add("CMD_RETURN_USAGE_XP", "Correct usage is: /addxp 1-100");
+				//Cmd-Returns-Error
+				LanguageText.Add("CMD_ERROR_HP", "SOMETHIN WENT REAL WRONG HERE!");
+				LanguageText.Add("CMD_ERROR_ENERGY", "SOMETHIN WENT REAL WRONG HERE!");
+				LanguageText.Add("CMD_ERROR_KARMA", "SOMETHIN WENT REAL WRONG HERE!");
+				LanguageText.Add("CMD_ERROR_XP", "SOMETHIN WENT REAL WRONG HERE!");
 				break;
 		}
 		LanguageText.Add("CANT_START_SINGLEPLAYER", "Error: Couldn't create singleplayer process.");
