@@ -1731,7 +1731,9 @@ public class LidServer : LidgrenPeer
 			if (num9 != 0 && num10 != 0)
 			{
 				a_player.SetPosition(new Vector3(num9, 0f, num10));
-				SendMessageToPlayerLocal(LNG.Get("TO_POS").Replace("[dest]", final_dest), a_player, msg);
+				num9.ToString();
+				num10.ToString();
+				SendMessageToPlayerLocal(LNG.Get("TO_POS").Replace("[dest]", num9.ToString()+" "+num10.ToString()), a_player, msg);
 			}
 		}
 		

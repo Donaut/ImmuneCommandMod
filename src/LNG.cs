@@ -529,6 +529,7 @@ public class LNG
 				//Teleport-Building
 				LanguageText.Add("CMD_TP_BUILDING", "Teleporting to {structure}!");
 				//Cmd-Returns
+				LanguageText.Add("CMD_PID", "ID: {cp_id} ");
 				LanguageText.Add("CMD_RETURN_HP", "Added [a_hp]HP.");
 				LanguageText.Add("CMD_RETURN_ENERGY", "Added [a_energy] Energy.");
 				LanguageText.Add("CMD_RETURN_KARMA", "Added [a_karma] Karma.");
