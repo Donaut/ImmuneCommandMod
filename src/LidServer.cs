@@ -252,7 +252,6 @@ public class LidServer : LidgrenPeer
 			{
 				if (Time.time > player.m_cantLogoutTime || flag)
 				{
-					 //TEST
 					DisconnectPlayer(player);
 
 				}
@@ -1403,8 +1402,8 @@ public class LidServer : LidgrenPeer
 		ServerPlayer currentPlayer;
 		currentPlayer = GetPlayer(a_onlineId);
 
-		var doucheBagWhoJustLeft = currentPlayer.m_name.ToString();
-		SendNotification(doucheBagWhoJustLeft + " left the server!");
+		var playerLeave = currentPlayer.m_name.ToString();
+		SendNotification(playerLeave + " left the server!");
 
 		ServerPlayer player = null;
 		

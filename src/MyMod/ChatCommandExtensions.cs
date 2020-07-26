@@ -342,7 +342,7 @@ namespace MyMod
                         player, msg);
                     break;
                 case "/shout":
-                    server.SendNotification(text.Remove(0,6)); //How the actual fuck did i not think of this earlier?
+                    server.SendNotification(text.Remove(0,6)); 
                     break;
                 case "/commands":
                     server.SendMessageToPlayerLocal("<color=red>COMMANDS</color> <color=green>ARE</color> <color=purple>COLOR</color> <color=purple>CODED</color>! Each command is <color=red>color coded</color> within /help-commandname. Colors represent permission level needed to use them. <color=red>RED COMMANDS ARE ADMIN ONLY!!!</color> <color=yellow>YELLOW COMMANDS REQUIRE GOLD TO EXECUTE!</color> <color=green>GREEN COMMANDS ARE ALL LEVEL ACCESS!</color>", player, msg);
@@ -358,46 +358,15 @@ namespace MyMod
                 case "/?":
                     server.SendMessageToPlayerLocal("Com-Mod: <color=purple>Made by</color> <color=green>Va1idUser: Github.com/McSkinnerOG/ImmuneCommandMod</color> and <color=red>Donaut: Github.com/Donaut/ImmuneCommandMod</color>.", player, msg);
                     break;
-               
-
-                // Outdated/Wrong method for safe item dispersal/execution. "Potential spam/abuse to cause crashes." Left for educational purposes.
-                /*
-                              case "/weapon":
-                                    //Shotgun
-                                  server.CreateFreeWorldItem(63, 1, player.GetPosition(), 100);
-                                    //Ammo
-                                  server.CreateFreeWorldItem(44, 50, player.GetPosition());
-                                    //Sneakers
-                                  server.CreateFreeWorldItem(170, 1, player.GetPosition(), 100);
-                                  break;
-                              case "/food":
-                                    //Canned Food's
-                                  server.CreateFreeWorldItem(10, 2, player.GetPosition());
-                                   break;
-                              case "/medicine":
-                                  server.CreateFreeWorldItem(143, 2, player.GetPosition());
-                                   break;
-                */
+             
                 default:
                     break;
             }
-            switch (commands[1]) // This was so fucking easy but im too retarded to figure out basic arrays apparently....
+            switch (commands[1])
             {
-                case "kit-doc": // Really have to make JSON file for this shit.... Directly handling here is tedious and shit at best.
+                case "kit-doc": 
                     server.SendMessageToPlayerLocal("<color=purple>Doctor-kit costs 500gold and recieves: </color> <color=yellow>Leather-Vest x1, Shoes x1, </color> <color=white>Torch x1, Knife x1,</color> <color=brown>Cooked-Potatoes x6, Energy-Bar x1,</color> <color=cyan>Water x2,</color> <color=red>Bandages x3, Anti-Biotics x1 , Painkillers x2, Medpack x1</color>", player, msg);
                     break;
-                /*
-                 * Make JSON file for msg strings and also for kit definition
-                 * Kits:
-                 *    Bandit:
-                 *        Items: "Sword:1:100, item2:1:100, etc:1:100"
-                 *        Price: 500
-                 *        Permission: kit.bandit.forever || kit.bandit.time.xxx || kit.bandit.bypass
-                 *    Doctor:
-                 *        Items: "Sword:1:100, item2:1:100, etc:1:100"
-                 *        Price: 500
-                 *        Permission: kit.doctor.forever || kit.doctor.time.xxx || kit.doctor.bypass
-                 */
                 case "kit-scav1":
                     server.SendMessageToPlayerLocal("<color=purple>Scavenger-kit 1 costs 500gold and recieves: </color> <color=yellow>Scrap-Vest x1, Shoes x1, </color> <color=white>Machete x1, Knife x1, Revolver x1, 45mm Ammo x20</color> <color=brown> Raw-Meat x 1, Canned-Food x6, Energy-Bar x1,</color> <color=cyan>Beer x2,</color> <color=red>Bandages x3</color>", player, msg);
                     break;
