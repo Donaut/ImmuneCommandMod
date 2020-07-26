@@ -314,6 +314,7 @@
     <Compile Include="Swarm.cs" />
     <Compile Include="SwarmCenter.cs" />
     <Compile Include="SwitchView.cs" />
+    <Compile Include="TestGamepad.cs" />
     <Compile Include="TextLNG.cs" />
     <Compile Include="TheOneAndOnly.cs" />
     <Compile Include="ThreadTest.cs" />
@@ -327,6 +328,7 @@
     <Compile Include="WebRequest.cs" />
     <Compile Include="WheelCar.cs" />
     <Compile Include="WorldGenerator.cs" />
+    <Compile Include="WorldGenerator2x2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
