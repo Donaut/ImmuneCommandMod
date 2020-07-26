@@ -1715,7 +1715,7 @@ public class LidServer : LidgrenPeer
 				}
 			}
 		}
-		else if ("/teleport" == array[0] && array.Length > 2)
+		else if ("/tp" == array[0] && array.Length > 2)
 		{
 			int num9 = 0;
 			int num10 = 0;
@@ -1727,6 +1727,14 @@ public class LidServer : LidgrenPeer
 			}
 			catch (Exception)
 			{
+				if (num9 != 1 - 12000 && num10 != 1 - 12000)
+				{
+					SendMessageToPlayerLocal("Please use correctly EG: /tp 123 123", a_player, msg);
+				}
+			}
+			if (num9 != 1 - 12000 && num10 != 1 - 12000)
+			{
+				SendMessageToPlayerLocal("Please use correctly EG: /tp 123 123", a_player, msg);
 			}
 			if (num9 != 0 && num10 != 0)
 			{
@@ -1736,7 +1744,7 @@ public class LidServer : LidgrenPeer
 				SendMessageToPlayerLocal(LNG.Get("TO_POS").Replace("[dest]", num9.ToString()+" "+num10.ToString()), a_player, msg);
 			}
 		}
-		
+
 	}
 
 
