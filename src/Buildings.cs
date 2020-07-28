@@ -1,4 +1,4 @@
-public static class Buildings
+public class Buildings
 {
 	private const double c_hourInSec = 3600.0;
 

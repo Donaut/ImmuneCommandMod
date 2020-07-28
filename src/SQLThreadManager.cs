@@ -87,7 +87,7 @@ public class SQLThreadManager : MonoBehaviour
 			}
 			dbTransaction.Commit();
 		}
-		if (string.Empty != text)
+		if (!string.IsNullOrEmpty(text))
 		{
 			SQLExecute(text);
 		}
@@ -106,7 +106,7 @@ public class SQLThreadManager : MonoBehaviour
 		return m_maxPartyId;
 	}
 
-	public int PidToCid(int a_pid)
+	public static int PidToCid(int a_pid)
 	{
 		if (a_pid == 0)
 		{
@@ -115,7 +115,7 @@ public class SQLThreadManager : MonoBehaviour
 		return (1000000000 >= a_pid) ? (a_pid + 1000000000) : a_pid;
 	}
 
-	public int CidToPid(int a_cid)
+	public static int CidToPid(int a_cid)
 	{
 		if (a_cid == 0)
 		{
@@ -124,7 +124,7 @@ public class SQLThreadManager : MonoBehaviour
 		return (1000000000 <= a_cid) ? (a_cid - 1000000000) : a_cid;
 	}
 
-	public bool IsInventoryContainer(int a_cid)
+	public static bool IsInventoryContainer(int a_cid)
 	{
 		return a_cid >= 1000000000;
 	}

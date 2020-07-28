@@ -53,7 +53,7 @@ public class RPGThirdPersonCamera : MonoBehaviour
 	public static RPGThirdPersonCamera Instance
 	{
 		get;
-		private set;
+		set;
 	}
 
 	public bool HasCamera
