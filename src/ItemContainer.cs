@@ -176,7 +176,7 @@ public class ItemContainer
 					result.x = a_freeWorldDropPos.x;
 					result.y = a_freeWorldDropPos.z;
 					result.dropTime = Time.time;
-					int num = (!(null == m_sql)) ? m_sql.CidToPid(m_cid) : 0;
+					int num = (!(null == m_sql)) ? SQLThreadManager.CidToPid(m_cid) : 0;
 					result.dropPlayerId = ((m_cid != num) ? num : 0);
 				}
 				if (flag)

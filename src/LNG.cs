@@ -508,10 +508,43 @@ public class LNG
 			LanguageText.Add("EVENT_NOWATER", "There's No Water");
 			LanguageText.Add("CANT_LOGOUT_DURING_BATTLE", "You can't log out during combat. Please wait %1 seconds.");
 			LanguageText.Add("SERVER_RESTART_X_MINUTES", "The server will restart in {1} minutes. Visible items on the ground will be lost.");
-			LanguageText.Add("BROADCAST_1", "Thanks for testing I.C.E :D");
-			LanguageText.Add("BROADCAST_2", "Mod Made by: Donaut & Va1idUser!");
-			LanguageText.Add("BROADCAST_3", "Check The Immune Steam Disscussions for info and updates!");
-			break;
+				//broadcast
+				LanguageText.Add("BROADCAST_1", "Thankyou for playing the ICE-Mod Test Server!!!\nMade by: Donaut, Charlie & Va1idUser!");
+				LanguageText.Add("BROADCAST_2", "Check The Immune Steam Disscussions for info and updates!");
+				//welcome
+				LanguageText.Add("WELCOME_PLAYER", "Welcome {p_name} to the\nI.C.E-Mod Public Test Server.");
+				LanguageText.Add("WELCOME_LEAVE", "{p_name} Left The Server.");
+				LanguageText.Add("WELCOME_LEAVE2", "{p_name} Left The Server REEEE.");
+				//GENERAL
+				LanguageText.Add("CMD_ONLINE_PLAYERS", "Current Players Online: {p_online}.");
+				LanguageText.Add("CMD_PLAYERoID", "Player O-ID is: {o_id} .");
+				LanguageText.Add("CMD_PLAYERID", "Player O-ID is: {p_id} .");
+				//Teleport-Player
+				LanguageText.Add("TO_POS", "Teleported to [dest]!");
+				LanguageText.Add("CMD_TPPLAYER", "Player {pr_name} wants to TP to you.");
+				LanguageText.Add("CMD_TPACCEPTED", "TP Accepted {pr_name} will arrive soon!");
+				LanguageText.Add("CMD_TPDENY", "You denied {pr_name}'s TP request.");
+				LanguageText.Add("CMD_TPDENY_RESPONCE", "Your TP was denied by {p_name}.");
+				LanguageText.Add("CMD_TPACCEPTED_RESPONCE", "TP Accepted by {p_name} you will arrive soon!");
+				//Teleport-Building
+				LanguageText.Add("CMD_TP_BUILDING", "Teleporting to {structure}!");
+				//Cmd-Returns
+				LanguageText.Add("CMD_PID", "ID: {cp_id} ");
+				LanguageText.Add("CMD_RETURN_HP", "Added [a_hp]HP.");
+				LanguageText.Add("CMD_RETURN_ENERGY", "Added [a_energy] Energy.");
+				LanguageText.Add("CMD_RETURN_KARMA", "Added [a_karma] Karma.");
+				LanguageText.Add("CMD_RETURN_XP", "Added [a_xp] XP.");
+				//Cmd-Returns-Usage
+				LanguageText.Add("CMD_RETURN_USAGE_HP", "Correct usage is: /addhp 1-100");
+				LanguageText.Add("CMD_RETURN_USAGE_XP_ENERGY", "Correct usage is: /addenergy 1-100");
+				LanguageText.Add("CMD_RETURN_USAGE_KARMA", "Correct usage is: /addkarma 1-100");
+				LanguageText.Add("CMD_RETURN_USAGE_XP", "Correct usage is: /addxp 1-100");
+				//Cmd-Returns-Error
+				LanguageText.Add("CMD_ERROR_HP", "SOMETHIN WENT REAL WRONG HERE!");
+				LanguageText.Add("CMD_ERROR_ENERGY", "SOMETHIN WENT REAL WRONG HERE!");
+				LanguageText.Add("CMD_ERROR_KARMA", "SOMETHIN WENT REAL WRONG HERE!");
+				LanguageText.Add("CMD_ERROR_XP", "SOMETHIN WENT REAL WRONG HERE!");
+				break;
 		}
 		LanguageText.Add("CANT_START_SINGLEPLAYER", "Error: Couldn't create singleplayer process.");
 		LanguageText.Add("HELP_SAVEITEMS", "Save Loot");

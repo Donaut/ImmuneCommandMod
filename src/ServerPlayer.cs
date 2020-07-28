@@ -185,7 +185,7 @@ public class ServerPlayer
 			m_respawnTime = Time.time;
 		}
 		m_char.Init(this);
-		m_inventory = new ItemContainer(5, 4, 0, m_sql.PidToCid(m_pid), m_sql, this);
+		m_inventory = new ItemContainer(5, 4, 0, SQLThreadManager.PidToCid(m_pid), m_sql, this);
 		m_buildMan.IgnoreBedCollision(m_pid, m_char.collider);
 	}
 
@@ -470,7 +470,7 @@ public class ServerPlayer
 	{
 		m_xp = Mathf.Max(m_xp + a_xp, 0);
 		RecalculateRank();
-		m_server.SendRankUpdate(this, a_xp);
+        LidServer.SendRankUpdate(this, a_xp);
 	}
 
 	public float ChangeHealthBy(float a_delta)
@@ -494,7 +494,7 @@ public class ServerPlayer
 			m_condition = 0;
 			AddXp((int)((float)m_xp * 0.05f) * -1);
 			m_gold = (int)((float)m_gold * 0.95f);
-			m_server.SendMoneyUpdate(this);
+            LidServer.SendMoneyUpdate(this);
 			m_cantLogoutTime = -1f;
 			m_respawnTime = Time.time + 5f;
 		}
@@ -926,7 +926,7 @@ public class ServerPlayer
 		if (m_lastCondition != m_condition)
 		{
 			m_lastCondition = m_condition;
-			m_server.SendConditionUpdate(this);
+            LidServer.SendConditionUpdate(this);
 		}
 	}
 

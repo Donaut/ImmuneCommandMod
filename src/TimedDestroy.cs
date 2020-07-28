@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TimedDestroy : MonoBehaviour
 {
-	public float m_destroyAfter = 60f;
+	public float m_destroyAfter = 10f;
 
 	private float m_dieTime;
 
