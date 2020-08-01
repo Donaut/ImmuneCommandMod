@@ -434,7 +434,7 @@ public class LidClient : LidgrenPeer
 			netOutgoingMessage.Write(m_name);
 			netOutgoingMessage.Write(m_pwhash);
 			netOutgoingMessage.Write(m_id);
-			netOutgoingMessage.Write("1.0.1");
+			netOutgoingMessage.Write("1.0.1");//Change for mod forc
 			netOutgoingMessage.Write((byte)PlayerPrefs.GetInt("prefAppearance", 0));
 			m_serverCon.SendMessage(netOutgoingMessage, NetDeliveryMethod.ReliableOrdered, 1);
 		}

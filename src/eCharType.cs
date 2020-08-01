@@ -1,6 +1,6 @@
 public enum eCharType
 {
-	ePlayer,
+	ePlayer, //0 1 2 etc
 	eCar,
 	eGasmaskGuy,
 	eMutant,

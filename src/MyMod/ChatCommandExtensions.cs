@@ -12,7 +12,6 @@ namespace MyMod
         internal static void HandleChatCommand(string text, ServerPlayer player, NetIncomingMessage msg)
         {
             var server = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(LidServer));
-            var building = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(Buildings));
             
             string[] commands = text.Split(' ');
             switch (commands[0])
@@ -235,101 +234,6 @@ namespace MyMod
                         server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medkit
                         LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT GUARD-3 KIT!!!", player, msg);
-                    }
-                    break;
-                case "/kit-police":
-                    int IA_7 = player.m_inventory.GetItemAmountByType(254);
-                    if (IA_7 <= 499)
-                    {
-                        server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
-                    }
-                    else if (IA_7 >= 499)
-                    {
-                        int num = 500;
-                        num = Math.Min(IA_7, num);
-                        player.m_inventory.DeclineItemAmountByType(254, num);
-                        server.CreateFreeWorldItem(107, 1, player.GetPosition(), 100);
-                        server.CreateFreeWorldItem(120, 1, player.GetPosition());
-                        server.CreateFreeWorldItem(152, 1, player.GetPosition(), 100);
-                        server.CreateFreeWorldItem(41, 50, player.GetPosition());
-                        server.CreateFreeWorldItem(60, 1, player.GetPosition(), 100);
-                    }
-                    break;
-                case "/kit-cult":
-                    int IA_8 = player.m_inventory.GetItemAmountByType(254); 
-                    if (IA_8 <= 499)
-                    {
-                        server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
-                    }
-                    else if (IA_8 >= 499)
-                    {
-                        int num = 500;
-                        num = Math.Min(IA_8, num);
-                        player.m_inventory.DeclineItemAmountByType(254, num);
-                        server.CreateFreeWorldItem(121, 3, player.GetPosition());
-                        server.CreateFreeWorldItem(6, 10, player.GetPosition());
-                        server.CreateFreeWorldItem(107, 10, player.GetPosition(), 100);
-
-                    }
-                    break;
-                case "/kit-basic":
-                    int IA_9 = player.m_inventory.GetItemAmountByType(254); 
-                    if (IA_9 <= 299)
-                    {
-                        server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
-                    }
-                    else if (IA_9 >= 299)
-                    {
-                        int num = 300;
-                        num = Math.Min(IA_9, num);
-                        player.m_inventory.DeclineItemAmountByType(254, num);
-                        server.CreateFreeWorldItem(130, 30, player.GetPosition());
-                        server.CreateFreeWorldItem(107, 1, player.GetPosition(), 100);
-                        server.CreateFreeWorldItem(5, 10, player.GetPosition());
-                        server.CreateFreeWorldItem(41, 50, player.GetPosition());
-                        server.CreateFreeWorldItem(60, 1, player.GetPosition(), 100);
-
-                    }
-                    break;
-                case "/kit-cultleader":
-                    int IA_10 = player.m_inventory.GetItemAmountByType(254); 
-                    if (IA_10 <= 999)
-                    {
-                        server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
-                    }
-                    else if (IA_10 >= 999)
-                    {
-                        int num = 1000;
-                        num = Math.Min(IA_10, num);
-                        player.m_inventory.DeclineItemAmountByType(254, num);
-                        server.CreateFreeWorldItem(132, 20, player.GetPosition());
-                        server.CreateFreeWorldItem(106, 2, player.GetPosition(), 100);
-                        server.CreateFreeWorldItem(170, 2, player.GetPosition(), 100);
-                        server.CreateFreeWorldItem(120, 2, player.GetPosition());
-                        server.CreateFreeWorldItem(41, 50, player.GetPosition());
-                        server.CreateFreeWorldItem(66, 1, player.GetPosition(), 100);
-
-                    }
-                    break;
-                case "/kit-fireblade":
-                    int IA_11 = player.m_inventory.GetItemAmountByType(254); 
-                    if (IA_11 <= 4999)
-                    {
-                        server.SendMessageToPlayerLocal("Not Enough Gold!", player, msg);
-                    }
-                    else if (IA_11 >= 4999)
-                    {
-                        int num = 5000;
-                        num = Math.Min(IA_11, num);
-                        player.m_inventory.DeclineItemAmountByType(254, num);
-                        server.CreateFreeWorldItem(154, 1, player.GetPosition(), 100);
-                        server.CreateFreeWorldItem(170, 1, player.GetPosition(), 100);
-                        server.CreateFreeWorldItem(43, 50, player.GetPosition());
-                        server.CreateFreeWorldItem(65, 1, player.GetPosition(), 100);
-                        server.CreateFreeWorldItem(90, 1, player.GetPosition(), 100);
-                        server.CreateFreeWorldItem(131, 20, player.GetPosition());
-                        server.CreateFreeWorldItem(120, 1, player.GetPosition());
-
                     }
                     break;
                 case "/players":

@@ -1562,21 +1562,94 @@ public class LidServer : LidgrenPeer
 		}
 		else if ("/char" == array[0] && array.Length > 1)
 		{
+			
 			eCharType eCharType = eCharType.ePlayer;
-			try
+			var eMutant = eCharType.eMutant;
+			if (array[1] == "Car")
 			{
-				eCharType = (eCharType)int.Parse(array[1]);
+				eCharType = (eCharType)(1);
 			}
-			catch (Exception)
+			else if (array[1] == "GasMask-Guy")
 			{
-				eCharType = eCharType.ePlayer;
+				eCharType = (eCharType)(2);
+			}
+			else if (array[1] == "Zombie")
+			{
+				eCharType = (eCharType)(3);
+			}
+			else if (array[1] == "Chicken")
+			{
+				eCharType = (eCharType)(4);
+			}
+			else if (array[1] == "Raven")
+			{
+				eCharType = (eCharType)(5);
+			}
+			else if (array[1] == "Deer")
+			{
+				eCharType = (eCharType)(6);
+			}
+			else if (array[1] == "Bull")
+			{
+				eCharType = (eCharType)(7);
+			}
+			else if (array[1] == "Pig")
+			{
+				eCharType = (eCharType)(8);
+			}
+			else if (array[1] == "Dog")
+			{
+				eCharType = (eCharType)(9);
+			}
+			else if (array[1] == "Survivor")
+			{
+				eCharType = (eCharType)(10);
+			}
+			else if (array[1] == "Survivor-F")
+			{
+				eCharType = (eCharType)(11);
+			}
+			else if (array[1] == "Player-F")
+			{
+				eCharType = (eCharType)(12);
+			}
+			else if (array[1] == "Fox")
+			{
+				eCharType = (eCharType)(13);
+			}
+			else if (array[1] == "Sheep")
+			{
+				eCharType = (eCharType)(14);
+			}
+			else if (array[1] == "Eagle")
+			{
+				eCharType = (eCharType)(15);
+			}
+			else if (array[1] == "Cow")
+			{
+				eCharType = (eCharType)(16);
+			}
+			else if (array[1] == "SurvivorMutant")
+			{
+				eCharType = (eCharType)(17);
+			}
+			else if (array[1] == "Spider")
+			{
+				eCharType = (eCharType)(18);
+			}
+			else if (array[1] == "Poison-Spider")
+			{
+				eCharType = (eCharType)(19);
 			}
 			if ((a_player.m_isAdmin || eCharType == eCharType.ePlayer || eCharType == eCharType.ePlayerFemale) && a_player.m_charType != eCharType)
 			{
 				a_player.m_charType = eCharType;
 				a_player.m_updateInfoFlag = true;
 			}
+			
 		}
+
+
 		if (!a_player.m_isAdmin)
 		{
 			return;
@@ -1677,18 +1750,36 @@ public class LidServer : LidgrenPeer
 			a_player.ChangeEnergyBy(num5);
 			
 		}
-		else if ("/setcondition" == array[0] && array.Length > 1)
+		else if ("/buff" == array[0] && array.Length > 1)
 		{
-			int num6 = 0;
-			try
+			if (array[1] == "Starve")
 			{
-				num6 = int.Parse(array[1]);
+				a_player.SetConditions(0);
 			}
-			catch (Exception)
+			else if (array[1] == "Infected")
 			{
-				num6 = 0;
+				a_player.SetConditions(1);
 			}
-			a_player.SetConditions(num6);
+			else if (array[1] == "Bleeding")
+			{
+				a_player.SetConditions(2);
+			}
+			else if (array[1] == "Freezing")
+			{
+				a_player.SetConditions(3);
+			}
+			else if (array[1] == "Radiation")
+			{
+				a_player.SetConditions(4);
+			}
+			else if (array[1] == "Pain")
+			{
+				a_player.SetConditions(5);
+			}
+			else if (array[1] == "Clear")
+			{
+				a_player.SetConditions(6);
+			}
 		}
 		else if ("/drop" == array[0] && array.Length > 1)
 		{
