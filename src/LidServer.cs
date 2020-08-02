@@ -1568,78 +1568,97 @@ public class LidServer : LidgrenPeer
 			if (array[1] == "Car")
 			{
 				eCharType = (eCharType)(1);
+				SendMessageToPlayerLocal("Changed Skin to Car.", a_player, msg);
 			}
 			else if (array[1] == "GasMask-Guy")
 			{
 				eCharType = (eCharType)(2);
+				SendMessageToPlayerLocal("Changed Skin to GasMask-Guy.", a_player, msg);
 			}
 			else if (array[1] == "Zombie")
 			{
 				eCharType = (eCharType)(3);
+				SendMessageToPlayerLocal("Changed Skin to Zombie.", a_player, msg);
 			}
 			else if (array[1] == "Chicken")
 			{
 				eCharType = (eCharType)(4);
+				SendMessageToPlayerLocal("Changed Skin to Chicken.", a_player, msg);
 			}
 			else if (array[1] == "Raven")
 			{
 				eCharType = (eCharType)(5);
+				SendMessageToPlayerLocal("Changed Skin to Raven.", a_player, msg);
 			}
 			else if (array[1] == "Deer")
 			{
 				eCharType = (eCharType)(6);
+				SendMessageToPlayerLocal("Changed Skin to Deer.", a_player, msg);
 			}
 			else if (array[1] == "Bull")
 			{
 				eCharType = (eCharType)(7);
+				SendMessageToPlayerLocal("Changed Skin to Bull.", a_player, msg);
 			}
 			else if (array[1] == "Pig")
 			{
 				eCharType = (eCharType)(8);
+				SendMessageToPlayerLocal("Changed Skin to Pig.", a_player, msg);
 			}
 			else if (array[1] == "Dog")
 			{
 				eCharType = (eCharType)(9);
+				SendMessageToPlayerLocal("Changed Skin to Dog.", a_player, msg);
 			}
 			else if (array[1] == "Survivor")
 			{
 				eCharType = (eCharType)(10);
+				SendMessageToPlayerLocal("Changed Skin to Survivor.", a_player, msg);
 			}
 			else if (array[1] == "Survivor-F")
 			{
 				eCharType = (eCharType)(11);
+				SendMessageToPlayerLocal("Changed Skin to Survivor-F.", a_player, msg);
 			}
 			else if (array[1] == "Player-F")
 			{
 				eCharType = (eCharType)(12);
+				SendMessageToPlayerLocal("Changed Skin to Player-F.", a_player, msg);
 			}
 			else if (array[1] == "Fox")
 			{
 				eCharType = (eCharType)(13);
+				SendMessageToPlayerLocal("Changed Skin to Fox.", a_player, msg);
 			}
 			else if (array[1] == "Sheep")
 			{
 				eCharType = (eCharType)(14);
+				SendMessageToPlayerLocal("Changed Skin to Sheep.", a_player, msg);
 			}
 			else if (array[1] == "Eagle")
 			{
 				eCharType = (eCharType)(15);
+				SendMessageToPlayerLocal("Changed Skin to Eagle.", a_player, msg);
 			}
 			else if (array[1] == "Cow")
 			{
 				eCharType = (eCharType)(16);
+				SendMessageToPlayerLocal("Changed Skin to Cow.", a_player, msg);
 			}
 			else if (array[1] == "SurvivorMutant")
 			{
 				eCharType = (eCharType)(17);
+				SendMessageToPlayerLocal("Changed Skin to SurvivorMutant.", a_player, msg);
 			}
 			else if (array[1] == "Spider")
 			{
 				eCharType = (eCharType)(18);
+				SendMessageToPlayerLocal("Changed Skin to Spider.", a_player, msg);
 			}
 			else if (array[1] == "Poison-Spider")
 			{
 				eCharType = (eCharType)(19);
+				SendMessageToPlayerLocal("Changed Skin to Posion-Spider.", a_player, msg);
 			}
 			if ((a_player.m_isAdmin || eCharType == eCharType.ePlayer || eCharType == eCharType.ePlayerFemale) && a_player.m_charType != eCharType)
 			{
@@ -1757,6 +1776,7 @@ public class LidServer : LidgrenPeer
 			var eMutant = eCharType.eMutant;
 			if (array[1] == "Starve")
 			{
+			
 				a_player.SetCondition(eCondition.starvation, true);
 			}
 			else if (array[1] == "Infected")
@@ -1789,6 +1809,7 @@ public class LidServer : LidgrenPeer
 				a_player.SetCondition(eCondition.infection, false);
 				a_player.ChangeHealthBy(100f);
 				a_player.ChangeEnergyBy(100f);
+				SendMessageToPlayerLocal("Cleared All effects on your player!", a_player, msg);
 			}
 		}
 		else if ("/drop" == array[0] && array.Length > 1)
