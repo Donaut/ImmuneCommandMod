@@ -1752,33 +1752,43 @@ public class LidServer : LidgrenPeer
 		}
 		else if ("/buff" == array[0] && array.Length > 1) // BROKEN AS FUCK LMAO!! FIX ASAP!!!!
 		{
+
+			eCondition eCondition = eCondition.none;
+			var eMutant = eCharType.eMutant;
 			if (array[1] == "Starve")
 			{
-				a_player.SetConditions(0);
+				a_player.SetCondition(eCondition.starvation, true);
 			}
 			else if (array[1] == "Infected")
 			{
-				a_player.SetConditions(1);
+				a_player.SetCondition(eCondition.infection, true);
 			}
 			else if (array[1] == "Bleeding")
 			{
-				a_player.SetConditions(2);
+				a_player.SetCondition(eCondition.bleeding, true);
 			}
 			else if (array[1] == "Freezing")
 			{
-				a_player.SetConditions(3);
+				a_player.SetCondition(eCondition.freezing, true);
 			}
 			else if (array[1] == "Radiation")
 			{
-				a_player.SetConditions(4);
+				a_player.SetCondition(eCondition.radiation, true);
 			}
 			else if (array[1] == "Pain")
 			{
-				a_player.SetConditions(5);
+				a_player.SetCondition(eCondition.pain, true);
 			}
 			else if (array[1] == "Clear")
 			{
-				a_player.SetConditions(6);
+				a_player.SetCondition(eCondition.none, true);
+				a_player.SetCondition(eCondition.pain, false);
+				a_player.SetCondition(eCondition.radiation, false);
+				a_player.SetCondition(eCondition.freezing, false);
+				a_player.SetCondition(eCondition.bleeding, false);
+				a_player.SetCondition(eCondition.infection, false);
+				a_player.ChangeHealthBy(100f);
+				a_player.ChangeEnergyBy(100f);
 			}
 		}
 		else if ("/drop" == array[0] && array.Length > 1)
