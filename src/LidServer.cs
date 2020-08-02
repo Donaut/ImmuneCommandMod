@@ -1560,7 +1560,7 @@ public class LidServer : LidgrenPeer
 				}
 			}
 		}
-		else if ("/char" == array[0] && array.Length > 1)
+		else if ("/skin" == array[0] && array.Length > 1)
 		{
 			
 			eCharType eCharType = eCharType.ePlayer;
@@ -1750,7 +1750,7 @@ public class LidServer : LidgrenPeer
 			a_player.ChangeEnergyBy(num5);
 			
 		}
-		else if ("/buff" == array[0] && array.Length > 1)
+		else if ("/buff" == array[0] && array.Length > 1) // BROKEN AS FUCK LMAO!! FIX ASAP!!!!
 		{
 			if (array[1] == "Starve")
 			{
