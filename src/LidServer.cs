@@ -1845,43 +1845,88 @@ public class LidServer : LidgrenPeer
 		}
 		else if ("/tp" == array[0] && "Terminus" == array[1])
 		{
-			var loc_term = new Vector3(-925, 0, 869);
-			a_player.SetPosition(loc_term);
+			var loc = new Vector3(-925, 0, 869);
+			a_player.SetPosition(loc);
 		}
 		else if ("/tp" == array[0] && "Garbage" == array[1])
 		{
-			var loc_garb = new Vector3(-646, 0, 1054);
-			a_player.SetPosition(loc_garb);
+			var loc = new Vector3(-646, 0, 1054);
+			a_player.SetPosition(loc);
 		}
 		else if ("/tp" == array[0] && "Castle" == array[1])
 		{
-			var loc_castle = new Vector3(-267, 0, 178);
-			a_player.SetPosition(loc_castle);
+			var loc = new Vector3(-267, 0, 178);
+			a_player.SetPosition(loc);
 		}
 		else if ("/tp" == array[0] && "Area42" == array[1])
 		{
-			var loc_42 = new Vector3(-1030, 0, -274);
-			a_player.SetPosition(loc_42);
+			var loc = new Vector3(-1030, 0, -274);
+			a_player.SetPosition(loc);
 		}
 		else if ("/tp" == array[0] && "Fort-B" == array[1])
 		{
-			var loc_fort = new Vector3(-1043, 0, 14);
-			a_player.SetPosition(loc_fort);
+			var loc = new Vector3(-1043, 0, 14);
+			a_player.SetPosition(loc);
 		}
 		else if ("/tp" == array[0] && "GasTown" == array[1])
 		{
-			var loc_fort = new Vector3(-1054, 0, 310);
-			a_player.SetPosition(loc_fort);
+			var loc = new Vector3(-1054, 0, 310);
+			a_player.SetPosition(loc);
 		}
 		else if ("/tp" == array[0] && "West-Port" == array[1])
 		{
-			var loc_fort = new Vector3(1113, 0, 109);
-			a_player.SetPosition(loc_fort);
+			var loc = new Vector3(1113, 0, 109);
+			a_player.SetPosition(loc);
 		}
 		else if ("/tp" == array[0] && "Madison" == array[1])
 		{
-			var loc_fort = new Vector3(-643, 0, -1033);
-			a_player.SetPosition(loc_fort);
+			var loc = new Vector3(-643, 0, -1033);
+			a_player.SetPosition(loc);
+		}
+		else if ("/tp" == array[0] && "Venmore" == array[1])
+		{
+			var loc = new Vector3(-407, 0, 647);
+			a_player.SetPosition(loc);
+		}
+		else if ("/tp" == array[0] && "Valley" == array[1])
+		{
+			var loc = new Vector3(-1004, 0, -1044);
+			a_player.SetPosition(loc);
+		}
+		else if ("/tp" == array[0] && "Alexandria" == array[1])
+		{
+			var loc = new Vector3(341, 0, 161);
+			a_player.SetPosition(loc);
+		}
+		else if ("/tp" == array[0] && "Riverside" == array[1])
+		{
+			var loc = new Vector3(430, 0, 735);
+			a_player.SetPosition(loc);
+		}
+		else if ("/tp" == array[0] && "Tallahassee" == array[1])
+		{
+			var loc = new Vector3(94, 0, 1014);
+			a_player.SetPosition(loc);
+		}
+		else if ("/tp" == array[0] && "Airport" == array[1])
+		{
+			var loc = new Vector3(-355, 0, 1053);
+			a_player.SetPosition(loc);
+		}
+		else if ("/tp" == array[0] && "PowePlant" == array[1])
+		{
+			var loc = new Vector3(1192, 0, 1184);
+			a_player.SetPosition(loc);
+		}
+		else if ("/tp" == array[0] && "GasRanch" == array[1])
+		{
+			var loc = new Vector3(681, 0, 1158);
+			a_player.SetPosition(loc);
+		}
+		else if ("/tp" == array[0] && "Riverside-SZ" == array[1])
+		{
+			var loc = new Vector3(628, 0, 631);
+			a_player.SetPosition(loc);
 		}
 		else if ("/tp" == array[0] && array.Length > 2)
 		{
