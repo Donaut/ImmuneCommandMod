@@ -11,11 +11,13 @@ public class Init : MonoBehaviour
 	{
 		Application.runInBackground = true;
 		Application.targetFrameRate = 100;
+		
 		Debug.Log(Environment.CommandLine);
 		if (!Application.isEditor)
 		{
 			if (Environment.CommandLine.Contains("-batchmode"))
 			{
+				Screen.showCursor = true;
 				LidServer lidServer = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(LidServer));
 				lidServer.enabled = true;
 				lidServer.m_shutdownIfEmpty = Environment.CommandLine.Contains("-killonempty");
@@ -27,6 +29,7 @@ public class Init : MonoBehaviour
 			}
 		}
 		Screen.showCursor = true;
+		
 		Cursor.SetCursor(m_cursor, m_cursorOffset, CursorMode.Auto);
 	}
 

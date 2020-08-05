@@ -4,7 +4,7 @@ public class DestroyableResource : ServerBuilding
 {
 	public int m_itemIndex = 130;
 
-	public int m_quantity = 10;
+	public int m_quantity = 1000;
 
 	public float m_respawnDur = 120f;
 

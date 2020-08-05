@@ -1560,11 +1560,12 @@ public class LidServer : LidgrenPeer
 				}
 			}
 		}
-		else if ("/skin" == array[0] && array.Length > 1)
+		else if (("/skin" == array[0] && array.Length > 1 ) && (a_player.m_isAdmin = true || a_player.m_gold > 0))
 		{
 			
 			eCharType eCharType = eCharType.ePlayer;
 			var eMutant = eCharType.eMutant;
+
 			if (array[1] == "Car")
 			{
 				eCharType = (eCharType)(1);
@@ -1660,6 +1661,7 @@ public class LidServer : LidgrenPeer
 				eCharType = (eCharType)(19);
 				SendMessageToPlayerLocal("Changed Skin to Posion-Spider.", a_player, msg);
 			}
+			
 			if ((a_player.m_isAdmin || eCharType == eCharType.ePlayer || eCharType == eCharType.ePlayerFemale) && a_player.m_charType != eCharType)
 			{
 				a_player.m_charType = eCharType;
@@ -1677,7 +1679,7 @@ public class LidServer : LidgrenPeer
 		{
 			NetOutgoingMessage netOutgoingMessage = a_player.m_connection.Peer.CreateMessage();
 			netOutgoingMessage.Write(MessageIds.Chat);
-			netOutgoingMessage.Write("[SERVER]: fps_cur: " + (int)(1f / Time.smoothDeltaTime) + " fps_alltime: " + (int)((float)Time.frameCount / Time.time) + " buildings: " + m_buildingMan.m_buildings.Count + " fwitems: " + m_freeWorldItems.Count + " fwicontainers: " + m_freeWorldContainers.Count);
+			netOutgoingMessage.Write("[SERVER]: fps_cur: " + (int)(1f / Time.smoothDeltaTime) + "\n fps_alltime: " + (int)((float)Time.frameCount / Time.time) + " \nbuildings: " + m_buildingMan.m_buildings.Count + " \nitems: " + m_freeWorldItems.Count + " \ntempcontainers: " + m_freeWorldContainers.Count + "POS:" + a_player.GetPosition().ToString());
 			a_player.m_connection.SendMessage(netOutgoingMessage, NetDeliveryMethod.ReliableOrdered, 1);
 		}
 		else if ("/airdrop" == array[0])
@@ -1703,12 +1705,12 @@ public class LidServer : LidgrenPeer
 			try
 			{
 				num2 = int.Parse(array[1]);
-				
+
 			}
 			catch (Exception)
 			{
-				
-				
+
+
 				num2 = 0;
 				if (num2 == 0)
 				{
@@ -1718,7 +1720,7 @@ public class LidServer : LidgrenPeer
 			}
 			SendMessageToPlayerLocal("Added " + num2.ToString() + "XP!", a_player, msg);
 			a_player.AddXp(num2);
-			
+
 		}
 		else if ("/addkarma" == array[0] && array.Length > 1)
 		{
@@ -1731,7 +1733,7 @@ public class LidServer : LidgrenPeer
 			{
 				SendMessageToPlayerLocal(LNG.Get("CMD_RETURN_USAGE_KARMA"), a_player, msg);
 				num3 = 0;
-				
+
 			}
 			SendMessageToPlayerLocal("Added " + num3.ToString() + " Karma Points!", a_player, msg);
 			a_player.ChangeKarmaBy(num3);
@@ -1747,7 +1749,7 @@ public class LidServer : LidgrenPeer
 			{
 				SendMessageToPlayerLocal(LNG.Get("CMD_RETURN_USAGE_HP"), a_player, msg);
 				num4 = 0;
-				
+
 			}
 			SendMessageToPlayerLocal("Added " + num4.ToString() + "HP!", a_player, msg);
 			a_player.ChangeHealthBy(num4);
@@ -1763,11 +1765,11 @@ public class LidServer : LidgrenPeer
 			{
 				SendMessageToPlayerLocal(LNG.Get("CMD_RETURN_USAGE_ENERGY"), a_player, msg);
 				num5 = 0;
-				
+
 			}
-			SendMessageToPlayerLocal("Added "+num5.ToString()+" Energy!", a_player, msg);
+			SendMessageToPlayerLocal("Added " + num5.ToString() + " Energy!", a_player, msg);
 			a_player.ChangeEnergyBy(num5);
-			
+
 		}
 		else if ("/buff" == array[0] && array.Length > 1) // BROKEN AS FUCK LMAO!! FIX ASAP!!!!
 		{
@@ -1776,7 +1778,7 @@ public class LidServer : LidgrenPeer
 			var eMutant = eCharType.eMutant;
 			if (array[1] == "Starve")
 			{
-			
+
 				a_player.SetCondition(eCondition.starvation, true);
 			}
 			else if (array[1] == "Infected")
@@ -1836,11 +1838,56 @@ public class LidServer : LidgrenPeer
 				}
 			}
 		}
+		else if ("/tp" == array[0] && "HomeTown" == array[1])
+		{
+			var loc_ht = new Vector3(-909, 0, 612);
+			a_player.SetPosition(loc_ht);
+		}
+		else if ("/tp" == array[0] && "Terminus" == array[1])
+		{
+			var loc_term = new Vector3(-925, 0, 869);
+			a_player.SetPosition(loc_term);
+		}
+		else if ("/tp" == array[0] && "Garbage" == array[1])
+		{
+			var loc_garb = new Vector3(-646, 0, 1054);
+			a_player.SetPosition(loc_garb);
+		}
+		else if ("/tp" == array[0] && "Castle" == array[1])
+		{
+			var loc_castle = new Vector3(-267, 0, 178);
+			a_player.SetPosition(loc_castle);
+		}
+		else if ("/tp" == array[0] && "Area42" == array[1])
+		{
+			var loc_42 = new Vector3(-1030, 0, -274);
+			a_player.SetPosition(loc_42);
+		}
+		else if ("/tp" == array[0] && "Fort-B" == array[1])
+		{
+			var loc_fort = new Vector3(-1043, 0, 14);
+			a_player.SetPosition(loc_fort);
+		}
+		else if ("/tp" == array[0] && "GasTown" == array[1])
+		{
+			var loc_fort = new Vector3(-1054, 0, 310);
+			a_player.SetPosition(loc_fort);
+		}
+		else if ("/tp" == array[0] && "West-Port" == array[1])
+		{
+			var loc_fort = new Vector3(1113, 0, 109);
+			a_player.SetPosition(loc_fort);
+		}
+		else if ("/tp" == array[0] && "Madison" == array[1])
+		{
+			var loc_fort = new Vector3(-643, 0, -1033);
+			a_player.SetPosition(loc_fort);
+		}
 		else if ("/tp" == array[0] && array.Length > 2)
 		{
 			int num9 = 0;
 			int num10 = 0;
-			string final_dest = "X:"+num9.ToString() + " Z:"+num10.ToString();
+			string final_dest = "X:" + num9.ToString() + " Z:" + num10.ToString();
 			try
 			{
 				num9 = int.Parse(array[1]);
@@ -1862,7 +1909,7 @@ public class LidServer : LidgrenPeer
 				a_player.SetPosition(new Vector3(num9, 0f, num10));
 				num9.ToString();
 				num10.ToString();
-				SendMessageToPlayerLocal(LNG.Get("TO_POS").Replace("[dest]", num9.ToString()+" "+num10.ToString()), a_player, msg);
+				SendMessageToPlayerLocal(LNG.Get("TO_POS").Replace("[dest]", num9.ToString() + " " + num10.ToString()), a_player, msg);
 			}
 		}
 
