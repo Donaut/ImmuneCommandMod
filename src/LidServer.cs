@@ -1537,6 +1537,16 @@ public class LidServer : LidgrenPeer
 			SendMessageToPlayerLocal("Admin commands unlocked.", a_player, msg);
 			Debug.Log(a_player.m_name + " (Steam ID: " + a_player.m_accountId + ") just logged in as admin");
 		}
+		else if ("/tp" == array[0])
+		{
+			var re_name = GetPlayerByName(array[1].ToString()).m_name.ToString();
+			var re_pos = GetPlayerByName(array[1].ToString()).GetPosition();
+			if (array[1] == re_name)
+			{
+				a_player.SetPosition(re_pos);
+			}
+
+		}
 		else if (("/skin" == array[0] && array.Length > 1) && (a_player.m_isAdmin = true))
 		{
 			if (array[1] == "0" || array[1] == "Player")
@@ -2610,6 +2620,17 @@ public class LidServer : LidgrenPeer
 		for (int i = 0; i < m_players.Length; i++)
 		{
 			if (m_players[i] != null && m_players[i].IsSpawned() && a_aid == m_players[i].m_accountId)
+			{
+				return m_players[i];
+			}
+		}
+		return null;
+	}
+	public ServerPlayer GetPlayerByName(string a_name)
+	{
+		for (int i = 0; i < m_players.Length; i++)
+		{
+			if (m_players[i] != null && m_players[i].IsSpawned() && a_name == m_players[i].m_name)
 			{
 				return m_players[i];
 			}
