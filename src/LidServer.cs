@@ -1542,7 +1542,6 @@ public class LidServer : LidgrenPeer
 			if (array[1] == "0" || array[1] == "Player")
 			{
 				a_player.m_skinIndex = 0;
-				a_player.m_lookIndex = 1;
 				SendMessageToPlayerLocal("Changed Skin to: "+array[1].ToString(), a_player, msg);
 			}
 			else if (array[1] == "1" || array[1] == "Chad" || array[1] == "Yakuza")
