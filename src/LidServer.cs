@@ -1552,7 +1552,7 @@ public class LidServer : LidgrenPeer
 			if (array[1] == "0" || array[1] == "Player")
 			{
 				a_player.m_skinIndex = 0;
-				SendMessageToPlayerLocal("Changed Skin to: "+array[1].ToString(), a_player, msg);
+				SendMessageToPlayerLocal("Changed Skin to: " + array[1].ToString(), a_player, msg);
 			}
 			else if (array[1] == "1" || array[1] == "Chad" || array[1] == "Yakuza")
 			{
@@ -2140,10 +2140,12 @@ public class LidServer : LidgrenPeer
 				SendMessageToPlayerLocal("Cleared All effects on your player!", a_player, msg);
 			}
 		}
-		else if ("/drop" == array[0] && array.Length > 1)
+		else if ("/spawn" == array[0] && array.Length > 1)
 		{
 			int num7 = 0;
 			int num8 = 1;
+			string i_name;
+			string i_amount;
 			try
 			{
 				num7 = int.Parse(array[1]);
@@ -2159,8 +2161,10 @@ public class LidServer : LidgrenPeer
 				ItemDef itemDef = Items.GetItemDef(num7);
 				if (itemDef.ident != null)
 				{
+					i_name = itemDef.ident.ToString();
 					CreateFreeWorldItem(num7, num8, a_player.GetPosition());
-					SendMessageToPlayerLocal("Given item id [value].".Replace("[value]", array[1].ToString()), a_player, msg);
+					i_amount = num8.ToString();
+					SendMessageToPlayerLocal("Spawned item: "+i_name+" X: "+i_amount, a_player, msg);
 				}
 			}
 		}

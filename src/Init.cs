@@ -11,7 +11,7 @@ public class Init : MonoBehaviour
 	{
 		Application.runInBackground = true;
 		Application.targetFrameRate = 100;
-		
+
 		Debug.Log(Environment.CommandLine);
 		if (!Application.isEditor)
 		{
@@ -29,7 +29,7 @@ public class Init : MonoBehaviour
 			}
 		}
 		Screen.showCursor = true;
-		
+
 		Cursor.SetCursor(m_cursor, m_cursorOffset, CursorMode.Auto);
 	}
 

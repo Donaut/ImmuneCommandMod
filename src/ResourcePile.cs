@@ -4,7 +4,7 @@ public class ResourcePile : ServerBuilding
 {
 	public int m_itemIndex = 130;
 
-	public int m_quantity = 1000;
+	public int m_quantity = 10;
 
 	protected override void Update()
 	{
