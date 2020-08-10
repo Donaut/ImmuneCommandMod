@@ -1549,319 +1549,494 @@ public class LidServer : LidgrenPeer
 		}
 		else if (("/skin" == array[0] && array.Length > 1) && (a_player.m_isAdmin = true))
 		{
+			var skinResponse = "Changed Skin to <b>" + array[1].ToString() + "</b>.";
 			if (array[1] == "0" || array[1] == "Player")
 			{
 				a_player.m_skinIndex = 0;
-				SendMessageToPlayerLocal("Changed Skin to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
 			else if (array[1] == "1" || array[1] == "Chad" || array[1] == "Yakuza")
 			{
 				a_player.m_skinIndex = 1;
-				SendMessageToPlayerLocal("Changed Skin to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
 			else if (array[1] == "2" || array[1] == "Chuck" || array[1] == "LumberJack")
 			{
 				a_player.m_skinIndex = 2;
-				SendMessageToPlayerLocal("Changed Skin to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
 			else if (array[1] == "3" || array[1] == "Rollins" || array[1] == "Business")
 			{
 				a_player.m_skinIndex = 3;
-				SendMessageToPlayerLocal("Changed Skin to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
 			else if (array[1] == "4" || array[1] == "Vince" || array[1] == "Latino")
 			{
 				a_player.m_skinIndex = 4;
-				SendMessageToPlayerLocal("Changed Skin to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
 			else if (array[1] == "5" || array[1] == "Jenkins" || array[1] == "Elder" || array[1] == "Old")
 			{
 				a_player.m_skinIndex = 5;
-				SendMessageToPlayerLocal("Changed Skin to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
 			else if (array[1] == "6" || array[1] == "Andrew" || array[1] == "Soldier")
 			{
 				a_player.m_skinIndex = 6;
-				SendMessageToPlayerLocal("Changed Skin to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
 			else if (array[1] == "7" || array[1] == "Mr-T" || array[1] == "Boxer")
 			{
 				a_player.m_skinIndex = 7;
-				SendMessageToPlayerLocal("Changed Skin to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
 			else if (array[1] == "8" || array[1] == "Pirate" || array[1] == "Viking")
 			{
 				a_player.m_skinIndex = 8;
-				SendMessageToPlayerLocal("Changed Skin to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
 			else if (array[1] == "9" || array[1] == "Thief" || array[1] == "Warrior")
 			{
 				a_player.m_skinIndex = 9;
-				SendMessageToPlayerLocal("Changed Skin to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
 			else if (array[1] == "10" || array[1] == "Psyco" || array[1] == "Occult")
 			{
 				a_player.m_skinIndex = 10;
-				SendMessageToPlayerLocal("Changed Skin to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
 		}
 		else if (("/Hat" == array[0] && array.Length > 1) && (a_player.m_isAdmin = true))
 		{
+			var textResponse = "Changed Hat to <b>" + array[1].ToString() + "</b>.";
+
 			if (array[1] == "0" || array[1] == "ArmyCap")
 			{
 				a_player.m_lookIndex = 0;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "1" || array[1] == "ArmyCap")
 			{
 				a_player.m_lookIndex = 1;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "2" || array[1] == "WoolHat")
 			{
 				a_player.m_lookIndex = 2;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "3" || array[1] == "Pirate")
 			{
 				a_player.m_lookIndex = 3;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "4" || array[1] == "BunnyEars")
 			{
 				a_player.m_lookIndex = 4;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "5" || array[1] == "BaseBall")
 			{
 				a_player.m_lookIndex = 5;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "6" || array[1] == "Santa")
 			{
 				a_player.m_lookIndex = 6;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "7" || array[1] == "Cowboy")
 			{
 				a_player.m_lookIndex = 7;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "8" || array[1] == "Ushanka")
 			{
 				a_player.m_lookIndex = 8;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "9" || array[1] == "TopHat")
 			{
 				a_player.m_lookIndex = 9;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "10" || array[1] == "Rasta")
 			{
 				a_player.m_lookIndex = 10;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "11" || array[1] == "Cone" || array[1] == "RoadCone")
 			{
 				a_player.m_lookIndex = 11;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "12" || array[1] == "Bucket")
 			{
 				a_player.m_lookIndex = 12;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "13" || array[1] == "Biker")
 			{
 				a_player.m_lookIndex = 13;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "14" || array[1] == "Horse")
 			{
 				a_player.m_lookIndex = 14;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "15" || array[1] == "Veteran")
 			{
 				a_player.m_lookIndex = 15;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "16" || array[1] == "Bandana")
 			{
 				a_player.m_lookIndex = 16;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "17" || array[1] == "Beanie-Blue")
 			{
 				a_player.m_lookIndex = 17;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "18" || array[1] == "Irish")
 			{
 				a_player.m_lookIndex = 18;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "19" || array[1] == "ACap")
 			{
 				a_player.m_lookIndex = 19;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "20" || array[1] == "Pot" || array[1] == "Pan")
 			{
 				a_player.m_lookIndex = 20;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "21" || array[1] == "ArmyBoonie")
 			{
 				a_player.m_lookIndex = 21;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "22" || array[1] == "Glasses" || array[1] == "Sunnies")
 			{
 				a_player.m_lookIndex = 22;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "23" || array[1] == "Wizard")
 			{
 				a_player.m_lookIndex = 23;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "24" || array[1] == "Football")
 			{
 				a_player.m_lookIndex = 24;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "25" || array[1] == "Bandana-Skull")
 			{
 				a_player.m_lookIndex = 25;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "26" || array[1] == "Party")
 			{
 				a_player.m_lookIndex = 26;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "27" || array[1] == "Derby")
 			{
 				a_player.m_lookIndex = 27;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "28" || array[1] == "Miner")
 			{
 				a_player.m_lookIndex = 28;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "29" || array[1] == "Headphones")
 			{
 				a_player.m_lookIndex = 29;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "30" || array[1] == "Sherif")
 			{
 				a_player.m_lookIndex = 30;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "31" || array[1] == "Police")
 			{
 				a_player.m_lookIndex = 31;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "32" || array[1] == "Green-Beret")
 			{
 				a_player.m_lookIndex = 32;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "33" || array[1] == "Halo")
 			{
 				a_player.m_lookIndex = 33;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "34" || array[1] == "Crown")
 			{
 				a_player.m_lookIndex = 34;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "35" || array[1] == "Skull")
 			{
 				a_player.m_lookIndex = 35;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "36" || array[1] == "Fedora")
 			{
 				a_player.m_lookIndex = 36;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "37" || array[1] == "SkiMask")
 			{
 				a_player.m_lookIndex = 37;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "38" || array[1] == "Russia")
 			{
 				a_player.m_lookIndex = 38;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "39" || array[1] == "USA")
 			{
 				a_player.m_lookIndex = 39;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "40" || array[1] == "Brazil")
 			{
 				a_player.m_lookIndex = 40;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "41" || array[1] == "Germany")
 			{
 				a_player.m_lookIndex = 41;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "42" || array[1] == "Turkey")
 			{
 				a_player.m_lookIndex = 42;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "43" || array[1] == "Poland")
 			{
 				a_player.m_lookIndex = 43;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "44" || array[1] == "Canada")
 			{
 				a_player.m_lookIndex = 44;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "45" || array[1] == "France")
 			{
 				a_player.m_lookIndex = 45;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "46" || array[1] == "UK")
 			{
 				a_player.m_lookIndex = 46;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "47" || array[1] == "Thailand")
 			{
 				a_player.m_lookIndex = 47;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "48" || array[1] == "Spain")
 			{
 				a_player.m_lookIndex = 48;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "49" || array[1] == "Australia")
 			{
 				a_player.m_lookIndex = 49;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
 			}
 			else if (array[1] == "50" || array[1] == "Italy")
 			{
 				a_player.m_lookIndex = 50;
-				SendMessageToPlayerLocal("Changed Hat to: " + array[1].ToString(), a_player, msg);
+				a_player.m_updateInfoFlag = true;
+				SendMessageToPlayerLocal(textResponse, a_player, msg);
+				
 			}
+		}
+		else if (("/model" == array[0] && array.Length > 1) && (a_player.m_isAdmin = true || a_player.m_gold > 0))
+		{
+			var mdlTextResponse = "Changed Hat to <b>" + array[1].ToString() + "</b>.";
+			eCharType eCharType = eCharType.ePlayer;
+			var eMutant = eCharType.eMutant;
+
+			if (array[1] == "Car")
+			{
+				eCharType = (eCharType)(1);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "GasMask-Guy")
+			{
+				eCharType = (eCharType)(2);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Zombie")
+			{
+				eCharType = (eCharType)(3);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Chicken")
+			{
+				eCharType = (eCharType)(4);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Raven")
+			{
+				eCharType = (eCharType)(5);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Deer")
+			{
+				eCharType = (eCharType)(6);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Bull")
+			{
+				eCharType = (eCharType)(7);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Pig")
+			{
+				eCharType = (eCharType)(8);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Dog")
+			{
+				eCharType = (eCharType)(9);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Survivor")
+			{
+				eCharType = (eCharType)(10);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Survivor-F")
+			{
+				eCharType = (eCharType)(11);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Player-F")
+			{
+				eCharType = (eCharType)(12);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Fox")
+			{
+				eCharType = (eCharType)(13);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Sheep")
+			{
+				eCharType = (eCharType)(14);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Eagle")
+			{
+				eCharType = (eCharType)(15);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Cow")
+			{
+				eCharType = (eCharType)(16);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "SurvivorMutant")
+			{
+				eCharType = (eCharType)(17);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Spider")
+			{
+				eCharType = (eCharType)(18);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+			else if (array[1] == "Poison-Spider")
+			{
+				eCharType = (eCharType)(19);
+				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
+			}
+
+			if ((a_player.m_isAdmin || eCharType == eCharType.ePlayer || eCharType == eCharType.ePlayerFemale) && a_player.m_charType != eCharType)
+			{
+				a_player.m_charType = eCharType;
+				a_player.m_updateInfoFlag = true;
+			}
+
 		}
 		else if ("/dropgold" == array[0] && array.Length > 1)
 		{
@@ -1885,115 +2060,6 @@ public class LidServer : LidgrenPeer
 					SendMoneyUpdate(a_player);
 				}
 			}
-		}
-		else if (("/model" == array[0] && array.Length > 1) && (a_player.m_isAdmin = true || a_player.m_gold > 0))
-		{
-
-			eCharType eCharType = eCharType.ePlayer;
-			var eMutant = eCharType.eMutant;
-
-			if (array[1] == "Car")
-			{
-				eCharType = (eCharType)(1);
-				SendMessageToPlayerLocal("Changed Skin to Car.", a_player, msg);
-			}
-			else if (array[1] == "GasMask-Guy")
-			{
-				eCharType = (eCharType)(2);
-				SendMessageToPlayerLocal("Changed Skin to GasMask-Guy.", a_player, msg);
-			}
-			else if (array[1] == "Zombie")
-			{
-				eCharType = (eCharType)(3);
-				SendMessageToPlayerLocal("Changed Skin to Zombie.", a_player, msg);
-			}
-			else if (array[1] == "Chicken")
-			{
-				eCharType = (eCharType)(4);
-				SendMessageToPlayerLocal("Changed Skin to Chicken.", a_player, msg);
-			}
-			else if (array[1] == "Raven")
-			{
-				eCharType = (eCharType)(5);
-				SendMessageToPlayerLocal("Changed Skin to Raven.", a_player, msg);
-			}
-			else if (array[1] == "Deer")
-			{
-				eCharType = (eCharType)(6);
-				SendMessageToPlayerLocal("Changed Skin to Deer.", a_player, msg);
-			}
-			else if (array[1] == "Bull")
-			{
-				eCharType = (eCharType)(7);
-				SendMessageToPlayerLocal("Changed Skin to Bull.", a_player, msg);
-			}
-			else if (array[1] == "Pig")
-			{
-				eCharType = (eCharType)(8);
-				SendMessageToPlayerLocal("Changed Skin to Pig.", a_player, msg);
-			}
-			else if (array[1] == "Dog")
-			{
-				eCharType = (eCharType)(9);
-				SendMessageToPlayerLocal("Changed Skin to Dog.", a_player, msg);
-			}
-			else if (array[1] == "Survivor")
-			{
-				eCharType = (eCharType)(10);
-				SendMessageToPlayerLocal("Changed Skin to Survivor.", a_player, msg);
-			}
-			else if (array[1] == "Survivor-F")
-			{
-				eCharType = (eCharType)(11);
-				SendMessageToPlayerLocal("Changed Skin to Survivor-F.", a_player, msg);
-			}
-			else if (array[1] == "Player-F")
-			{
-				eCharType = (eCharType)(12);
-				SendMessageToPlayerLocal("Changed Skin to Player-F.", a_player, msg);
-			}
-			else if (array[1] == "Fox")
-			{
-				eCharType = (eCharType)(13);
-				SendMessageToPlayerLocal("Changed Skin to Fox.", a_player, msg);
-			}
-			else if (array[1] == "Sheep")
-			{
-				eCharType = (eCharType)(14);
-				SendMessageToPlayerLocal("Changed Skin to Sheep.", a_player, msg);
-			}
-			else if (array[1] == "Eagle")
-			{
-				eCharType = (eCharType)(15);
-				SendMessageToPlayerLocal("Changed Skin to Eagle.", a_player, msg);
-			}
-			else if (array[1] == "Cow")
-			{
-				eCharType = (eCharType)(16);
-				SendMessageToPlayerLocal("Changed Skin to Cow.", a_player, msg);
-			}
-			else if (array[1] == "SurvivorMutant")
-			{
-				eCharType = (eCharType)(17);
-				SendMessageToPlayerLocal("Changed Skin to SurvivorMutant.", a_player, msg);
-			}
-			else if (array[1] == "Spider")
-			{
-				eCharType = (eCharType)(18);
-				SendMessageToPlayerLocal("Changed Skin to Spider.", a_player, msg);
-			}
-			else if (array[1] == "Poison-Spider")
-			{
-				eCharType = (eCharType)(19);
-				SendMessageToPlayerLocal("Changed Skin to Posion-Spider.", a_player, msg);
-			}
-
-			if ((a_player.m_isAdmin || eCharType == eCharType.ePlayer || eCharType == eCharType.ePlayerFemale) && a_player.m_charType != eCharType)
-			{
-				a_player.m_charType = eCharType;
-				a_player.m_updateInfoFlag = true;
-			}
-
 		}
 
 
@@ -2164,7 +2230,7 @@ public class LidServer : LidgrenPeer
 					i_name = itemDef.ident.ToString();
 					CreateFreeWorldItem(num7, num8, a_player.GetPosition());
 					i_amount = num8.ToString();
-					SendMessageToPlayerLocal("Spawned item: "+i_name+" X: "+i_amount, a_player, msg);
+					SendMessageToPlayerLocal("Spawned item: "+i_name+" X:"+i_amount, a_player, msg);
 				}
 			}
 		}

@@ -14,7 +14,7 @@ public static class Items
 
 	public const int c_currencyType = 254;
 
-	private static ItemDef[] m_itemDefs;
+	public static ItemDef[] m_itemDefs;
 
 	private static void Init()
 	{
@@ -326,6 +326,47 @@ public static class Items
 	public static bool IsContainer(int a_type)
 	{
 		return a_type > 119 && a_type < 130;
+	}
+	public static bool IsContainer(string a_type)
+	{
+		return a_type == "BACKPACK" && a_type == "CLOTHBOX";
+	}
+
+	public static bool IsStackable(string a_type)
+	{
+		return a_type == "BERRIES"
+			&& a_type == "POTATOES_RAW"
+			&& a_type == "POTATOES_COOKED"
+			&& a_type == "MEAT_RAW"
+			&& a_type == "MEAT_COOKED"
+			&& a_type == "EGGS_RAW"
+			&& a_type == "EGGS_COOKED"
+			&& a_type == "ENERGY_BAR"
+			&& a_type == "MUSHROOMS"
+			&& a_type == "CANNED_FOOD"
+			&& a_type == "FISH_RAW"
+			&& a_type == "FISH_COOKED"
+			&& a_type == "RUMBOTTLE"
+			&& a_type == "WINE"
+			&& a_type == "WATER"
+			&& a_type == "BEER"
+			&& a_type == "SODA" //
+			&& a_type == "45"
+			&& a_type == "9"
+			&& a_type == "556"
+			&& a_type == "762"
+			&& a_type == "SHELL"
+			&& a_type == "C_ARROW"
+			&& a_type == "C_STONE"
+			&& a_type == "WOOD"
+			&& a_type == "METAL"
+			&& a_type == "STONE"
+			&& a_type == "CLOTH"
+			&& a_type == "C_BANDAGES"
+			&& a_type == "ANTIBIOTICS"
+			&& a_type == "PAINKILLERS"
+			&& a_type == "MEDPACK"
+			&& a_type == "GOLD";
 	}
 
 	public static bool IsResource(int a_type)
