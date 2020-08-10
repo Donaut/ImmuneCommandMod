@@ -1529,88 +1529,89 @@ public class LidServer : LidgrenPeer
 		if ("/suicide" == array[0] || "/kill" == array[0])
 		{
 			a_player.ChangeHealthBy(-10000f);
-			SendNotification(" [p_name] just commited toaster bath.".Replace("[p_name]", a_pname));
+			SendNotification("[p_name] just commited toaster bath.".Replace("[p_name]", a_pname));
 		}
 		else if ("/login" == array[0] && array.Length > 1 && ConfigFile.GetVar("adminpassword", "!@!Not_This_Time!@!") == array[1])
 		{
 			a_player.m_isAdmin = true;
-			SendMessageToPlayerLocal("Admin commands unlocked.", a_player, msg);
+			SendMessageToPlayerLocal("<b><color='#008000ff'>Admin commands unlocked.</color></b>", a_player, msg);
 			Debug.Log(a_player.m_name + " (Steam ID: " + a_player.m_accountId + ") just logged in as admin");
 		}
-		else if ("/tp" == array[0])
+		else if ("/tp-p" == array[0])
 		{
 			var re_name = GetPlayerByName(array[1].ToString()).m_name.ToString();
 			var re_pos = GetPlayerByName(array[1].ToString()).GetPosition();
 			if (array[1] == re_name)
 			{
 				a_player.SetPosition(re_pos);
+				SendMessageToPlayerLocal("Teleported to player: <color='#ffa500ff'>"+re_name.ToString()+"</color>.", a_player, msg);
 			}
 
 		}
 		else if (("/skin" == array[0] && array.Length > 1) && (a_player.m_isAdmin = true))
 		{
-			var skinResponse = "Changed Skin to <b>" + array[1].ToString() + "</b>.";
-			if (array[1] == "0" || array[1] == "Player")
+			var skinResponse = "Changed Skin to <b><color='#ffa500ff'>" + array[1].ToString() + "</color></b>.";
+			if (array[1] == "0" || array[1] == "Player" || array[1] == "Default")
 			{
 				a_player.m_skinIndex = 0;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
-			else if (array[1] == "1" || array[1] == "Chad" || array[1] == "Yakuza")
+			else if (array[1] == "Chad" || array[1] == "chad" || array[1] == "CHAD" || array[1] == "Yakuza" || array[1] == "yakuza" || array[1] == "YAKUZA")
 			{
 				a_player.m_skinIndex = 1;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
-			else if (array[1] == "2" || array[1] == "Chuck" || array[1] == "LumberJack")
+			else if (array[1] == "Chuck" || array[1] == "Chad".ToUpper() || array[1] == "Chad".ToLower() || array[1] == "LumberJack" || array[1] == "LumberJack".ToUpper() || array[1] == "LumberJack".ToLower())
 			{
 				a_player.m_skinIndex = 2;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
-			else if (array[1] == "3" || array[1] == "Rollins" || array[1] == "Business")
+			else if (array[1] == "Rollins" || array[1] == "Business" || array[1] == "Rollins".ToUpper() || array[1] == "Business".ToUpper() || array[1] == "Rollins".ToLower() || array[1] == "Business".ToLower())
 			{
 				a_player.m_skinIndex = 3;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
-			else if (array[1] == "4" || array[1] == "Vince" || array[1] == "Latino")
+			else if (array[1] == "Vince" || array[1] == "Latino" || array[1] == "Vince".ToLower() || array[1] == "Latino".ToLower() || array[1] == "Vince".ToUpper() || array[1] == "Latino".ToUpper())
 			{
 				a_player.m_skinIndex = 4;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
-			else if (array[1] == "5" || array[1] == "Jenkins" || array[1] == "Elder" || array[1] == "Old")
+			else if (array[1] == "Jenkins" || array[1] == "Elder" || array[1] == "Jenkins".ToLower() || array[1] == "Elder".ToLower() || array[1] == "Jenkins".ToUpper() || array[1] == "Elder".ToUpper())
 			{
 				a_player.m_skinIndex = 5;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
-			else if (array[1] == "6" || array[1] == "Andrew" || array[1] == "Soldier")
+			else if (array[1] == "Andrew" || array[1] == "Soldier" || array[1] == "Andrew".ToLower() || array[1] == "Soldier".ToLower() || array[1] == "Andrew".ToUpper() || array[1] == "Soldier".ToUpper())
 			{
 				a_player.m_skinIndex = 6;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
-			else if (array[1] == "7" || array[1] == "Mr-T" || array[1] == "Boxer")
+			else if (array[1] == "Boxer" || array[1] == "Boxer".ToLower() || array[1] == "Boxer".ToUpper())
 			{
 				a_player.m_skinIndex = 7;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
-			else if (array[1] == "8" || array[1] == "Pirate" || array[1] == "Viking")
+			else if (array[1] == "Pirate" || array[1] == "Viking" || array[1] == "Pirate".ToLower() || array[1] == "Viking".ToLower() || array[1] == "Pirate".ToUpper() || array[1] == "Viking".ToUpper())
 			{
 				a_player.m_skinIndex = 8;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
-			else if (array[1] == "9" || array[1] == "Thief" || array[1] == "Warrior")
+			else if (array[1] == "Thief" || array[1] == "Warrior" || array[1] == "Thief".ToLower() || array[1] == "Warrior".ToLower() || array[1] == "Thief".ToUpper() || array[1] == "Warrior".ToUpper())
 			{
 				a_player.m_skinIndex = 9;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
-			else if (array[1] == "10" || array[1] == "Psyco" || array[1] == "Occult")
+			else if (array[1] == "Psyco" || array[1] == "Occult" || array[1] == "Psyco".ToLower() || array[1] == "Occult".ToLower() || array[1] == "Psyco".ToUpper() || array[1] == "Occult".ToUpper())
 			{
 				a_player.m_skinIndex = 10;
 				a_player.m_updateInfoFlag = true;
@@ -1619,9 +1620,9 @@ public class LidServer : LidgrenPeer
 		}
 		else if (("/Hat" == array[0] && array.Length > 1) && (a_player.m_isAdmin = true))
 		{
-			var textResponse = "Changed Hat to <b>" + array[1].ToString() + "</b>.";
+			var textResponse = "Changed Hat to <b><color='#ffa500ff'>" + array[1].ToString() + "</color></b>.";
 
-			if (array[1] == "0" || array[1] == "ArmyCap")
+			if (array[1] == "0" || array[1] == "ArmyCap" || array[1] == "ArmyCap".ToLower() || array[1] == "ArmyCap".ToUpper())
 			{
 				a_player.m_lookIndex = 0;
 				a_player.m_updateInfoFlag = true;
@@ -1931,7 +1932,7 @@ public class LidServer : LidgrenPeer
 		}
 		else if (("/model" == array[0] && array.Length > 1) && (a_player.m_isAdmin = true || a_player.m_gold > 0))
 		{
-			var mdlTextResponse = "Changed Hat to <b>" + array[1].ToString() + "</b>.";
+			var mdlTextResponse = "Changed Model to <b><color='#ffa500ff'>" + array[1].ToString() + "</color></b>.";
 			eCharType eCharType = eCharType.ePlayer;
 			var eMutant = eCharType.eMutant;
 
@@ -2077,7 +2078,6 @@ public class LidServer : LidgrenPeer
 		else if ("/airdrop" == array[0])
 		{
 			Invoke("CreateAirdrop", 3f);
-			SendNotification("An airdrop has spawned, be the first there for GREAT LOOT!!!");
 		}
 		else if ("/shutdown" == array[0])
 		{
@@ -2168,9 +2168,8 @@ public class LidServer : LidgrenPeer
 
 			eCondition eCondition = eCondition.none;
 			var eMutant = eCharType.eMutant;
-			if (array[1] == "Starve")
+			if (array[1] == "Starve" || array[1] == "Hunger" || array[1] == "Food" || array[1] == "Starve".ToLower() || array[1] == "Hunger".ToLower() || array[1] == "Food".ToLower() || array[1] == "Starve".ToUpper() || array[1] == "Hunger".ToUpper() || array[1] == "Food".ToUpper())
 			{
-
 				a_player.SetCondition(eCondition.starvation, true);
 			}
 			else if (array[1] == "Infected")
