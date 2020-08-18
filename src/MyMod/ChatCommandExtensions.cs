@@ -12,7 +12,7 @@ namespace MyMod
         internal static void HandleChatCommand(string text, ServerPlayer player, NetIncomingMessage msg)
         {
             var server = (LidServer)UnityEngine.Object.FindObjectOfType(typeof(LidServer));
-            
+            var p_pos = player.GetPosition();
             string[] commands = text.Split(' ');
             switch (commands[0])
             {
@@ -27,20 +27,20 @@ namespace MyMod
                         int num = 350; // Kit Price
                         num = Math.Min(IA, num); // Price math logic
                         player.m_inventory.DeclineItemAmountByType(254, num); // Define item used as currency
-                        server.CreateFreeWorldItem(153, 1, player.GetPosition(), 100);   // Leather-Vest
-                        server.CreateFreeWorldItem(171, 1, player.GetPosition(), 100);   // Shoes
+                        server.CreateFreeWorldItem(153, 1, p_pos, 100);   // Leather-Vest
+                        server.CreateFreeWorldItem(171, 1, p_pos, 100);   // Shoes
                         // Weapons
-                        server.CreateFreeWorldItem(93, 1, player.GetPosition(), 100);    // Knife
-                        server.CreateFreeWorldItem(107, 1, player.GetPosition(), 100);   // Torch
+                        server.CreateFreeWorldItem(93, 1, p_pos, 100);    // Knife
+                        server.CreateFreeWorldItem(107, 1, p_pos, 100);   // Torch
                         // Food
-                        server.CreateFreeWorldItem(3, 6, player.GetPosition());     // Coocked Potatoes
-                        server.CreateFreeWorldItem(8, 1, player.GetPosition());     // Energy Bar
-                        server.CreateFreeWorldItem(17, 2, player.GetPosition());    // Water
+                        server.CreateFreeWorldItem(3, 6, p_pos);     // Coocked Potatoes
+                        server.CreateFreeWorldItem(8, 1, p_pos);     // Energy Bar
+                        server.CreateFreeWorldItem(17, 2, p_pos);    // Water
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 3, player.GetPosition());   // Bandages
-                        server.CreateFreeWorldItem(141, 1, player.GetPosition());   // Antibiotics
-                        server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
-                        server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medpack
+                        server.CreateFreeWorldItem(140, 3, p_pos);   // Bandages
+                        server.CreateFreeWorldItem(141, 1, p_pos);   // Antibiotics
+                        server.CreateFreeWorldItem(142, 2, p_pos);   // Painkillers
+                        server.CreateFreeWorldItem(143, 1, p_pos);   // Medpack
                         LidServer.SendMoneyUpdate(player); // Request money update from server.
                         server.SendMessageToPlayerLocal("BOUGHT DOCTOR KIT!!!", player, msg); // Return success message!!!
                     }
@@ -58,18 +58,18 @@ namespace MyMod
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
                         // Weapons
-                        server.CreateFreeWorldItem(111, 1, player.GetPosition(), 100);    // Machete
-                        server.CreateFreeWorldItem(93, 1, player.GetPosition(), 100);   // Knife
-                        server.CreateFreeWorldItem(61, 1, player.GetPosition(), 100);   // Revolver
+                        server.CreateFreeWorldItem(111, 1, p_pos, 100);    // Machete
+                        server.CreateFreeWorldItem(93, 1, p_pos, 100);   // Knife
+                        server.CreateFreeWorldItem(61, 1, p_pos, 100);   // Revolver
                         // AMMO
-                        server.CreateFreeWorldItem(40, 20, player.GetPosition(), 100);   // 45mm
+                        server.CreateFreeWorldItem(40, 20, p_pos, 100);   // 45mm
                         // Food
-                        server.CreateFreeWorldItem(4, 2, player.GetPosition());     // Raw Meat
-                        server.CreateFreeWorldItem(8, 1, player.GetPosition());     // Energy Bar
-                        server.CreateFreeWorldItem(10, 2, player.GetPosition());    // Canned Food
-                        server.CreateFreeWorldItem(18, 2, player.GetPosition());    // Beer
+                        server.CreateFreeWorldItem(4, 2, p_pos);     // Raw Meat
+                        server.CreateFreeWorldItem(8, 1, p_pos);     // Energy Bar
+                        server.CreateFreeWorldItem(10, 2, p_pos);    // Canned Food
+                        server.CreateFreeWorldItem(18, 2, p_pos);    // Beer
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 3, player.GetPosition());   // Bandages
+                        server.CreateFreeWorldItem(140, 3, p_pos);   // Bandages
                         LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT SCAV KIT!!!", player, msg);
                     }
@@ -86,20 +86,20 @@ namespace MyMod
                         num = Math.Min(IA_2, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
-                        server.CreateFreeWorldItem(151, 1, player.GetPosition(), 100);   // Scrap-Vest
-                        server.CreateFreeWorldItem(171, 1, player.GetPosition(), 100);   // C_Shoes
+                        server.CreateFreeWorldItem(151, 1, p_pos, 100);   // Scrap-Vest
+                        server.CreateFreeWorldItem(171, 1, p_pos, 100);   // C_Shoes
                         // Weapons
-                        server.CreateFreeWorldItem(104, 1, player.GetPosition(), 100);    // Mutant Claw
-                        server.CreateFreeWorldItem(106, 1, player.GetPosition(), 100);   // C_Knife
-                        server.CreateFreeWorldItem(79, 1, player.GetPosition(), 100);   // Bow
+                        server.CreateFreeWorldItem(104, 1, p_pos, 100);    // Mutant Claw
+                        server.CreateFreeWorldItem(106, 1, p_pos, 100);   // C_Knife
+                        server.CreateFreeWorldItem(79, 1, p_pos, 100);   // Bow
                         // AMMO
-                        server.CreateFreeWorldItem(50, 35, player.GetPosition(), 100);   // Arrows
+                        server.CreateFreeWorldItem(50, 35, p_pos, 100);   // Arrows
                         // Food
-                        server.CreateFreeWorldItem(4, 2, player.GetPosition());     // Raw Meat
-                        server.CreateFreeWorldItem(15, 1, player.GetPosition());    // Rum-Bottle
+                        server.CreateFreeWorldItem(4, 2, p_pos);     // Raw Meat
+                        server.CreateFreeWorldItem(15, 1, p_pos);    // Rum-Bottle
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
-                        server.CreateFreeWorldItem(140, 1, player.GetPosition());   // Painkillers
+                        server.CreateFreeWorldItem(140, 2, p_pos);   // Bandages
+                        server.CreateFreeWorldItem(140, 1, p_pos);   // Painkillers
                         LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT SCAV-2 KIT!!!", player, msg);
                     }
@@ -116,20 +116,20 @@ namespace MyMod
                         num = Math.Min(IA_7, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
-                        server.CreateFreeWorldItem(151, 1, player.GetPosition(), 100);   // Scrap-Vest
-                        server.CreateFreeWorldItem(171, 1, player.GetPosition(), 100);   // C_Shoes
+                        server.CreateFreeWorldItem(151, 1, p_pos, 100);   // Scrap-Vest
+                        server.CreateFreeWorldItem(171, 1, p_pos, 100);   // C_Shoes
                         // Weapons
-                        server.CreateFreeWorldItem(79, 1, player.GetPosition(), 100);   // Bow
+                        server.CreateFreeWorldItem(79, 1, p_pos, 100);   // Bow
                         // AMMO
-                        server.CreateFreeWorldItem(50, 35, player.GetPosition(), 100);   // Arrows
+                        server.CreateFreeWorldItem(50, 35, p_pos, 100);   // Arrows
                         // Food
-                        server.CreateFreeWorldItem(4, 2, player.GetPosition());     // Raw Meat
-                        server.CreateFreeWorldItem(9, 4, player.GetPosition());     // Mushrooms
-                        server.CreateFreeWorldItem(10, 1, player.GetPosition());    // Canned Food
-                        server.CreateFreeWorldItem(15, 1, player.GetPosition());    // Rum-Bottle
+                        server.CreateFreeWorldItem(4, 2, p_pos);     // Raw Meat
+                        server.CreateFreeWorldItem(9, 4, p_pos);     // Mushrooms
+                        server.CreateFreeWorldItem(10, 1, p_pos);    // Canned Food
+                        server.CreateFreeWorldItem(15, 1, p_pos);    // Rum-Bottle
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
-                        server.CreateFreeWorldItem(140, 1, player.GetPosition());   // Painkillers
+                        server.CreateFreeWorldItem(140, 2, p_pos);   // Bandages
+                        server.CreateFreeWorldItem(140, 1, p_pos);   // Painkillers
                         LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT SCAV-3 KIT!!!", player, msg);
                     }
@@ -146,22 +146,22 @@ namespace MyMod
                         num = Math.Min(IA_3, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
-                        server.CreateFreeWorldItem(152, 1, player.GetPosition(), 100);   // Metal-Vest
-                        server.CreateFreeWorldItem(170, 1, player.GetPosition(), 100);   // Shoes
+                        server.CreateFreeWorldItem(152, 1, p_pos, 100);   // Metal-Vest
+                        server.CreateFreeWorldItem(170, 1, p_pos, 100);   // Shoes
                         // Weapons
-                        server.CreateFreeWorldItem(95, 1, player.GetPosition(), 100);    // Mutant Claw
-                        server.CreateFreeWorldItem(93, 1, player.GetPosition(), 100);   // Knife
-                        server.CreateFreeWorldItem(62, 1, player.GetPosition(), 100);   // SMG
+                        server.CreateFreeWorldItem(95, 1, p_pos, 100);    // Mutant Claw
+                        server.CreateFreeWorldItem(93, 1, p_pos, 100);   // Knife
+                        server.CreateFreeWorldItem(62, 1, p_pos, 100);   // SMG
                         // AMMO
-                        server.CreateFreeWorldItem(42, 35, player.GetPosition(), 100);   // 556
+                        server.CreateFreeWorldItem(42, 35, p_pos, 100);   // 556
                         // Food
-                        server.CreateFreeWorldItem(12, 2, player.GetPosition());     // Cooked_fish
-                        server.CreateFreeWorldItem(8, 4, player.GetPosition());     // Energy-Bar
-                        server.CreateFreeWorldItem(16, 1, player.GetPosition());    // Wine
-                        server.CreateFreeWorldItem(15, 1, player.GetPosition());    // Rum-Bottle
+                        server.CreateFreeWorldItem(12, 2, p_pos);     // Cooked_fish
+                        server.CreateFreeWorldItem(8, 4, p_pos);     // Energy-Bar
+                        server.CreateFreeWorldItem(16, 1, p_pos);    // Wine
+                        server.CreateFreeWorldItem(15, 1, p_pos);    // Rum-Bottle
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
-                        server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
+                        server.CreateFreeWorldItem(140, 2, p_pos);   // Bandages
+                        server.CreateFreeWorldItem(142, 2, p_pos);   // Painkillers
                         LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT BANDIT KIT!!!", player, msg);
                     }
@@ -178,20 +178,20 @@ namespace MyMod
                         num = Math.Min(IA_8, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
-                        server.CreateFreeWorldItem(170, 1, player.GetPosition(), 100);   // Shoes
+                        server.CreateFreeWorldItem(170, 1, p_pos, 100);   // Shoes
                         // Weapons
-                        server.CreateFreeWorldItem(93, 1, player.GetPosition(), 100);   // Knife
-                        server.CreateFreeWorldItem(68, 1, player.GetPosition(), 100);   // Tommy-Gun
+                        server.CreateFreeWorldItem(93, 1, p_pos, 100);   // Knife
+                        server.CreateFreeWorldItem(68, 1, p_pos, 100);   // Tommy-Gun
                         // AMMO
-                        server.CreateFreeWorldItem(40, 35, player.GetPosition(), 100);   // 45mm
+                        server.CreateFreeWorldItem(40, 35, p_pos, 100);   // 45mm
                         // Food
-                        server.CreateFreeWorldItem(12, 2, player.GetPosition());     // Cooked_fish
-                        server.CreateFreeWorldItem(8, 4, player.GetPosition());     // Energy-Bar
-                        server.CreateFreeWorldItem(16, 1, player.GetPosition());    // Wine
-                        server.CreateFreeWorldItem(15, 1, player.GetPosition());    // Rum-Bottle
+                        server.CreateFreeWorldItem(12, 2, p_pos);     // Cooked_fish
+                        server.CreateFreeWorldItem(8, 4, p_pos);     // Energy-Bar
+                        server.CreateFreeWorldItem(16, 1, p_pos);    // Wine
+                        server.CreateFreeWorldItem(15, 1, p_pos);    // Rum-Bottle
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
-                        server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
+                        server.CreateFreeWorldItem(140, 2, p_pos);   // Bandages
+                        server.CreateFreeWorldItem(142, 2, p_pos);   // Painkillers
                         LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT BANDIT KIT!!!", player, msg);
                     }
@@ -208,20 +208,20 @@ namespace MyMod
                         num = Math.Min(IA_9, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
-                        server.CreateFreeWorldItem(152, 1, player.GetPosition(), 100);   // Metal-Vest
-                        server.CreateFreeWorldItem(170, 1, player.GetPosition(), 100);   // Shoes
+                        server.CreateFreeWorldItem(152, 1, p_pos, 100);   // Metal-Vest
+                        server.CreateFreeWorldItem(170, 1, p_pos, 100);   // Shoes
                         // Weapons
-                        server.CreateFreeWorldItem(95, 1, player.GetPosition(), 100);    // Mutant Claw
-                        server.CreateFreeWorldItem(93, 1, player.GetPosition(), 100);   // Knife
+                        server.CreateFreeWorldItem(95, 1, p_pos, 100);    // Mutant Claw
+                        server.CreateFreeWorldItem(93, 1, p_pos, 100);   // Knife
                         // AMMO
                         // Food
-                        server.CreateFreeWorldItem(12, 2, player.GetPosition());     // Cooked_fish
-                        server.CreateFreeWorldItem(8, 4, player.GetPosition());     // Energy-Bar
-                        server.CreateFreeWorldItem(16, 1, player.GetPosition());    // Wine
-                        server.CreateFreeWorldItem(15, 1, player.GetPosition());    // Rum-Bottle
+                        server.CreateFreeWorldItem(12, 2, p_pos);     // Cooked_fish
+                        server.CreateFreeWorldItem(8, 4, p_pos);     // Energy-Bar
+                        server.CreateFreeWorldItem(16, 1, p_pos);    // Wine
+                        server.CreateFreeWorldItem(15, 1, p_pos);    // Rum-Bottle
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
-                        server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
+                        server.CreateFreeWorldItem(140, 2, p_pos);   // Bandages
+                        server.CreateFreeWorldItem(142, 2, p_pos);   // Painkillers
                         LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT BANDIT KIT!!!", player, msg);
                     }
@@ -238,22 +238,22 @@ namespace MyMod
                         num = Math.Min(IA_4, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
-                        server.CreateFreeWorldItem(154, 1, player.GetPosition(), 100);   // Guardian-Vest
-                        server.CreateFreeWorldItem(170, 1, player.GetPosition(), 100);   // Shoes
+                        server.CreateFreeWorldItem(154, 1, p_pos, 100);   // Guardian-Vest
+                        server.CreateFreeWorldItem(170, 1, p_pos, 100);   // Shoes
                         // Weapons
-                        server.CreateFreeWorldItem(99, 1, player.GetPosition(), 100);    // Giant Sword
-                        server.CreateFreeWorldItem(93, 1, player.GetPosition(), 100);   // Knife
-                        server.CreateFreeWorldItem(65, 1, player.GetPosition(), 100);   // AK47
+                        server.CreateFreeWorldItem(99, 1, p_pos, 100);    // Giant Sword
+                        server.CreateFreeWorldItem(93, 1, p_pos, 100);   // Knife
+                        server.CreateFreeWorldItem(65, 1, p_pos, 100);   // AK47
                         // AMMO
-                        server.CreateFreeWorldItem(43, 35, player.GetPosition(), 100);   // 762
+                        server.CreateFreeWorldItem(43, 35, p_pos, 100);   // 762
                         // Food
-                        server.CreateFreeWorldItem(12, 2, player.GetPosition());     // Cooked_fish
-                        server.CreateFreeWorldItem(8, 4, player.GetPosition());     // Energy-Bar
-                        server.CreateFreeWorldItem(16, 1, player.GetPosition());    // Wine
+                        server.CreateFreeWorldItem(12, 2, p_pos);     // Cooked_fish
+                        server.CreateFreeWorldItem(8, 4, p_pos);     // Energy-Bar
+                        server.CreateFreeWorldItem(16, 1, p_pos);    // Wine
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
-                        server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
-                        server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medkit
+                        server.CreateFreeWorldItem(140, 2, p_pos);   // Bandages
+                        server.CreateFreeWorldItem(142, 2, p_pos);   // Painkillers
+                        server.CreateFreeWorldItem(143, 1, p_pos);   // Medkit
                         LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT GUARD-1 KIT!!!", player, msg);
                     }
@@ -270,22 +270,22 @@ namespace MyMod
                         num = Math.Min(IA_5, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
-                        server.CreateFreeWorldItem(154, 1, player.GetPosition(), 100);   // Guardian-Vest
-                        server.CreateFreeWorldItem(170, 1, player.GetPosition(), 100);   // Shoes
+                        server.CreateFreeWorldItem(154, 1, p_pos, 100);   // Guardian-Vest
+                        server.CreateFreeWorldItem(170, 1, p_pos, 100);   // Shoes
                         // Weapons
-                        server.CreateFreeWorldItem(99, 1, player.GetPosition(), 100);    // Giant Sword
-                        server.CreateFreeWorldItem(93, 1, player.GetPosition(), 100);   // Knife
-                        server.CreateFreeWorldItem(64, 1, player.GetPosition(), 100);   // Sniper
+                        server.CreateFreeWorldItem(99, 1, p_pos, 100);    // Giant Sword
+                        server.CreateFreeWorldItem(93, 1, p_pos, 100);   // Knife
+                        server.CreateFreeWorldItem(64, 1, p_pos, 100);   // Sniper
                         // AMMO
-                        server.CreateFreeWorldItem(43, 35, player.GetPosition(), 100);   // 762
+                        server.CreateFreeWorldItem(43, 35, p_pos, 100);   // 762
                         // Food
-                        server.CreateFreeWorldItem(12, 2, player.GetPosition());     // Cooked_fish
-                        server.CreateFreeWorldItem(8, 4, player.GetPosition());     // Energy-Bar
-                        server.CreateFreeWorldItem(16, 1, player.GetPosition());    // Wine
+                        server.CreateFreeWorldItem(12, 2, p_pos);     // Cooked_fish
+                        server.CreateFreeWorldItem(8, 4, p_pos);     // Energy-Bar
+                        server.CreateFreeWorldItem(16, 1, p_pos);    // Wine
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
-                        server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
-                        server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medkit
+                        server.CreateFreeWorldItem(140, 2, p_pos);   // Bandages
+                        server.CreateFreeWorldItem(142, 2, p_pos);   // Painkillers
+                        server.CreateFreeWorldItem(143, 1, p_pos);   // Medkit
                         LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT GUARD-2 KIT!!!", player, msg);
                     }
@@ -302,22 +302,22 @@ namespace MyMod
                         num = Math.Min(IA_6, num);
                         player.m_inventory.DeclineItemAmountByType(254, num);
                         // Clothing
-                        server.CreateFreeWorldItem(154, 1, player.GetPosition(), 100);   // Guardian-Vest
-                        server.CreateFreeWorldItem(170, 1, player.GetPosition(), 100);   // Shoes
+                        server.CreateFreeWorldItem(154, 1, p_pos, 100);   // Guardian-Vest
+                        server.CreateFreeWorldItem(170, 1, p_pos, 100);   // Shoes
                         // Weapons
-                        server.CreateFreeWorldItem(99, 1, player.GetPosition(), 100);    // Giant Sword
-                        server.CreateFreeWorldItem(93, 1, player.GetPosition(), 100);   // Knife
-                        server.CreateFreeWorldItem(67, 1, player.GetPosition(), 100);   // Auto-SHotgun
+                        server.CreateFreeWorldItem(99, 1, p_pos, 100);    // Giant Sword
+                        server.CreateFreeWorldItem(93, 1, p_pos, 100);   // Knife
+                        server.CreateFreeWorldItem(67, 1, p_pos, 100);   // Auto-SHotgun
                         // AMMO
-                        server.CreateFreeWorldItem(44, 35, player.GetPosition(), 100);   // Shells
+                        server.CreateFreeWorldItem(44, 35, p_pos, 100);   // Shells
                         // Food
-                        server.CreateFreeWorldItem(12, 2, player.GetPosition());     // Cooked_fish
-                        server.CreateFreeWorldItem(8, 4, player.GetPosition());     // Energy-Bar
-                        server.CreateFreeWorldItem(16, 1, player.GetPosition());    // Wine
+                        server.CreateFreeWorldItem(12, 2, p_pos);     // Cooked_fish
+                        server.CreateFreeWorldItem(8, 4, p_pos);     // Energy-Bar
+                        server.CreateFreeWorldItem(16, 1, p_pos);    // Wine
                         // ITEMS
-                        server.CreateFreeWorldItem(140, 2, player.GetPosition());   // Bandages
-                        server.CreateFreeWorldItem(142, 2, player.GetPosition());   // Painkillers
-                        server.CreateFreeWorldItem(143, 1, player.GetPosition());   // Medkit
+                        server.CreateFreeWorldItem(140, 2, p_pos);   // Bandages
+                        server.CreateFreeWorldItem(142, 2, p_pos);   // Painkillers
+                        server.CreateFreeWorldItem(143, 1, p_pos);   // Medkit
                         LidServer.SendMoneyUpdate(player);
                         server.SendMessageToPlayerLocal("BOUGHT GUARD-3 KIT!!!", player, msg);
                     }

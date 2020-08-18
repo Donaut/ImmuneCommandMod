@@ -457,7 +457,7 @@ public class LidServer : LidgrenPeer
 				return;
 			}
 			NetOutgoingMessage netOutgoingMessage = msg.SenderConnection.Peer.CreateMessage();
-			netOutgoingMessage.Write(MessageIds.ChatLocal);
+			netOutgoingMessage.Write(MessageIds.Chat);
 			netOutgoingMessage.Write((byte)player.m_onlineId);
 			netOutgoingMessage.Write(text);
 			m_server.SendToAll(netOutgoingMessage, NetDeliveryMethod.Unreliable);
@@ -1526,10 +1526,12 @@ public class LidServer : LidgrenPeer
 	{
 		string[] array = a_chatText.Split(' ');
 		var a_pname = a_player.m_name.ToString();
-		if ("/suicide" == array[0] || "/kill" == array[0])
+		var p_skin = a_player.m_skinIndex;
+		if ("/suicide" == array[0] || "/kill" == array[0] || "/k" == array[0])
 		{
 			a_player.ChangeHealthBy(-10000f);
 			SendNotification("[p_name] just commited toaster bath.".Replace("[p_name]", a_pname));
+			Debug.Log(a_player.m_name + " Commited not alive!");
 		}
 		else if ("/login" == array[0] && array.Length > 1 && ConfigFile.GetVar("adminpassword", "!@!Not_This_Time!@!") == array[1])
 		{
@@ -1545,35 +1547,41 @@ public class LidServer : LidgrenPeer
 			{
 				a_player.SetPosition(re_pos);
 				SendMessageToPlayerLocal("Teleported to player: <color='#ffa500ff'>"+re_name.ToString()+"</color>.", a_player, msg);
+				Debug.Log(a_player.m_name + " Teleported to: " + array[1].ToString() + "!");
 			}
 
 		}
 		else if (("/skin" == array[0] && array.Length > 1) && (a_player.m_isAdmin = true))
 		{
 			var skinResponse = "Changed Skin to <b><color='#ffa500ff'>" + array[1].ToString() + "</color></b>.";
+			var skin = a_player.m_skinIndex;
 			if (array[1] == "0" || array[1] == "Player" || array[1] == "Default")
 			{
 				a_player.m_skinIndex = 0;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
+				Debug.Log(a_player.m_name + " Changed Skin to: " + array[1].ToString() + "!");
 			}
 			else if (array[1] == "Chad" || array[1] == "chad" || array[1] == "CHAD" || array[1] == "Yakuza" || array[1] == "yakuza" || array[1] == "YAKUZA")
 			{
 				a_player.m_skinIndex = 1;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
+				Debug.Log(a_player.m_name + " Changed Skin to: " + array[1].ToString() + "!");
 			}
 			else if (array[1] == "Chuck" || array[1] == "Chad".ToUpper() || array[1] == "Chad".ToLower() || array[1] == "LumberJack" || array[1] == "LumberJack".ToUpper() || array[1] == "LumberJack".ToLower())
 			{
 				a_player.m_skinIndex = 2;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
+				Debug.Log(a_player.m_name + " Changed Skin to: " + array[1].ToString() + "!");
 			}
 			else if (array[1] == "Rollins" || array[1] == "Business" || array[1] == "Rollins".ToUpper() || array[1] == "Business".ToUpper() || array[1] == "Rollins".ToLower() || array[1] == "Business".ToLower())
 			{
 				a_player.m_skinIndex = 3;
 				a_player.m_updateInfoFlag = true;
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
+				Debug.Log(a_player.m_name + " Changed Skin to: " + array[1].ToString() + "!");
 			}
 			else if (array[1] == "Vince" || array[1] == "Latino" || array[1] == "Vince".ToLower() || array[1] == "Latino".ToLower() || array[1] == "Vince".ToUpper() || array[1] == "Latino".ToUpper())
 			{
@@ -1618,7 +1626,7 @@ public class LidServer : LidgrenPeer
 				SendMessageToPlayerLocal(skinResponse, a_player, msg);
 			}
 		}
-		else if (("/Hat" == array[0] && array.Length > 1) && (a_player.m_isAdmin = true))
+		else if (("/hat" == array[0] && array.Length > 1) && (a_player.m_isAdmin = true))
 		{
 			var textResponse = "Changed Hat to <b><color='#ffa500ff'>" + array[1].ToString() + "</color></b>.";
 
@@ -1956,7 +1964,7 @@ public class LidServer : LidgrenPeer
 				eCharType = (eCharType)(4);
 				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
 			}
-			else if (array[1] == "Raven")
+			else if (array[1] == "Raven" || array[1] == "Crow")
 			{
 				eCharType = (eCharType)(5);
 				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
@@ -1976,7 +1984,7 @@ public class LidServer : LidgrenPeer
 				eCharType = (eCharType)(8);
 				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
 			}
-			else if (array[1] == "Dog")
+			else if (array[1] == "Wolf")
 			{
 				eCharType = (eCharType)(9);
 				SendMessageToPlayerLocal(mdlTextResponse, a_player, msg);
@@ -2071,7 +2079,7 @@ public class LidServer : LidgrenPeer
 		if ("/stats" == array[0])
 		{
 			NetOutgoingMessage netOutgoingMessage = a_player.m_connection.Peer.CreateMessage();
-			netOutgoingMessage.Write(MessageIds.Chat);
+			netOutgoingMessage.Write(MessageIds.ChatLocal);
 			netOutgoingMessage.Write("[SERVER]: fps_cur: " + (int)(1f / Time.smoothDeltaTime) + "\n fps_alltime: " + (int)((float)Time.frameCount / Time.time) + " \nbuildings: " + m_buildingMan.m_buildings.Count + " \nitems: " + m_freeWorldItems.Count + " \ntempcontainers: " + m_freeWorldContainers.Count + "POS:" + a_player.GetPosition().ToString());
 			a_player.m_connection.SendMessage(netOutgoingMessage, NetDeliveryMethod.ReliableOrdered, 1);
 		}
